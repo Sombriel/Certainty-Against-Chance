@@ -2,14 +2,39 @@
 
 [ext_resource type="Script" uid="uid://p7avgggp4w5n" path="res://scripts/player/player.gd" id="1_dqkch"]
 [ext_resource type="Texture2D" uid="uid://bae064vs512f8" path="res://assets/icon.svg" id="2_qhqgy"]
-[ext_resource type="Script" uid="uid://doejhfgthu4ky" path="res://addons/finite_state_machine/finite_state_machine.gd" id="3_dqkch"]
-[ext_resource type="Script" uid="uid://ccu6umoqvg8oi" path="res://scripts/player/state_machine/idle.gd" id="4_dqkch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03puy"]
 size = Vector2(117, 117)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pq6o8"]
 size = Vector2(122, 122)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_03puy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qhqgy")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qhqgy")
+}],
+"loop": 1,
+"name": &"jumping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qhqgy")
+}],
+"loop": 1,
+"name": &"running",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D" unique_id=997640124]
 script = ExtResource("1_dqkch")
@@ -27,11 +52,6 @@ texture = ExtResource("2_qhqgy")
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_pq6o8")
 
-[node name="FiniteStateMachine" type="Node" parent="." unique_id=1195906841 node_paths=PackedStringArray("initial_state")]
-script = ExtResource("3_dqkch")
-initial_state = NodePath("Idle")
-metadata/_custom_type_script = "uid://doejhfgthu4ky"
-
-[node name="Idle" type="Node" parent="FiniteStateMachine" unique_id=691953829]
-script = ExtResource("4_dqkch")
-metadata/_custom_type_script = "uid://2y37yx57ooc4"
+[node name="Animations" type="AnimatedSprite2D" parent="." unique_id=1169131373]
+sprite_frames = SubResource("SpriteFrames_03puy")
+animation = &"running"
