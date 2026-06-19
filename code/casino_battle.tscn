@@ -15,7 +15,7 @@
 [node name="CasinoBattle" type="Node2D" unique_id=1513049662]
 
 [node name="Player" parent="." unique_id=997640124 instance=ExtResource("1_etsyx")]
-position = Vector2(602, 201)
+position = Vector2(587, 304)
 
 [node name="Level" type="Node2D" parent="." unique_id=526227043]
 
