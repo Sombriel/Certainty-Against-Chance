@@ -36,8 +36,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D" unique_id=997640124]
+[node name="Player" type="CharacterBody2D" unique_id=997640124 node_paths=PackedStringArray("hurtbox")]
 script = ExtResource("1_dqkch")
+hurtbox = NodePath("Hurtbox")
 
 [node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1078135658]
 position = Vector2(-1, -2)
@@ -55,3 +56,7 @@ shape = SubResource("RectangleShape2D_pq6o8")
 [node name="Animations" type="AnimatedSprite2D" parent="." unique_id=1169131373]
 sprite_frames = SubResource("SpriteFrames_03puy")
 animation = &"running"
+
+[node name="DashTimer" type="Timer" parent="." unique_id=1368735163]
+wait_time = 0.2
+one_shot = true
