@@ -6,15 +6,40 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_03puy"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_03puy"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pq6o8"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_751ah"]
+
 [node name="CasinoBattle" type="Node2D" unique_id=1513049662]
 
 [node name="Player" parent="." unique_id=997640124 instance=ExtResource("1_etsyx")]
 position = Vector2(602, 201)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1466014785]
+[node name="Level" type="Node2D" parent="." unique_id=526227043]
+
+[node name="Floor" type="StaticBody2D" parent="Level" unique_id=1466014785]
 position = Vector2(589, 512)
 scale = Vector2(6.63, 6.63)
 physics_material_override = SubResource("PhysicsMaterial_pq6o8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=290720599]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Floor" unique_id=290720599]
 shape = SubResource("WorldBoundaryShape2D_03puy")
+
+[node name="LeftWall" type="StaticBody2D" parent="Level" unique_id=351486505]
+position = Vector2(0, 229)
+rotation = 1.5707964
+scale = Vector2(5, 5)
+physics_material_override = SubResource("PhysicsMaterial_03puy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/LeftWall" unique_id=1771190081]
+shape = SubResource("WorldBoundaryShape2D_pq6o8")
+
+[node name="RightWall" type="StaticBody2D" parent="Level" unique_id=1719113369]
+position = Vector2(1155, 194)
+rotation = -1.5707964
+scale = Vector2(5, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RightWall" unique_id=629500064]
+shape = SubResource("WorldBoundaryShape2D_751ah")
