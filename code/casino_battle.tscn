@@ -1,3 +1,20 @@
 [gd_scene format=3 uid="uid://c8x62iu6fln2t"]
 
+[ext_resource type="PackedScene" uid="uid://p82g66xpahhi" path="res://scenes/player.tscn" id="1_etsyx"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pq6o8"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_03puy"]
+
 [node name="CasinoBattle" type="Node2D" unique_id=1513049662]
+
+[node name="Player" parent="." unique_id=997640124 instance=ExtResource("1_etsyx")]
+position = Vector2(602, 201)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1466014785]
+position = Vector2(589, 512)
+scale = Vector2(6.63, 6.63)
+physics_material_override = SubResource("PhysicsMaterial_pq6o8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=290720599]
+shape = SubResource("WorldBoundaryShape2D_03puy")
