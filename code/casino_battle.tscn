@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://c8x62iu6fln2t"]
 
 [ext_resource type="PackedScene" uid="uid://p82g66xpahhi" path="res://scenes/player.tscn" id="1_etsyx"]
-[ext_resource type="PackedScene" uid="uid://ceje37fqkfcen" path="res://scenes/boss.tscn" id="2_n2nmj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pq6o8"]
 
@@ -44,6 +43,3 @@ scale = Vector2(5, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RightWall" unique_id=629500064]
 shape = SubResource("WorldBoundaryShape2D_751ah")
-
-[node name="Boss" parent="." unique_id=1835714852 instance=ExtResource("2_n2nmj")]
-position = Vector2(600, 189)
