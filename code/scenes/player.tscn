@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://p82g66xpahhi"]
 
 [ext_resource type="Script" uid="uid://p7avgggp4w5n" path="res://scripts/player/player.gd" id="1_dqkch"]
+[ext_resource type="PackedScene" uid="uid://lq8ggyn72c2i" path="res://scenes/bullet.tscn" id="2_dqkch"]
 [ext_resource type="Texture2D" uid="uid://bae064vs512f8" path="res://assets/icon.svg" id="2_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03puy"]
@@ -36,9 +37,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D" unique_id=997640124 node_paths=PackedStringArray("hurtbox")]
+[node name="Player" type="CharacterBody2D" unique_id=997640124 node_paths=PackedStringArray("hurtbox", "bullet_spawn")]
 script = ExtResource("1_dqkch")
 hurtbox = NodePath("Hurtbox")
+bullet = ExtResource("2_dqkch")
+bullet_spawn = NodePath("GunPos")
 
 [node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1078135658]
 position = Vector2(-1, -2)
@@ -60,3 +63,6 @@ animation = &"running"
 [node name="DashTimer" type="Timer" parent="." unique_id=1368735163]
 wait_time = 0.2
 one_shot = true
+
+[node name="GunPos" type="Marker2D" parent="." unique_id=1661419022]
+position = Vector2(71, 0)
