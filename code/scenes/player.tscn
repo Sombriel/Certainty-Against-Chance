@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://p7avgggp4w5n" path="res://scripts/player/player.gd" id="1_dqkch"]
 [ext_resource type="PackedScene" uid="uid://lq8ggyn72c2i" path="res://scenes/bullet.tscn" id="2_dqkch"]
 [ext_resource type="Texture2D" uid="uid://bae064vs512f8" path="res://assets/icon.svg" id="2_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://dsda3qjlgn71f" path="res://scenes/gun.tscn" id="4_dqkch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03puy"]
 size = Vector2(117, 117)
@@ -68,8 +69,8 @@ one_shot = true
 [node name="DashAgainTimer" type="Timer" parent="." unique_id=974827854]
 wait_time = 0.4
 
-[node name="GunPos" type="Marker2D" parent="." unique_id=1661419022]
-position = Vector2(71, 0)
+[node name="Gun" parent="." unique_id=620107355 instance=ExtResource("4_dqkch")]
+position = Vector2(24, -7)
 
 [connection signal="timeout" from="DashTimer" to="." method="end_of_dash"]
 [connection signal="timeout" from="DashAgainTimer" to="." method="_on_dash_again_timer_timeout"]

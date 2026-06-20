@@ -24,11 +24,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Dash") and can_dash:
 		is_dashing = true
 		can_dash = false
+		hurtbox.set_deferred("monitoring", false)
 		dash_timer.start()
 		dash_again_timer.start()
 	
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("Left", "Right")
 	if direction:
 		if is_dashing:
@@ -41,6 +40,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func end_of_dash() -> void:
+	hurtbox.set_deferred("monitoring", true)
 	is_dashing = false
 
 func _on_dash_again_timer_timeout() -> void:
