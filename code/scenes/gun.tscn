@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dsda3qjlgn71f"]
+
+[ext_resource type="Texture2D" uid="uid://do47evi7mp8i7" path="res://assets/temp_gun.png" id="1_x77fm"]
+
+[node name="Gun" type="Node2D" unique_id=620107355]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=619828856]
+position = Vector2(52, -42)
+texture = ExtResource("1_x77fm")
