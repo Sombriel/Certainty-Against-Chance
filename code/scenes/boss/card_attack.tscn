@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://djssygf1sbalp"]
 
-[ext_resource type="Script" uid="uid://ce7e4ftv0ik2i" path="res://scripts/boss/card_attack.gd" id="1_iides"]
+[ext_resource type="Script" uid="uid://ce7e4ftv0ik2i" path="res://scripts/boss/attacks/card_attack.gd" id="1_iides"]
 [ext_resource type="PackedScene" uid="uid://b8852mnl83udf" path="res://scenes/boss/card.tscn" id="2_rbykk"]
 
 [sub_resource type="Curve2D" id="Curve2D_hc2un"]
