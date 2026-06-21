@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://ceje37fqkfcen"]
+[gd_scene format=3 uid="uid://bn5c00va54yf5"]
 
-[ext_resource type="Script" uid="uid://c6ur55yhd2d3" path="res://scripts/boss_pathing.gd" id="1_722k1"]
+[ext_resource type="Script" path="res://scripts/boss_pathing.gd" id="1_722k1"]
 [ext_resource type="Texture2D" uid="uid://p20impdqoyb" path="res://assets/slot-machine-in-realistic-style-with-lucky-sevens-777-casino-las-vegas-jackpot-vector-1741988945.png" id="1_hydyg"]
 
 [sub_resource type="Curve2D" id="Curve2D_epb0l"]
@@ -11,16 +11,16 @@ point_count = 4
 
 [node name="Boss" type="Node2D" unique_id=1835714852]
 
-[node name="Path2D" type="Path2D" parent="." unique_id=523890121]
+[node name="PatrolPath" type="Path2D" parent="." unique_id=523890121]
 curve = SubResource("Curve2D_epb0l")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=519455052]
+[node name="PathFollow2D" type="PathFollow2D" parent="PatrolPath" unique_id=519455052]
 position = Vector2(2, 155)
 rotation = -0.0020833302
 rotates = false
 script = ExtResource("1_722k1")
 
-[node name="SlotMachineSprite" type="Sprite2D" parent="Path2D/PathFollow2D" unique_id=205134661]
+[node name="SlotMachineSprite" type="Sprite2D" parent="PatrolPath/PathFollow2D" unique_id=205134661]
 position = Vector2(-1.6770797, -155.00383)
 rotation = 0.0020833304
 scale = Vector2(0.184375, 0.184375)
