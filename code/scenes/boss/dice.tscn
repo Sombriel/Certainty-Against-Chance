@@ -1,14 +1,13 @@
 [gd_scene format=3 uid="uid://bce22ucln51u5"]
 
-[ext_resource type="Script" uid="uid://ddlkyywx3b5l0" path="res://scripts/boss/attacks/dice.gd" id="1_eevp3"]
+[ext_resource type="Script" uid="uid://2cht3imf1bos" path="res://scripts/boss/attacks/dice_attack/dice.gd" id="1_eevp3"]
 [ext_resource type="Texture2D" uid="uid://13c55e162xv1" path="res://assets/temp_die.png" id="1_eri3a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e47wt"]
 radius = 12.807611
 
-[node name="Dice" type="Area2D" unique_id=749855838]
+[node name="Dice" type="Area2D" unique_id=749855838 groups=["dice"]]
 collision_layer = 8
-collision_mask = 17
 script = ExtResource("1_eevp3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=804883327]
@@ -19,3 +18,8 @@ texture = ExtResource("1_eri3a")
 position = Vector2(0, 5.0000005)
 scale = Vector2(1.7199996, 1.52)
 shape = SubResource("CircleShape2D_e47wt")
+
+[node name="RandomDamageCooldown" type="Timer" parent="." unique_id=900708835]
+wait_time = 0.3
+
+[connection signal="timeout" from="RandomDamageCooldown" to="." method="randomize_damage"]

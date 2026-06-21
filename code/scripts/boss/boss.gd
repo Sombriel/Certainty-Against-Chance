@@ -8,10 +8,6 @@ var health: int = 100000
 func _ready() -> void:
 	choose_attack()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func choose_attack() -> void:
 	attacks.pick_random().start()
 
@@ -20,4 +16,3 @@ func bullet_damage(area: Area2D) -> void:
 		health -= area.damage
 		$HitFlashAnim.play("hit")
 		area.queue_free()
-		#print(health)

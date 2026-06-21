@@ -26,6 +26,8 @@ enabled=PackedStringArray("res://addons/finite_state_machine/plugin.cfg", "res:/
 [global_group]
 
 bullets=""
+cards=""
+dice=""
 
 [input]
 

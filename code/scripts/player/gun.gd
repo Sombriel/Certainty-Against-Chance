@@ -7,13 +7,8 @@ extends Node2D
 
 var can_fire: bool = true
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	look_at(get_global_mouse_position())
 	
 	rotation_degrees = wrap(rotation_degrees, 0, 360)

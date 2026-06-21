@@ -39,7 +39,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=997640124 node_paths=PackedStringArray("hurtbox", "dash_timer", "dash_again_timer")]
-collision_mask = 24
+collision_mask = 16
 script = ExtResource("1_dqkch")
 hurtbox = NodePath("Hurtbox")
 bullet = ExtResource("2_dqkch")
@@ -54,6 +54,7 @@ shape = SubResource("RectangleShape2D_03puy")
 texture = ExtResource("2_qhqgy")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1909851701]
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1624753451]
 position = Vector2(0, -1)
@@ -73,5 +74,6 @@ wait_time = 0.4
 [node name="Gun" parent="." unique_id=620107355 instance=ExtResource("4_dqkch")]
 position = Vector2(24, -7)
 
+[connection signal="area_entered" from="Hurtbox" to="." method="take_damage"]
 [connection signal="timeout" from="DashTimer" to="." method="end_of_dash"]
 [connection signal="timeout" from="DashAgainTimer" to="." method="_on_dash_again_timer_timeout"]

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b7gy65lqy6soo"]
 
-[ext_resource type="Script" uid="uid://biv5heter35ps" path="res://scripts/boss/attacks/dice_attack.gd" id="1_e47wt"]
+[ext_resource type="Script" uid="uid://biv5heter35ps" path="res://scripts/boss/attacks/dice_attack/dice_attack.gd" id="1_e47wt"]
 [ext_resource type="PackedScene" uid="uid://bce22ucln51u5" path="res://scenes/boss/dice.tscn" id="2_e47wt"]
-[ext_resource type="Script" uid="uid://chi6orwmcjiln" path="res://scripts/boss/attacks/dice_pathing.gd" id="3_8hjkr"]
+[ext_resource type="Script" uid="uid://chi6orwmcjiln" path="res://scripts/boss/attacks/dice_attack/dice_pathing.gd" id="3_8hjkr"]
 
 [sub_resource type="Curve2D" id="Curve2D_e47wt"]
 _data = {
