@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c6ur55yhd2d3" path="res://scripts/boss/boss_pathing.gd" id="1_722k1"]
 [ext_resource type="Texture2D" uid="uid://p20impdqoyb" path="res://assets/slot-machine-in-realistic-style-with-lucky-sevens-777-casino-las-vegas-jackpot-vector-1741988945.png" id="1_hydyg"]
+[ext_resource type="PackedScene" uid="uid://djssygf1sbalp" path="res://scenes/boss/card_attack.tscn" id="3_atjq5"]
 
 [sub_resource type="Curve2D" id="Curve2D_epb0l"]
 _data = {
@@ -25,3 +26,5 @@ position = Vector2(-1.6770797, -155.00383)
 rotation = 0.0020833304
 scale = Vector2(0.184375, 0.184375)
 texture = ExtResource("1_hydyg")
+
+[node name="CardAttack" parent="." unique_id=621134816 instance=ExtResource("3_atjq5")]

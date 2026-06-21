@@ -1,8 +1,28 @@
 [gd_scene format=3 uid="uid://b8852mnl83udf"]
 
+[ext_resource type="Script" uid="uid://8rg4gb1wyggq" path="res://scripts/boss/card.gd" id="1_c4v1m"]
+[ext_resource type="Texture2D" uid="uid://bduj11m1wleq2" path="res://assets/CuteCards.png" id="1_ew8ln"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lxd8w"]
 
-[node name="Node2D" type="AnimatableBody2D" unique_id=1967133720]
+[sub_resource type="SpriteFrames" id="SpriteFrames_c4v1m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ew8ln")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Card" type="Area2D" unique_id=1331574485]
+script = ExtResource("1_c4v1m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1725560612]
 shape = SubResource("RectangleShape2D_lxd8w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1188445457]
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_c4v1m")
+autoplay = "default"

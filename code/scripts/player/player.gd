@@ -9,6 +9,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const DASH_SPEED: float = 900.0
 
+var health: int = 100
 var is_dashing: bool = false
 var can_dash: bool = true
 var dash_direction: float = 1.0
