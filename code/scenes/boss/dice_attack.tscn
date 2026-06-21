@@ -27,12 +27,6 @@ top_level = true
 script = ExtResource("1_e47wt")
 dice = ExtResource("2_e47wt")
 
-[node name="SpawnPointRight" type="Marker2D" parent="." unique_id=304575582]
-position = Vector2(1185, 369)
-
-[node name="SpawnPointLeft" type="Marker2D" parent="." unique_id=986695330]
-position = Vector2(-26, 373)
-
 [node name="PathONE" type="Path2D" parent="." unique_id=420465375]
 position = Vector2(-2, 4)
 curve = SubResource("Curve2D_e47wt")
