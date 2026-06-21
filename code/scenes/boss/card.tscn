@@ -17,6 +17,7 @@ animations = [{
 }]
 
 [node name="Card" type="Area2D" unique_id=1331574485]
+collision_layer = 8
 script = ExtResource("1_c4v1m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1725560612]

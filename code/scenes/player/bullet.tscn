@@ -8,6 +8,8 @@ radius = 8.008692
 
 [node name="Bullet" type="Area2D" unique_id=1001605450 groups=["bullets"]]
 scale = Vector2(0.5, 0.5)
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_j5eos")
 
 [node name="Texture" type="Sprite2D" parent="." unique_id=232648659]
