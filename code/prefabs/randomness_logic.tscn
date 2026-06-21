@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://bw6j5dmj022dn"]
-
-[ext_resource type="Script" uid="uid://jvr247letkon" path="res://scripts/randomness_logic.gd" id="1_xldik"]
-
-[node name="RandLogic" type="Node" unique_id=215293663]
-script = ExtResource("1_xldik")
