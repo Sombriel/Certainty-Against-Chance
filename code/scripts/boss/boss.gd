@@ -18,4 +18,6 @@ func choose_attack() -> void:
 func bullet_damage(area: Area2D) -> void:
 	if area.is_in_group("bullets"):
 		health -= area.damage
+		$HitFlashAnim.play("hit")
 		area.queue_free()
+		#print(health)

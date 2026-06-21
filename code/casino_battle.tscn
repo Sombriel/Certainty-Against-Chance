@@ -51,6 +51,7 @@ position = Vector2(587, 304)
 [node name="Floor" type="StaticBody2D" parent="Level" unique_id=1466014785]
 position = Vector2(589, 512)
 scale = Vector2(6.63, 6.63)
+collision_layer = 16
 physics_material_override = SubResource("PhysicsMaterial_pq6o8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Floor" unique_id=290720599]
@@ -61,6 +62,7 @@ shape = SubResource("WorldBoundaryShape2D_03puy")
 position = Vector2(0, 229)
 rotation = 1.5707964
 scale = Vector2(5, 5)
+collision_layer = 16
 physics_material_override = SubResource("PhysicsMaterial_03puy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/LeftWall" unique_id=1771190081]
@@ -70,6 +72,7 @@ shape = SubResource("WorldBoundaryShape2D_pq6o8")
 position = Vector2(1155, 194)
 rotation = -1.5707964
 scale = Vector2(5, 5)
+collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RightWall" unique_id=629500064]
 shape = SubResource("WorldBoundaryShape2D_751ah")
