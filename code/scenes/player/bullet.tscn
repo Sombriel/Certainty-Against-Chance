@@ -1,19 +1,19 @@
 [gd_scene format=3 uid="uid://lq8ggyn72c2i"]
 
-[ext_resource type="Texture2D" uid="uid://6onme8ditr1a" path="res://assets/temp_bullet.png" id="1_mkf8s"]
-[ext_resource type="Script" uid="uid://bp4pctdunbpnx" path="res://scripts/player/bullet.gd" id="1_y25gk"]
+[ext_resource type="Script" uid="uid://bp4pctdunbpnx" path="res://scripts/player/bullet.gd" id="1_j5eos"]
+[ext_resource type="Texture2D" uid="uid://6onme8ditr1a" path="res://assets/temp_bullet.png" id="2_0td6m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_03puy"]
 radius = 8.008692
 
-[node name="Bullet" type="Area2D" unique_id=1001605450]
+[node name="Bullet" type="Area2D" unique_id=1001605450 groups=["bullets"]]
 scale = Vector2(0.5, 0.5)
-script = ExtResource("1_y25gk")
+script = ExtResource("1_j5eos")
 
 [node name="Texture" type="Sprite2D" parent="." unique_id=232648659]
 rotation = 1.5707964
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("1_mkf8s")
+texture = ExtResource("2_0td6m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=239210357]
 position = Vector2(-4, 0)

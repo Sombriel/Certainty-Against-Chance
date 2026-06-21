@@ -86,3 +86,5 @@ script = ExtResource("3_8g7nn")
 [node name="Boss" parent="PatrolPath/PathFollow2D" unique_id=1835714852 instance=ExtResource("2_n2nmj")]
 position = Vector2(597.9279, 35.245758)
 rotation = 0.0020833302
+
+[connection signal="area_entered" from="PatrolPath/PathFollow2D/Boss" to="PatrolPath/PathFollow2D/Boss" method="bullet_damage"]
