@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bn5c00va54yf5"]
 
-[ext_resource type="Script" path="res://scripts/boss_pathing.gd" id="1_722k1"]
+[ext_resource type="Script" uid="uid://c6ur55yhd2d3" path="res://scripts/boss/boss_pathing.gd" id="1_722k1"]
 [ext_resource type="Texture2D" uid="uid://p20impdqoyb" path="res://assets/slot-machine-in-realistic-style-with-lucky-sevens-777-casino-las-vegas-jackpot-vector-1741988945.png" id="1_hydyg"]
 
 [sub_resource type="Curve2D" id="Curve2D_epb0l"]
