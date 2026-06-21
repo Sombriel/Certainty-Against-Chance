@@ -15,6 +15,10 @@ run/main_scene="uid://bv27v22j7hrnv"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://assets/icon.svg"
 
+[autoload]
+
+RandomnessLogic="*uid://jvr247letkon"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/finite_state_machine/plugin.cfg", "res://addons/inspector_tabs/plugin.cfg", "res://addons/script-ide/plugin.cfg")
