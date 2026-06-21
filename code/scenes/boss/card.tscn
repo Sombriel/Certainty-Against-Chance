@@ -26,3 +26,8 @@ shape = SubResource("RectangleShape2D_lxd8w")
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_c4v1m")
 autoplay = "default"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=179982381]
+scale = Vector2(2.1980646, 2.9199998)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" uid="uid://c3upscetd7kl" path="res://scripts/boss/boss.gd" id="1_0xsra"]
 [ext_resource type="Texture2D" uid="uid://p20impdqoyb" path="res://assets/slot-machine-in-realistic-style-with-lucky-sevens-777-casino-las-vegas-jackpot-vector-1741988945.png" id="1_hydyg"]
+[ext_resource type="PackedScene" uid="uid://djssygf1sbalp" path="res://scenes/boss/card_attack.tscn" id="3_atjq5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xsra"]
 
 [node name="Boss" type="Area2D" unique_id=1251608958]
 script = ExtResource("1_0xsra")
+card_attack = ExtResource("3_atjq5")
 
 [node name="SlotMachineSprite" type="Sprite2D" parent="." unique_id=1910567607]
 scale = Vector2(0.184375, 0.184375)
@@ -16,3 +18,5 @@ texture = ExtResource("1_hydyg")
 position = Vector2(0, 25)
 scale = Vector2(9.240001, 11.64)
 shape = SubResource("RectangleShape2D_0xsra")
+
+[node name="CardAttack" parent="." unique_id=621134816 instance=ExtResource("3_atjq5")]

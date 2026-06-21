@@ -10,6 +10,7 @@ _data = {
 point_count = 2
 
 [node name="CardAttack" type="Node2D" unique_id=621134816]
+top_level = true
 script = ExtResource("1_iides")
 attack_card = ExtResource("2_rbykk")
 
