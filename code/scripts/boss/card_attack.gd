@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 @export var attack_card: PackedScene
 
@@ -17,4 +17,8 @@ func _on_card_timer_timeout() -> void:
 
 	add_child(card)
 	card.global_position = card_spawn_location.global_position
-	card.velocity = Vector2(randf_range(-30.0, 30.0), randf_range(150.0, 250.0))
+	card.velocity = Vector2(0.0, randf_range(150.0, 250.0))
+
+
+func _on_attack_duration_timeout() -> void:
+	$CardTimer.stop()

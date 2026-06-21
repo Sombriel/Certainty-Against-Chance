@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://p82g66xpahhi" path="res://scenes/player/player.tscn" id="1_etsyx"]
 [ext_resource type="PackedScene" uid="uid://bn5c00va54yf5" path="res://scenes/boss/boss.tscn" id="2_n2nmj"]
+[ext_resource type="Script" uid="uid://c6ur55yhd2d3" path="res://scripts/boss/boss_pathing.gd" id="3_8g7nn"]
+[ext_resource type="PackedScene" uid="uid://djssygf1sbalp" path="res://scenes/boss/card_attack.tscn" id="4_8g7nn"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pq6o8"]
 
@@ -12,6 +14,12 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pq6o8"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_751ah"]
+
+[sub_resource type="Curve2D" id="Curve2D_aqby3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2, 155, 0, 0, 0, 0, 482, 154, 0, 0, 0, 0, -459, 153, 0, 0, 0, 0, 1, 155)
+}
+point_count = 4
 
 [node name="CasinoBattle" type="Node2D" unique_id=1513049662]
 
@@ -46,5 +54,16 @@ scale = Vector2(5, 5)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RightWall" unique_id=629500064]
 shape = SubResource("WorldBoundaryShape2D_751ah")
 
-[node name="Boss" parent="." unique_id=1835714852 instance=ExtResource("2_n2nmj")]
-position = Vector2(600, 189)
+[node name="PatrolPath" type="Path2D" parent="." unique_id=1419230429]
+curve = SubResource("Curve2D_aqby3")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PatrolPath" unique_id=1255438030]
+position = Vector2(2, 155)
+rotation = -0.0020833302
+rotates = false
+script = ExtResource("3_8g7nn")
+
+[node name="Boss" parent="PatrolPath/PathFollow2D" unique_id=1835714852 instance=ExtResource("2_n2nmj")]
+position = Vector2(597.9279, 35.245758)
+rotation = 0.0020833302
+card_attack = ExtResource("4_8g7nn")

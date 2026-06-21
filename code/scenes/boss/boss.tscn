@@ -1,39 +1,18 @@
 [gd_scene format=3 uid="uid://bn5c00va54yf5"]
 
 [ext_resource type="Script" uid="uid://c3upscetd7kl" path="res://scripts/boss/boss.gd" id="1_0xsra"]
-[ext_resource type="Script" uid="uid://c6ur55yhd2d3" path="res://scripts/boss/boss_pathing.gd" id="1_722k1"]
 [ext_resource type="Texture2D" uid="uid://p20impdqoyb" path="res://assets/slot-machine-in-realistic-style-with-lucky-sevens-777-casino-las-vegas-jackpot-vector-1741988945.png" id="1_hydyg"]
-[ext_resource type="PackedScene" uid="uid://djssygf1sbalp" path="res://scenes/boss/card_attack.tscn" id="3_atjq5"]
-
-[sub_resource type="Curve2D" id="Curve2D_epb0l"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 2, 155, 0, 0, 0, 0, 482, 154, 0, 0, 0, 0, -459, 153, 0, 0, 0, 0, 1, 155)
-}
-point_count = 4
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xsra"]
 
 [node name="Boss" type="Area2D" unique_id=1251608958]
 script = ExtResource("1_0xsra")
 
-[node name="PatrolPath" type="Path2D" parent="." unique_id=523890121]
-curve = SubResource("Curve2D_epb0l")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="PatrolPath" unique_id=519455052]
-position = Vector2(2, 155)
-rotation = -0.0020833302
-rotates = false
-script = ExtResource("1_722k1")
-
-[node name="SlotMachineSprite" type="Sprite2D" parent="PatrolPath/PathFollow2D" unique_id=205134661]
-position = Vector2(-1.6770797, -155.00383)
-rotation = 0.0020833304
+[node name="SlotMachineSprite" type="Sprite2D" parent="." unique_id=1910567607]
 scale = Vector2(0.184375, 0.184375)
 texture = ExtResource("1_hydyg")
 
-[node name="CardAttack" parent="." unique_id=621134816 instance=ExtResource("3_atjq5")]
-
 [node name="Hurtbox" type="CollisionShape2D" parent="." unique_id=683075658]
-position = Vector2(0, 29)
+position = Vector2(0, 25)
 scale = Vector2(9.240001, 11.64)
 shape = SubResource("RectangleShape2D_0xsra")
