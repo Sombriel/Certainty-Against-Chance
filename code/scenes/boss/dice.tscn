@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bce22ucln51u5"]
+
+[ext_resource type="Texture2D" uid="uid://13c55e162xv1" path="res://assets/temp_die.png" id="1_eri3a"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_12x8g"]
+bounce = 0.8
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e47wt"]
+radius = 12.807611
+
+[node name="Dice" type="RigidBody2D" unique_id=1287916126]
+physics_material_override = SubResource("PhysicsMaterial_12x8g")
+constant_force = Vector2(0.3, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=804883327]
+scale = Vector2(0.15999985, 0.15999985)
+texture = ExtResource("1_eri3a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=87006048]
+position = Vector2(0, 5.0000005)
+scale = Vector2(1.7199996, 1.52)
+shape = SubResource("CircleShape2D_e47wt")

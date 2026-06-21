@@ -16,4 +16,4 @@ func _on_card_timer_timeout() -> void:
 	card.velocity = Vector2(0.0, randf_range(150.0, 250.0))
 
 func _on_attack_duration_timeout() -> void:
-	queue_free()
+	$CardTimer.stop()

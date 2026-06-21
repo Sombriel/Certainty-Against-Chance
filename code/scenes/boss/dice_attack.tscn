@@ -1,23 +1,21 @@
 [gd_scene format=3 uid="uid://b7gy65lqy6soo"]
 
-[ext_resource type="Texture2D" uid="uid://13c55e162xv1" path="res://assets/temp_die.png" id="1_12x8g"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_12x8g"]
-bounce = 0.8
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_e47wt"]
-radius = 12.807611
+[ext_resource type="Script" uid="uid://biv5heter35ps" path="res://scripts/boss/dice_attack.gd" id="1_e47wt"]
+[ext_resource type="PackedScene" uid="uid://bce22ucln51u5" path="res://scenes/boss/dice.tscn" id="2_e47wt"]
 
 [node name="DiceAttack" type="Node2D" unique_id=704000614]
+top_level = true
+script = ExtResource("1_e47wt")
+dice = ExtResource("2_e47wt")
 
-[node name="Dice" type="RigidBody2D" parent="." unique_id=91306478]
-physics_material_override = SubResource("PhysicsMaterial_12x8g")
+[node name="AttackDuration" type="Timer" parent="." unique_id=1452023100]
+wait_time = 10.0
+one_shot = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Dice" unique_id=715638693]
-scale = Vector2(0.15999985, 0.15999985)
-texture = ExtResource("1_12x8g")
+[node name="SpawnPointRight" type="Marker2D" parent="." unique_id=304575582]
+position = Vector2(1185, 369)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Dice" unique_id=59810323]
-position = Vector2(0, 5.0000005)
-scale = Vector2(1.7199996, 1.52)
-shape = SubResource("CircleShape2D_e47wt")
+[node name="SpawnPointLeft" type="Marker2D" parent="." unique_id=986695330]
+position = Vector2(-26, 373)
+
+[connection signal="timeout" from="AttackDuration" to="." method="_on_attack_duration_timeout"]
