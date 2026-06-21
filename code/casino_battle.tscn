@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://p82g66xpahhi" path="res://scenes/player/player.tscn" id="1_etsyx"]
 [ext_resource type="PackedScene" uid="uid://bn5c00va54yf5" path="res://scenes/boss/boss.tscn" id="2_n2nmj"]
 [ext_resource type="Script" uid="uid://c6ur55yhd2d3" path="res://scripts/boss/boss_pathing.gd" id="3_8g7nn"]
+[ext_resource type="Texture2D" uid="uid://dwbb3mxkod2km" path="res://assets/temp_background.jpg" id="4_8g7nn"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pq6o8"]
 
@@ -21,6 +22,26 @@ _data = {
 point_count = 4
 
 [node name="CasinoBattle" type="Node2D" unique_id=1513049662]
+
+[node name="Control" type="Control" parent="." unique_id=1810352239]
+top_level = true
+z_index = -1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Background" type="TextureRect" parent="Control" unique_id=1905380405]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_8g7nn")
 
 [node name="Player" parent="." unique_id=997640124 instance=ExtResource("1_etsyx")]
 position = Vector2(587, 304)
