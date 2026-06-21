@@ -2,15 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://13c55e162xv1" path="res://assets/temp_die.png" id="1_eri3a"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_12x8g"]
-bounce = 0.8
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_e47wt"]
 radius = 12.807611
 
-[node name="Dice" type="RigidBody2D" unique_id=1287916126]
-physics_material_override = SubResource("PhysicsMaterial_12x8g")
-constant_force = Vector2(0.3, 0)
+[node name="Dice" type="Area2D" unique_id=749855838]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=804883327]
 scale = Vector2(0.15999985, 0.15999985)
