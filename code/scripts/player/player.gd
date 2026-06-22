@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal update_chips(chips: int)
+
 @export var hurtbox: Area2D
 @export var bullet: PackedScene
 @export var dash_timer: Timer
@@ -10,6 +12,7 @@ const JUMP_VELOCITY = -400.0
 const DASH_SPEED: float = 900.0
 
 var health: int = 100
+var chips: int = 0
 var is_dashing: bool = false
 var can_dash: bool = true
 var dash_direction: float = 1.0
@@ -62,3 +65,8 @@ func take_damage(area: Area2D) -> void:
 		health -= area.damage
 	
 	prints(health)
+
+func add_chips(payout: int) -> void:
+	chips += payout
+	update_chips.emit(chips)
+	#print(chips)

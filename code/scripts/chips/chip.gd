@@ -41,5 +41,5 @@ func take_damage(area: Area2D) -> void:
 		area.queue_free()
 	
 	if health == 0:
-		MoneyManager.add_money(value)
+		get_tree().get_first_node_in_group("player").add_chips(value)
 		queue_free()

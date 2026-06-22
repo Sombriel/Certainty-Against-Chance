@@ -30,6 +30,7 @@ bullets=""
 cards=""
 dice=""
 chips=""
+player=""
 
 [input]
 
