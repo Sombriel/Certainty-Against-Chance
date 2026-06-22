@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dsda3qjlgn71f"]
+
+[ext_resource type="Script" uid="uid://b83fxuvjp0y8e" path="res://scripts/player/gun.gd" id="1_og67c"]
+[ext_resource type="Texture2D" uid="uid://do47evi7mp8i7" path="res://assets/temp_gun.png" id="1_x77fm"]
+[ext_resource type="PackedScene" uid="uid://lq8ggyn72c2i" path="res://scenes/player/bullet.tscn" id="2_gp1hk"]
+
+[node name="Gun" type="Node2D" unique_id=620107355 node_paths=PackedStringArray("cooldown")]
+position = Vector2(25, -16)
+script = ExtResource("1_og67c")
+bullet = ExtResource("2_gp1hk")
+cooldown = NodePath("Cooldown")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=619828856]
+scale = Vector2(0.44524384, 0.44524384)
+texture = ExtResource("1_x77fm")
+
+[node name="BulletSpawnPoint" type="Marker2D" parent="." unique_id=1899816335]
+position = Vector2(61, -3)
+
+[node name="Cooldown" type="Timer" parent="." unique_id=2104029847]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

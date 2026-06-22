@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://p82g66xpahhi"]
+
+[ext_resource type="Script" uid="uid://p7avgggp4w5n" path="res://scripts/player/player.gd" id="1_dqkch"]
+[ext_resource type="PackedScene" uid="uid://lq8ggyn72c2i" path="res://scenes/player/bullet.tscn" id="2_dqkch"]
+[ext_resource type="Texture2D" uid="uid://bae064vs512f8" path="res://assets/icon.svg" id="2_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://dsda3qjlgn71f" path="res://scenes/player/gun.tscn" id="4_dqkch"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03puy"]
+size = Vector2(117, 117)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pq6o8"]
+size = Vector2(122, 122)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_03puy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qhqgy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qhqgy")
+}],
+"loop": true,
+"name": &"jumping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qhqgy")
+}],
+"loop": true,
+"name": &"running",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_lvxji"]
+resource_name = "hit_flash"
+length = 0.1
+step = 0.1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p47bc"]
+_data = {
+&"hit_flash": SubResource("Animation_lvxji")
+}
+
+[node name="Player" type="CharacterBody2D" unique_id=997640124 node_paths=PackedStringArray("hurtbox", "dash_timer", "dash_again_timer")]
+collision_mask = 16
+script = ExtResource("1_dqkch")
+hurtbox = NodePath("Hurtbox")
+bullet = ExtResource("2_dqkch")
+dash_timer = NodePath("DashTimer")
+dash_again_timer = NodePath("DashAgainTimer")
+
+[node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1078135658]
+position = Vector2(-1, -2)
+shape = SubResource("RectangleShape2D_03puy")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1909851701]
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1624753451]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_pq6o8")
+
+[node name="Animations" type="AnimatedSprite2D" parent="." unique_id=1169131373]
+sprite_frames = SubResource("SpriteFrames_03puy")
+animation = &"running"
+
+[node name="DashTimer" type="Timer" parent="." unique_id=1368735163]
+wait_time = 0.2
+one_shot = true
+
+[node name="DashAgainTimer" type="Timer" parent="." unique_id=974827854]
+wait_time = 0.4
+
+[node name="Gun" parent="." unique_id=620107355 instance=ExtResource("4_dqkch")]
+position = Vector2(24, -7)
+
+[node name="HitFlashAnim" type="AnimationPlayer" parent="." unique_id=257162380]
+libraries/ = SubResource("AnimationLibrary_p47bc")
+
+[connection signal="area_entered" from="Hurtbox" to="." method="take_damage"]
+[connection signal="timeout" from="DashTimer" to="." method="end_of_dash"]
+[connection signal="timeout" from="DashAgainTimer" to="." method="_on_dash_again_timer_timeout"]

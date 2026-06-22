@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://di0dpm53ix44k"]
+
+[ext_resource type="PackedScene" uid="uid://cvoavl7u70fmq" path="res://scenes/chips/chip_base.tscn" id="1_r80lx"]
+
+[node name="FiftyChip" unique_id=138741377 instance=ExtResource("1_r80lx")]
+value = 50
+
+[node name="Sprite2D" parent="." index="1" unique_id=2002603748]
+modulate = Color(0.49803922, 0.047058824, 1, 1)

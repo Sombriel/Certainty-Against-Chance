@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dype3txno7bni"]
+
+[ext_resource type="PackedScene" uid="uid://cvoavl7u70fmq" path="res://scenes/chips/chip_base.tscn" id="1_safvr"]
+
+[node name="TenChip" unique_id=138741377 instance=ExtResource("1_safvr")]

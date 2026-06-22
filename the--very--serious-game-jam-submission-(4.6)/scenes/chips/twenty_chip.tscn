@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://efxlpu4gt536"]
+
+[ext_resource type="PackedScene" uid="uid://cvoavl7u70fmq" path="res://scenes/chips/chip_base.tscn" id="1_8pofc"]
+
+[node name="TwentyChip" unique_id=138741377 instance=ExtResource("1_8pofc")]
+value = 20
+
+[node name="Sprite2D" parent="." index="1" unique_id=2002603748]
+modulate = Color(0.101960786, 0.14509805, 1, 1)

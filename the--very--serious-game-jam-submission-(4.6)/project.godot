@@ -10,9 +10,9 @@ config_version=5
 
 [application]
 
-config/name="the *very* serious game jam submission"
+config/name="the *very* serious game jam submission (4.6)"
 run/main_scene="uid://bv27v22j7hrnv"
-config/features=PackedStringArray("4.7", "GL Compatibility")
+config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://assets/icon.svg"
 
 [autoload]

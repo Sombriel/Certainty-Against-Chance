@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://djssygf1sbalp"]
+
+[ext_resource type="Script" uid="uid://ce7e4ftv0ik2i" path="res://scripts/boss/attacks/card_attack/card_attack.gd" id="1_iides"]
+[ext_resource type="PackedScene" uid="uid://b8852mnl83udf" path="res://scenes/boss/card.tscn" id="2_rbykk"]
+
+[sub_resource type="Curve2D" id="Curve2D_hc2un"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -4, 2, 0, 0, 0, 0, 1153, -3)
+}
+point_count = 2
+
+[node name="CardAttack" type="Node2D" unique_id=621134816 groups=["BossAttacks"]]
+top_level = true
+script = ExtResource("1_iides")
+attack_card = ExtResource("2_rbykk")
+
+[node name="CardPath" type="Path2D" parent="." unique_id=1933787466]
+curve = SubResource("Curve2D_hc2un")
+
+[node name="CardPathSpawnLocation" type="PathFollow2D" parent="CardPath" unique_id=492510375]
+position = Vector2(-4, 2)
+rotation = -0.0043214946
+
+[node name="CardTimer" type="Timer" parent="." unique_id=103925134]
+wait_time = 0.2
+
+[node name="AttackDuration" type="Timer" parent="." unique_id=1227786511]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="CardTimer" to="." method="_on_card_timer_timeout"]
+[connection signal="timeout" from="AttackDuration" to="." method="_on_attack_duration_timeout"]
