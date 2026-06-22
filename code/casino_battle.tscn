@@ -4,11 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://bn5c00va54yf5" path="res://scenes/boss/boss.tscn" id="2_n2nmj"]
 [ext_resource type="Script" uid="uid://c6ur55yhd2d3" path="res://scripts/boss/boss_pathing.gd" id="3_8g7nn"]
 [ext_resource type="Texture2D" uid="uid://dwbb3mxkod2km" path="res://assets/temp_background.jpg" id="4_8g7nn"]
-[ext_resource type="Script" uid="uid://bcjso7o3f2ybo" path="res://scripts/boss/chips_spawn_path.gd" id="5_qcisb"]
-[ext_resource type="PackedScene" uid="uid://ceu5eokt21nio" path="res://scenes/chips/ten_chip.tscn" id="6_aqby3"]
-[ext_resource type="PackedScene" uid="uid://cko6m2f2vgl3n" path="res://scenes/chips/twenty_chip.tscn" id="7_aoy07"]
+[ext_resource type="Script" uid="uid://bcjso7o3f2ybo" path="res://scripts/boss/chips_spawn.gd" id="5_qcisb"]
+[ext_resource type="PackedScene" uid="uid://dype3txno7bni" path="res://scenes/chips/ten_chip.tscn" id="6_aqby3"]
+[ext_resource type="PackedScene" uid="uid://efxlpu4gt536" path="res://scenes/chips/twenty_chip.tscn" id="7_aoy07"]
 [ext_resource type="PackedScene" uid="uid://di0dpm53ix44k" path="res://scenes/chips/fifty_chip.tscn" id="8_okbkv"]
-[ext_resource type="Script" uid="uid://cej48ubsppw7g" path="res://scripts/chips/chip_pathing.gd" id="9_okbkv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pq6o8"]
 
@@ -25,18 +24,6 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 2, 155, 0, 0, 0, 0, 482, 154, 0, 0, 0, 0, -459, 153, 0, 0, 0, 0, 1, 155)
 }
 point_count = 4
-
-[sub_resource type="Curve2D" id="Curve2D_ftif8"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, -3, 0, 0, 0, 0, 0, 650)
-}
-point_count = 2
-
-[sub_resource type="Curve2D" id="Curve2D_aoy07"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1153, -3, 0, 0, 0, 0, 1149, 646)
-}
-point_count = 2
 
 [node name="CasinoBattle" type="Node2D" unique_id=1513049662]
 
@@ -113,23 +100,20 @@ ten_chip = ExtResource("6_aqby3")
 twenty_chip = ExtResource("7_aoy07")
 fifty_chip = ExtResource("8_okbkv")
 
-[node name="LeftPath" type="Path2D" parent="ChipSpawner" unique_id=639794411]
-curve = SubResource("Curve2D_ftif8")
+[node name="LeftSpawn2" type="Marker2D" parent="ChipSpawner" unique_id=236027521]
+position = Vector2(0, 465)
 
-[node name="PathFollow2D" type="PathFollow2D" parent="ChipSpawner/LeftPath" unique_id=434119348]
-position = Vector2(0, -3)
-rotation = 1.5707964
-script = ExtResource("9_okbkv")
+[node name="LeftSpawn1" type="Marker2D" parent="ChipSpawner" unique_id=328661886]
+position = Vector2(0, 205)
 
-[node name="RightPath" type="Path2D" parent="ChipSpawner" unique_id=2133930126]
-curve = SubResource("Curve2D_aoy07")
+[node name="RightSpawn1" type="Marker2D" parent="ChipSpawner" unique_id=1895309863]
+position = Vector2(1151, 200)
 
-[node name="PathFollow2D" type="PathFollow2D" parent="ChipSpawner/RightPath" unique_id=1921638773]
-position = Vector2(1153, -3)
-rotation = 1.5769596
-script = ExtResource("9_okbkv")
+[node name="RightSpawn2" type="Marker2D" parent="ChipSpawner" unique_id=1687420807]
+position = Vector2(1155, 439)
 
 [node name="ChipSpawner" type="Timer" parent="ChipSpawner" unique_id=536713009]
+wait_time = 2.0
 
 [connection signal="area_entered" from="BossPatrolPath/PathFollow2D/Boss" to="BossPatrolPath/PathFollow2D/Boss" method="bullet_damage"]
 [connection signal="timeout" from="ChipSpawner/ChipSpawner" to="ChipSpawner" method="spawn_chip"]

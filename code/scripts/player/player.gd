@@ -10,6 +10,7 @@ const JUMP_VELOCITY = -400.0
 const DASH_SPEED: float = 900.0
 
 var health: int = 100
+var money: int = 0
 var is_dashing: bool = false
 var can_dash: bool = true
 var dash_direction: float = 1.0
@@ -60,4 +61,5 @@ func take_damage(area: Area2D) -> void:
 	
 	if area.is_in_group("dice"):
 		health -= area.damage
-		prints(health)
+	
+	prints(health)
