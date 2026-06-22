@@ -5,7 +5,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ijpt"]
 
-[node name="ChipBase" type="Area2D" unique_id=138741377]
+[node name="ChipBase" type="Area2D" unique_id=138741377 groups=["chips"]]
 collision_layer = 32
 collision_mask = 4
 script = ExtResource("1_d4k6f")
