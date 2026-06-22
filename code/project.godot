@@ -13,7 +13,7 @@ config_version=5
 config/name="the *very* serious game jam submission"
 run/main_scene="uid://bv27v22j7hrnv"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://assets/icon.svg"
+config/icon="res://assets/temp/icon.svg"
 
 [autoload]
 

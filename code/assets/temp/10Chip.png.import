@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://13c55e162xv1"
-path="res://.godot/imported/temp_die.png-b74bb097f3448b17829222bc324e13a5.ctex"
+uid="uid://b46hwar6lvfda"
+path="res://.godot/imported/10Chip.png-7d8295d195acd0b7a6380021922b5340.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/temp_die.png"
-dest_files=["res://.godot/imported/temp_die.png-b74bb097f3448b17829222bc324e13a5.ctex"]
+source_file="res://assets/temp/10Chip.png"
+dest_files=["res://.godot/imported/10Chip.png-7d8295d195acd0b7a6380021922b5340.ctex"]
 
 [params]
 

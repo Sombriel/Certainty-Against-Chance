@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b8852mnl83udf"]
 
 [ext_resource type="Script" uid="uid://8rg4gb1wyggq" path="res://scripts/boss/attacks/card_attack/card.gd" id="1_c4v1m"]
-[ext_resource type="Texture2D" uid="uid://bduj11m1wleq2" path="res://assets/CuteCards.png" id="1_ew8ln"]
+[ext_resource type="Texture2D" uid="uid://bduj11m1wleq2" path="res://assets/temp/CuteCards.png" id="1_ew8ln"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lxd8w"]
 

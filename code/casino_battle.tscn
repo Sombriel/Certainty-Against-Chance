@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://b8i5bdvins6o2" path="res://scripts/ui.gd" id="1_okbkv"]
 [ext_resource type="PackedScene" uid="uid://bn5c00va54yf5" path="res://scenes/boss/boss.tscn" id="2_n2nmj"]
 [ext_resource type="Script" uid="uid://c6ur55yhd2d3" path="res://scripts/boss/boss_pathing.gd" id="3_8g7nn"]
-[ext_resource type="Texture2D" uid="uid://dwbb3mxkod2km" path="res://assets/temp_background.jpg" id="4_8g7nn"]
+[ext_resource type="Texture2D" uid="uid://dwbb3mxkod2km" path="res://assets/temp/temp_background.jpg" id="4_8g7nn"]
 [ext_resource type="Script" uid="uid://bcjso7o3f2ybo" path="res://scripts/chips/chips_spawn.gd" id="5_qcisb"]
 [ext_resource type="PackedScene" uid="uid://dype3txno7bni" path="res://scenes/chips/ten_chip.tscn" id="6_aqby3"]
 [ext_resource type="PackedScene" uid="uid://efxlpu4gt536" path="res://scenes/chips/twenty_chip.tscn" id="7_aoy07"]
@@ -61,8 +61,8 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 36
 text = "0"
 
-[node name="Player" parent="." unique_id=997640124 groups=["player"] instance=ExtResource("1_etsyx")]
-position = Vector2(587, 304)
+[node name="Certainty" parent="." unique_id=997640124 instance=ExtResource("1_etsyx")]
+position = Vector2(597, 525)
 
 [node name="Level" type="Node2D" parent="." unique_id=526227043]
 
@@ -105,7 +105,7 @@ rotates = false
 script = ExtResource("3_8g7nn")
 
 [node name="Boss" parent="BossPatrolPath/PathFollow2D" unique_id=1835714852 instance=ExtResource("2_n2nmj")]
-position = Vector2(597.9279, 35.245758)
+position = Vector2(598.1404, -66.75402)
 rotation = 0.0020833302
 
 [node name="ChipSpawner" type="Node2D" parent="." unique_id=444611763]
@@ -129,6 +129,5 @@ position = Vector2(1155, 439)
 [node name="ChipSpawner" type="Timer" parent="ChipSpawner" unique_id=536713009]
 wait_time = 2.0
 
-[connection signal="update_chips" from="Player" to="UI" method="update_chip_count"]
 [connection signal="area_entered" from="BossPatrolPath/PathFollow2D/Boss" to="BossPatrolPath/PathFollow2D/Boss" method="bullet_damage"]
 [connection signal="timeout" from="ChipSpawner/ChipSpawner" to="ChipSpawner" method="spawn_chip"]

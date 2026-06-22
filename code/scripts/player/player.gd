@@ -38,7 +38,11 @@ func _physics_process(delta: float) -> void:
 		
 		if Input.is_action_just_pressed("Dash") and can_dash:
 			_dash()
-
+	
+	## Animations
+	if velocity == Vector2.ZERO:
+		$Animations.play("idle")
+	
 	move_and_slide()
 
 func _dash() -> void:

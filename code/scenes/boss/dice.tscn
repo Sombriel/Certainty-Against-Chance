@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bce22ucln51u5"]
 
 [ext_resource type="Script" uid="uid://2cht3imf1bos" path="res://scripts/boss/attacks/dice_attack/dice.gd" id="1_eevp3"]
-[ext_resource type="Texture2D" uid="uid://13c55e162xv1" path="res://assets/temp_die.png" id="1_eri3a"]
+[ext_resource type="Texture2D" uid="uid://13c55e162xv1" path="res://assets/temp/temp_die.png" id="1_eri3a"]
 [ext_resource type="Shader" uid="uid://cln8m0k64e3ol" path="res://scripts/boss/shaders/hit_flash.gdshader" id="2_7fv60"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jvosr"]

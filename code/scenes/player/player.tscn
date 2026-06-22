@@ -2,30 +2,36 @@
 
 [ext_resource type="Script" uid="uid://p7avgggp4w5n" path="res://scripts/player/player.gd" id="1_dqkch"]
 [ext_resource type="PackedScene" uid="uid://lq8ggyn72c2i" path="res://scenes/player/bullet.tscn" id="2_dqkch"]
-[ext_resource type="Texture2D" uid="uid://bae064vs512f8" path="res://assets/icon.svg" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://bae064vs512f8" path="res://assets/temp/icon.svg" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://bhxuqy8nn7ty7" path="res://assets/certainty/certainty_idle.png" id="3_p47bc"]
 [ext_resource type="PackedScene" uid="uid://dsda3qjlgn71f" path="res://scenes/player/gun.tscn" id="4_dqkch"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_03puy"]
-size = Vector2(117, 117)
+[sub_resource type="AtlasTexture" id="AtlasTexture_p47bc"]
+atlas = ExtResource("3_p47bc")
+region = Rect2(0, 0, 96, 96)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pq6o8"]
-size = Vector2(122, 122)
+[sub_resource type="AtlasTexture" id="AtlasTexture_75vfm"]
+atlas = ExtResource("3_p47bc")
+region = Rect2(96, 0, 96, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_03puy"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_qhqgy")
+"texture": SubResource("AtlasTexture_p47bc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75vfm")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_qhqgy")
 }],
-"loop": true,
+"loop": 1,
 "name": &"jumping",
 "speed": 5.0
 }, {
@@ -33,10 +39,16 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_qhqgy")
 }],
-"loop": true,
+"loop": 1,
 "name": &"running",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03puy"]
+size = Vector2(182.97873, 331.91492)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pq6o8"]
+size = Vector2(14, 22)
 
 [sub_resource type="Animation" id="Animation_lvxji"]
 resource_name = "hit_flash"
@@ -48,7 +60,7 @@ _data = {
 &"hit_flash": SubResource("Animation_lvxji")
 }
 
-[node name="Player" type="CharacterBody2D" unique_id=997640124 node_paths=PackedStringArray("hurtbox", "dash_timer", "dash_again_timer")]
+[node name="Certainty" type="CharacterBody2D" unique_id=997640124 node_paths=PackedStringArray("hurtbox", "dash_timer", "dash_again_timer") groups=["player"]]
 collision_mask = 16
 script = ExtResource("1_dqkch")
 hurtbox = NodePath("Hurtbox")
@@ -56,20 +68,25 @@ bullet = ExtResource("2_dqkch")
 dash_timer = NodePath("DashTimer")
 dash_again_timer = NodePath("DashAgainTimer")
 
+[node name="Animations" type="AnimatedSprite2D" parent="." unique_id=1169131373]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_03puy")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.9643283
+
 [node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1078135658]
-position = Vector2(-1, -2)
+position = Vector2(0.49999952, 0.99999976)
+scale = Vector2(0.235, 0.235)
 shape = SubResource("RectangleShape2D_03puy")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1909851701]
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1624753451]
-position = Vector2(0, -1)
+position = Vector2(0.49999952, 0.99999976)
+scale = Vector2(0.235, 0.235)
 shape = SubResource("RectangleShape2D_pq6o8")
-
-[node name="Animations" type="AnimatedSprite2D" parent="." unique_id=1169131373]
-sprite_frames = SubResource("SpriteFrames_03puy")
-animation = &"running"
 
 [node name="DashTimer" type="Timer" parent="." unique_id=1368735163]
 wait_time = 0.2
@@ -79,6 +96,7 @@ one_shot = true
 wait_time = 0.4
 
 [node name="Gun" parent="." unique_id=620107355 instance=ExtResource("4_dqkch")]
+visible = false
 position = Vector2(24, -7)
 
 [node name="HitFlashAnim" type="AnimationPlayer" parent="." unique_id=257162380]
