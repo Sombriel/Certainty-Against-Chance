@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://ceu5eokt21nio"]
+
+[ext_resource type="Script" uid="uid://c1ojjkvsf75vm" path="res://scripts/chips/ten_chip.gd" id="1_f6nxc"]
+[ext_resource type="Texture2D" uid="uid://b46hwar6lvfda" path="res://assets/10Chip.png" id="1_jm6pw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f6nxc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jm6pw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ak5ob"]
+radius = 33.13608
+
+[node name="TenChip" type="Area2D" unique_id=428085545 groups=["chips"]]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_f6nxc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=887990915]
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_f6nxc")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1583688539]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_ak5ob")

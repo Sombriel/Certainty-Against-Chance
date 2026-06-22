@@ -4,6 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://bn5c00va54yf5" path="res://scenes/boss/boss.tscn" id="2_n2nmj"]
 [ext_resource type="Script" uid="uid://c6ur55yhd2d3" path="res://scripts/boss/boss_pathing.gd" id="3_8g7nn"]
 [ext_resource type="Texture2D" uid="uid://dwbb3mxkod2km" path="res://assets/temp_background.jpg" id="4_8g7nn"]
+[ext_resource type="Script" uid="uid://bcjso7o3f2ybo" path="res://scripts/boss/chips_spawn_path.gd" id="5_qcisb"]
+[ext_resource type="PackedScene" uid="uid://ceu5eokt21nio" path="res://scenes/chips/ten_chip.tscn" id="6_aqby3"]
+[ext_resource type="PackedScene" uid="uid://cko6m2f2vgl3n" path="res://scenes/chips/twenty_chip.tscn" id="7_aoy07"]
+[ext_resource type="PackedScene" uid="uid://di0dpm53ix44k" path="res://scenes/chips/fifty_chip.tscn" id="8_okbkv"]
+[ext_resource type="Script" uid="uid://cej48ubsppw7g" path="res://scripts/chips/chip_pathing.gd" id="9_okbkv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pq6o8"]
 
@@ -20,6 +25,18 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 2, 155, 0, 0, 0, 0, 482, 154, 0, 0, 0, 0, -459, 153, 0, 0, 0, 0, 1, 155)
 }
 point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_ftif8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -3, 0, 0, 0, 0, 0, 650)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_aoy07"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1153, -3, 0, 0, 0, 0, 1149, 646)
+}
+point_count = 2
 
 [node name="CasinoBattle" type="Node2D" unique_id=1513049662]
 
@@ -77,17 +94,42 @@ collision_layer = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/RightWall" unique_id=629500064]
 shape = SubResource("WorldBoundaryShape2D_751ah")
 
-[node name="PatrolPath" type="Path2D" parent="." unique_id=1419230429]
+[node name="BossPatrolPath" type="Path2D" parent="." unique_id=1419230429]
 curve = SubResource("Curve2D_aqby3")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="PatrolPath" unique_id=1255438030]
+[node name="PathFollow2D" type="PathFollow2D" parent="BossPatrolPath" unique_id=1255438030]
 position = Vector2(2, 155)
 rotation = -0.0020833302
 rotates = false
 script = ExtResource("3_8g7nn")
 
-[node name="Boss" parent="PatrolPath/PathFollow2D" unique_id=1835714852 instance=ExtResource("2_n2nmj")]
+[node name="Boss" parent="BossPatrolPath/PathFollow2D" unique_id=1835714852 instance=ExtResource("2_n2nmj")]
 position = Vector2(597.9279, 35.245758)
 rotation = 0.0020833302
 
-[connection signal="area_entered" from="PatrolPath/PathFollow2D/Boss" to="PatrolPath/PathFollow2D/Boss" method="bullet_damage"]
+[node name="ChipSpawner" type="Node2D" parent="." unique_id=444611763]
+script = ExtResource("5_qcisb")
+ten_chip = ExtResource("6_aqby3")
+twenty_chip = ExtResource("7_aoy07")
+fifty_chip = ExtResource("8_okbkv")
+
+[node name="LeftPath" type="Path2D" parent="ChipSpawner" unique_id=639794411]
+curve = SubResource("Curve2D_ftif8")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="ChipSpawner/LeftPath" unique_id=434119348]
+position = Vector2(0, -3)
+rotation = 1.5707964
+script = ExtResource("9_okbkv")
+
+[node name="RightPath" type="Path2D" parent="ChipSpawner" unique_id=2133930126]
+curve = SubResource("Curve2D_aoy07")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="ChipSpawner/RightPath" unique_id=1921638773]
+position = Vector2(1153, -3)
+rotation = 1.5769596
+script = ExtResource("9_okbkv")
+
+[node name="ChipSpawner" type="Timer" parent="ChipSpawner" unique_id=536713009]
+
+[connection signal="area_entered" from="BossPatrolPath/PathFollow2D/Boss" to="BossPatrolPath/PathFollow2D/Boss" method="bullet_damage"]
+[connection signal="timeout" from="ChipSpawner/ChipSpawner" to="ChipSpawner" method="spawn_chip"]

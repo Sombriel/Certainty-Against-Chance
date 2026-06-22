@@ -2,6 +2,13 @@
 
 [ext_resource type="Script" uid="uid://2cht3imf1bos" path="res://scripts/boss/attacks/dice_attack/dice.gd" id="1_eevp3"]
 [ext_resource type="Texture2D" uid="uid://13c55e162xv1" path="res://assets/temp_die.png" id="1_eri3a"]
+[ext_resource type="Shader" uid="uid://cln8m0k64e3ol" path="res://scripts/boss/shaders/hit_flash.gdshader" id="2_7fv60"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jvosr"]
+resource_local_to_scene = true
+shader = ExtResource("2_7fv60")
+shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
+shader_parameter/hit_flash_on = false
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e47wt"]
 radius = 12.807611
@@ -11,6 +18,7 @@ collision_layer = 8
 script = ExtResource("1_eevp3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=804883327]
+material = SubResource("ShaderMaterial_jvosr")
 scale = Vector2(0.15999985, 0.15999985)
 texture = ExtResource("1_eri3a")
 

@@ -38,6 +38,16 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_lvxji"]
+resource_name = "hit_flash"
+length = 0.1
+step = 0.1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p47bc"]
+_data = {
+&"hit_flash": SubResource("Animation_lvxji")
+}
+
 [node name="Player" type="CharacterBody2D" unique_id=997640124 node_paths=PackedStringArray("hurtbox", "dash_timer", "dash_again_timer")]
 collision_mask = 16
 script = ExtResource("1_dqkch")
@@ -49,9 +59,6 @@ dash_again_timer = NodePath("DashAgainTimer")
 [node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1078135658]
 position = Vector2(-1, -2)
 shape = SubResource("RectangleShape2D_03puy")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=178771582]
-texture = ExtResource("2_qhqgy")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1909851701]
 collision_mask = 8
@@ -73,6 +80,9 @@ wait_time = 0.4
 
 [node name="Gun" parent="." unique_id=620107355 instance=ExtResource("4_dqkch")]
 position = Vector2(24, -7)
+
+[node name="HitFlashAnim" type="AnimationPlayer" parent="." unique_id=257162380]
+libraries/ = SubResource("AnimationLibrary_p47bc")
 
 [connection signal="area_entered" from="Hurtbox" to="." method="take_damage"]
 [connection signal="timeout" from="DashTimer" to="." method="end_of_dash"]
