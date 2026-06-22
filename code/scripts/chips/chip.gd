@@ -32,7 +32,6 @@ func _process(delta: float) -> void:
  
 	position += Vector2(direction * speed, wave * wander_amplitude) * delta
  
-
 func exited_screen() -> void:
 	queue_free()
 
@@ -42,4 +41,5 @@ func take_damage(area: Area2D) -> void:
 		area.queue_free()
 	
 	if health == 0:
+		MoneyManager.add_money(value)
 		queue_free()
