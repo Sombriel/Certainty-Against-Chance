@@ -1,6 +1,13 @@
 extends Node2D
 
+#damage update for UI
 signal hit(damage: int)
+
+#player effects when player rolls the boss
+signal positive_effect
+signal negative_effect
+signal insta_win
+signal insta_loss
 
 @export var CardAttack: PackedScene
 @export var DiceAttack: PackedScene
@@ -12,6 +19,7 @@ var health: int = 5000
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hit.emit(health)
+	$AnimatedSprite2D.play("default")
 
 func choose_attack() -> void:
 	attacks.pick_random().start()
@@ -38,6 +46,15 @@ func _on_parry_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
 		area.can_parry = true
 
-
 func _on_certainty_parried_boss() -> void:
-	pass # Replace with function body.
+	$AnimatedSprite2D.play("roll")
+	var effect: StringName = RandLogic.roll_effect()
+	match effect:
+		"POSITIVE":
+			positive_effect.emit()
+		"NEGATIVE":
+			negative_effect.emit()
+		"WIN":
+			insta_win.emit()
+		"LOSE":
+			insta_loss.emit()

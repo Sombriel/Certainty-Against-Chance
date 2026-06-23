@@ -18,7 +18,6 @@ config/icon="res://assets/temp/icon.svg"
 [autoload]
 
 RandomnessLogic="*uid://jvr247letkon"
-MoneyManager="*uid://danrwl845g0q0"
 
 [editor_plugins]
 

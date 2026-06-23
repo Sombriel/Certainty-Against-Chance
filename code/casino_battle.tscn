@@ -140,6 +140,7 @@ position = Vector2(1155, 439)
 [node name="ChipSpawner" type="Timer" parent="ChipSpawner" unique_id=536713009]
 wait_time = 2.0
 
+[connection signal="parried_boss" from="Certainty" to="BossPatrolPath/PathFollow2D/Boss" method="_on_certainty_parried_boss"]
 [connection signal="update_chips" from="Certainty" to="UI" method="update_chip_count"]
 [connection signal="patrol_attack_chance" from="BossPatrolPath/PathFollow2D" to="BossPatrolPath/PathFollow2D/Boss" method="attack_chance"]
 [connection signal="area_entered" from="BossPatrolPath/PathFollow2D/Boss" to="BossPatrolPath/PathFollow2D/Boss" method="bullet_damage"]
