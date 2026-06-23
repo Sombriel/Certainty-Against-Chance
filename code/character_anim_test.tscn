@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dcdwishmgt3jv"]
+
+[ext_resource type="PackedScene" uid="uid://p82g66xpahhi" path="res://scenes/player/player.tscn" id="1_g2jh2"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
+
+[node name="Node2D" type="Node2D" unique_id=1774823317]
+
+[node name="Certainty" parent="." unique_id=997640124 instance=ExtResource("1_g2jh2")]
+position = Vector2(566, 436)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=40454578]
+position = Vector2(570, 571)
+scale = Vector2(8.725, 8.725)
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=92519651]
+shape = SubResource("WorldBoundaryShape2D_g4v7s")

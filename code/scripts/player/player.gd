@@ -27,22 +27,28 @@ func _physics_process(delta: float) -> void:
 
 		if Input.is_action_just_pressed("Jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
-		
+
 		var direction: float = Input.get_axis("Left", "Right")
-		
+
 		if direction != 0:
 			velocity.x = direction * SPEED
 			dash_direction = direction
+			$Animations.flip_h = direction < 0  
+
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-		
+
 		if Input.is_action_just_pressed("Dash") and can_dash:
 			_dash()
-	
+
 	## Animations
-	if velocity == Vector2.ZERO:
+	if not is_on_floor():
+		$Animations.play("jumping")
+	elif velocity.x != 0:
+		$Animations.play("running")
+	else:
 		$Animations.play("idle")
-	
+
 	move_and_slide()
 
 func _dash() -> void:
@@ -69,7 +75,8 @@ func take_damage(area: Area2D) -> void:
 		health -= area.damage
 		area.queue_free()
 	
-	
+	if health <= 0:
+		die()
 	
 	prints(health)
 
@@ -77,3 +84,6 @@ func add_chips(payout: int) -> void:
 	chips += payout
 	update_chips.emit(chips)
 	#print(chips)
+
+func die() -> void:
+	pass
