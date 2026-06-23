@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 signal update_chips(chips: int)
+signal player_death
+signal parried_boss
 
 @export var hurtbox: Area2D
 @export var bullet: PackedScene
@@ -8,7 +10,7 @@ signal update_chips(chips: int)
 @export var dash_again_timer: Timer
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -600.0
 const DASH_SPEED: float = 900.0
 
 var health: int = 100
@@ -16,6 +18,7 @@ var chips: int = 0
 var is_dashing: bool = false
 var can_dash: bool = true
 var dash_direction: float = 1.0
+var can_parry: bool = false
 
 func _physics_process(delta: float) -> void:
 	if is_dashing:
@@ -27,14 +30,18 @@ func _physics_process(delta: float) -> void:
 
 		if Input.is_action_just_pressed("Jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
-
+		
+		#aka parry
+		if Input.is_action_just_pressed("Jump") and not is_on_floor() and can_parry:
+			$Animations.play("parry")
+			parried_boss.emit()
+		
 		var direction: float = Input.get_axis("Left", "Right")
 
 		if direction != 0:
 			velocity.x = direction * SPEED
 			dash_direction = direction
 			$Animations.flip_h = direction < 0  
-
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
@@ -86,4 +93,5 @@ func add_chips(payout: int) -> void:
 	#print(chips)
 
 func die() -> void:
-	pass
+	$Animations.play("death")
+	player_death.emit()

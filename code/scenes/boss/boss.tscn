@@ -52,6 +52,8 @@ _data = {
 &"hit": SubResource("Animation_iva7r")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iva7r"]
+
 [node name="Boss" type="Area2D" unique_id=1251608958]
 collision_layer = 2
 collision_mask = 4
@@ -73,3 +75,14 @@ shape = SubResource("RectangleShape2D_0xsra")
 
 [node name="HitFlashAnim" type="AnimationPlayer" parent="." unique_id=1512618084]
 libraries/ = SubResource("AnimationLibrary_i4fbv")
+
+[node name="ParryArea" type="Area2D" parent="." unique_id=1885551942]
+position = Vector2(0, 138)
+collision_layer = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParryArea" unique_id=182703468]
+position = Vector2(-2, 179.00002)
+scale = Vector2(7.245, 7.245)
+shape = SubResource("RectangleShape2D_iva7r")
+
+[connection signal="area_entered" from="ParryArea" to="." method="_on_parry_area_entered"]

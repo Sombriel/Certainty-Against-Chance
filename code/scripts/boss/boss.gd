@@ -33,3 +33,11 @@ func attack_chance() -> void:
 	else:
 		print("Rolled PASSIVE")
 		return
+
+func _on_parry_area_entered(area: Area2D) -> void:
+	if area.is_in_group("player"):
+		area.can_parry = true
+
+
+func _on_certainty_parried_boss() -> void:
+	pass # Replace with function body.

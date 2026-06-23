@@ -7,11 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://dr71nxxouhka2" path="res://assets/certainty/certainty_jump.png" id="4_75vfm"]
 [ext_resource type="PackedScene" uid="uid://dsda3qjlgn71f" path="res://scenes/player/gun.tscn" id="4_dqkch"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p47bc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_75vfm"]
 atlas = ExtResource("3_p47bc")
 region = Rect2(0, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_75vfm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gtgg"]
 atlas = ExtResource("3_p47bc")
 region = Rect2(96, 0, 96, 96)
 
@@ -25,12 +25,22 @@ region = Rect2(96, 0, 96, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_03puy"]
 animations = [{
+"frames": [],
+"loop": 1,
+"name": &"dash",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p47bc")
+"texture": SubResource("AtlasTexture_75vfm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_75vfm")
+"texture": SubResource("AtlasTexture_5gtgg")
 }],
 "loop": 1,
 "name": &"idle",
@@ -46,6 +56,11 @@ animations = [{
 "loop": 1,
 "name": &"jumping",
 "speed": 2.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"parry",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -73,7 +88,7 @@ _data = {
 }
 
 [node name="Certainty" type="CharacterBody2D" unique_id=997640124 node_paths=PackedStringArray("hurtbox", "dash_timer", "dash_again_timer") groups=["player"]]
-collision_mask = 16
+collision_mask = 80
 script = ExtResource("1_dqkch")
 hurtbox = NodePath("Hurtbox")
 bullet = ExtResource("2_dqkch")
@@ -83,7 +98,7 @@ dash_again_timer = NodePath("DashAgainTimer")
 [node name="Animations" type="AnimatedSprite2D" parent="." unique_id=1169131373]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_03puy")
-animation = &"jumping"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1078135658]
