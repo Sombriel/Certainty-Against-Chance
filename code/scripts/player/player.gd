@@ -64,9 +64,12 @@ func take_damage(area: Area2D) -> void:
 	if area.is_in_group("cards"):
 		health -= area.damage
 		area.queue_free()
-	
+
 	if area.is_in_group("dice"):
 		health -= area.damage
+		area.queue_free()
+	
+	
 	
 	prints(health)
 
