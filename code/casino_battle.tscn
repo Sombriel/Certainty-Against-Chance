@@ -145,5 +145,6 @@ wait_time = 2.0
 [connection signal="patrol_attack_chance" from="BossPatrolPath/PathFollow2D" to="BossPatrolPath/PathFollow2D/Boss" method="attack_chance"]
 [connection signal="area_entered" from="BossPatrolPath/PathFollow2D/Boss" to="BossPatrolPath/PathFollow2D/Boss" method="bullet_damage"]
 [connection signal="hit" from="BossPatrolPath/PathFollow2D/Boss" to="UI" method="update_boss_hp"]
+[connection signal="positive_effect" from="BossPatrolPath/PathFollow2D/Boss" to="Certainty" method="positive_effect"]
 [connection signal="timeout" from="BossPatrolPath/PathFollow2D/BossPauses" to="BossPatrolPath/PathFollow2D" method="_on_boss_pauses_timeout"]
 [connection signal="timeout" from="ChipSpawner/ChipSpawner" to="ChipSpawner" method="spawn_chip"]

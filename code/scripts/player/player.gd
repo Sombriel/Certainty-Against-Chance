@@ -9,8 +9,8 @@ signal parried_boss
 @export var dash_timer: Timer
 @export var dash_again_timer: Timer
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -600.0
+var SPEED = 300.0
+const JUMP_VELOCITY = -500.0
 const DASH_SPEED: float = 900.0
 
 var health: int = 100
@@ -27,14 +27,20 @@ func _physics_process(delta: float) -> void:
 	else:
 		if not is_on_floor():
 			velocity += get_gravity() * delta
+		
+		if is_on_floor():
+			can_parry = false
 
 		if Input.is_action_just_pressed("Jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
+			can_parry = true
 		
 		#aka parry
 		if Input.is_action_just_pressed("Jump") and not is_on_floor() and can_parry:
 			$Animations.play("parry")
 			parried_boss.emit()
+			print("PARRY!")
+			_parry_pause_effect()
 		
 		var direction: float = Input.get_axis("Left", "Right")
 
@@ -64,6 +70,11 @@ func _dash() -> void:
 	hurtbox.set_deferred("monitoring", false)
 	dash_timer.start()
 	dash_again_timer.start()
+
+func _parry_pause_effect() -> void:
+	get_tree().paused = true
+	await get_tree().create_timer(0.2, true).timeout
+	get_tree().paused = false
 
 func end_of_dash() -> void:
 	hurtbox.set_deferred("monitoring", true)
@@ -95,3 +106,9 @@ func add_chips(payout: int) -> void:
 func die() -> void:
 	$Animations.play("death")
 	player_death.emit()
+
+func positive_effect() -> void:
+	$Gun.positive_effect = true
+	health += 10
+	SPEED = clamp(SPEED + 150, 200, 400)
+	

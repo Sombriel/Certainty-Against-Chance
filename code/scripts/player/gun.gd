@@ -6,6 +6,8 @@ extends Node2D
 @onready var bullet_spawnpoint: Marker2D = $BulletSpawnPoint
 
 var can_fire: bool = true
+var positive_effect: bool = false
+var negative_effect: bool = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -22,6 +24,13 @@ func _process(_delta: float) -> void:
 		cooldown.start()
 		var bullet_instance = bullet.instantiate()
 		get_tree().root.add_child(bullet_instance)
+		
+		if positive_effect:
+			bullet_instance.increase_bullet_damage()
+		
+		if negative_effect:
+			bullet_instance.decrease_bullet_damage()
+			
 		bullet_instance.global_position = bullet_spawnpoint.global_position
 		bullet_instance.rotation = rotation
 		$Animation.play("default")

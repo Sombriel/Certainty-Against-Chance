@@ -13,3 +13,10 @@ func _process(delta: float) -> void:
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
+
+#for the positive and negative effects
+func increase_bullet_damage() -> void:
+	damage = clamp(damage + 10, 5, 50)
+
+func decrease_bullet_damage() -> void:
+	damage = clamp(damage - 10, 5, 50)

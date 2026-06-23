@@ -58,3 +58,4 @@ func _on_certainty_parried_boss() -> void:
 			insta_win.emit()
 		"LOSE":
 			insta_loss.emit()
+	print(effect)
