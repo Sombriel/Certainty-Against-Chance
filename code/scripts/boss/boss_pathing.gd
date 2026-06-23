@@ -1,5 +1,7 @@
 extends PathFollow2D
 
+signal patrol_attack_chance
+
 @export var speed = 0.2
 
 var patrol_pause: bool = false
@@ -22,10 +24,11 @@ func _process(delta):
 	if not patrol_pause and patrol_pause_markers.has(snapped_ratio) and snapped_ratio != _last_pause_marker:
 		patrol_pause = true
 		_last_pause_marker = snapped_ratio
+		patrol_attack_chance.emit()
 		$BossPauses.start()
 		##add an attack here
 	
-	print(snapped(progress_ratio, 0.01))
+	#print(snapped(progress_ratio, 0.01))
 
 func _on_boss_pauses_timeout() -> void:
 	patrol_pause = false

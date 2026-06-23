@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://biv5heter35ps" path="res://scripts/boss/attacks/dice_attack/dice_attack.gd" id="1_e47wt"]
 [ext_resource type="PackedScene" uid="uid://bce22ucln51u5" path="res://scenes/boss/dice.tscn" id="2_e47wt"]
-[ext_resource type="Script" uid="uid://chi6orwmcjiln" path="res://scripts/boss/attacks/dice_attack/dice_pathing.gd" id="3_8hjkr"]
 
 [sub_resource type="Curve2D" id="Curve2D_e47wt"]
 _data = {
@@ -31,26 +30,8 @@ dice = ExtResource("2_e47wt")
 position = Vector2(-2, 4)
 curve = SubResource("Curve2D_e47wt")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="PathONE" unique_id=1100877690]
-position = Vector2(6, 362)
-rotation = -0.92092586
-loop = false
-script = ExtResource("3_8hjkr")
-
 [node name="PathTWO" type="Path2D" parent="." unique_id=1874593189]
 curve = SubResource("Curve2D_8hjkr")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="PathTWO" unique_id=1031111667]
-position = Vector2(1153, 377)
-rotation = -1.8736812
-loop = false
-script = ExtResource("3_8hjkr")
-
 [node name="PathTHREE" type="Path2D" parent="." unique_id=1857657246]
 curve = SubResource("Curve2D_m2out")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="PathTHREE" unique_id=1679642999]
-position = Vector2(-4, 387)
-rotation = -1.2753555
-loop = false
-script = ExtResource("3_8hjkr")
