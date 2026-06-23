@@ -107,8 +107,11 @@ func die() -> void:
 	$Animations.play("death")
 	player_death.emit()
 
-func positive_effect() -> void:
-	$Gun.positive_effect = true
+func _rolled_positive_effect() -> void:
+	$Gun.add_positive_stack()
 	health += 10
 	SPEED = clamp(SPEED + 150, 200, 400)
-	
+
+func _rolled_negative_effect() -> void:
+	$Gun.add_negative_stack()
+	SPEED = clamp(SPEED - 100, 200, 400)
