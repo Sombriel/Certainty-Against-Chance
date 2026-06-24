@@ -2,6 +2,7 @@ extends Node2D
 
 #damage update for UI
 signal hit(damage: int)
+signal death()
 
 #player effects when player rolls the boss
 signal positive_effect
@@ -32,6 +33,7 @@ func bullet_damage(area: Area2D) -> void:
 	
 	if health <= 0:
 		$AnimatedSprite2D.play("death")
+		death.emit()
 	
 	hit.emit(health)
 
