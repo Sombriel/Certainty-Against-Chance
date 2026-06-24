@@ -105,6 +105,8 @@ func _on_dash_again_timer_timeout() -> void:
 func take_damage(area: Area2D) -> void:
 	if area.is_in_group("parryable"):
 		can_parry = true
+		if area.has_signal("start_battle"):
+			area.start_battle.emit()
 		return
 	
 	if area.is_in_group("dice") or area.is_in_group("cards"):

@@ -8,7 +8,7 @@ extends Node2D
 @onready var left_spawnpoints: Array[Marker2D] = [$LeftSpawn1, $LeftSpawn2]
 @onready var right_spawnpoints: Array[Marker2D] = [$RightSpawn1, $RightSpawn2]
 
-func _ready() -> void:
+func _on_start_battle_() -> void:
 	$ChipSpawner.start()
 
 func spawn_chip() -> void:

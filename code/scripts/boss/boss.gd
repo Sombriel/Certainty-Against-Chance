@@ -21,6 +21,7 @@ var health: int = 8000
 func _ready() -> void:
 	hit.emit(health)
 	$AnimatedSprite2D.play("default")
+	$ParryArea.monitorable = false
 
 func choose_attack() -> void:
 	attacks.pick_random().start()

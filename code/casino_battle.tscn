@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://efxlpu4gt536" path="res://scenes/chips/twenty_chip.tscn" id="7_aoy07"]
 [ext_resource type="PackedScene" uid="uid://di0dpm53ix44k" path="res://scenes/chips/fifty_chip.tscn" id="8_okbkv"]
 [ext_resource type="PackedScene" uid="uid://qhg61t7j8dsm" path="res://scenes/tutorial.tscn" id="10_4r3d0"]
+[ext_resource type="Script" uid="uid://bjgvyqov5m867" path="res://scripts/start_battle_parry_area.gd" id="11_w80up"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pq6o8"]
 
@@ -27,7 +28,14 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4r3d0"]
+
 [node name="CasinoBattle" type="Node2D" unique_id=1513049662]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1900321174]
+layer = 10
+
+[node name="Tutorial" parent="CanvasLayer" unique_id=1780719819 instance=ExtResource("10_4r3d0")]
 
 [node name="UI" type="Control" parent="." unique_id=1810352239]
 top_level = true
@@ -148,7 +156,6 @@ collision_layer = 16
 shape = SubResource("WorldBoundaryShape2D_751ah")
 
 [node name="BossPatrolPath" type="Path2D" parent="." unique_id=1419230429]
-visible = false
 curve = SubResource("Curve2D_aqby3")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="BossPatrolPath" unique_id=1255438030]
@@ -186,8 +193,18 @@ position = Vector2(1155, 439)
 [node name="ChipSpawner" type="Timer" parent="ChipSpawner" unique_id=536713009]
 wait_time = 2.0
 
-[node name="Tutorial" parent="." unique_id=1780719819 instance=ExtResource("10_4r3d0")]
+[node name="StartBattleParryArea" type="Area2D" parent="." unique_id=1003956765 groups=["parryable"]]
+position = Vector2(595, 189)
+collision_layer = 66
+monitorable = false
+script = ExtResource("11_w80up")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartBattleParryArea" unique_id=664923806]
+position = Vector2(-2, 179.00002)
+scale = Vector2(7.245, 7.245)
+shape = SubResource("RectangleShape2D_4r3d0")
+
+[connection signal="tutorial_finished" from="CanvasLayer/Tutorial" to="StartBattleParryArea" method="_on_tutorial_finished"]
 [connection signal="parried_boss" from="Certainty" to="BossPatrolPath/PathFollow2D/Boss" method="_on_certainty_parried_boss"]
 [connection signal="update_chips" from="Certainty" to="UI" method="update_chip_count"]
 [connection signal="update_health" from="Certainty" to="UI" method="_update_health"]
@@ -199,3 +216,5 @@ wait_time = 2.0
 [connection signal="positive_effect" from="BossPatrolPath/PathFollow2D/Boss" to="Certainty" method="_rolled_positive_effect"]
 [connection signal="timeout" from="BossPatrolPath/PathFollow2D/BossPauses" to="BossPatrolPath/PathFollow2D" method="_on_boss_pauses_timeout"]
 [connection signal="timeout" from="ChipSpawner/ChipSpawner" to="ChipSpawner" method="spawn_chip"]
+[connection signal="start_battle" from="StartBattleParryArea" to="BossPatrolPath/PathFollow2D" method="_on_start_battle"]
+[connection signal="start_battle" from="StartBattleParryArea" to="ChipSpawner" method="_on_start_battle_"]

@@ -2,7 +2,7 @@ extends Control
 
 #holy fuck this is awful and ass
 
-signal tutorial_finshed
+signal tutorial_finished
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,6 +18,12 @@ func _ready() -> void:
 	
 	await get_tree().create_timer(8.0).timeout
 	fade_out_text()
+	
+	await get_tree().create_timer(3.0).timeout
+	$TextDisplay.text = "Press LEFT CLICK to SHOOT where your cursor is"
+	fade_in_text()
+	await get_tree().create_timer(8.0).timeout
+	fade_out_text()
 	await get_tree().create_timer(3.0).timeout
 	$TextDisplay.text = "Pressing SPACEBAR in the air again allows you to SPIN"
 	fade_in_text()
@@ -27,7 +33,8 @@ func _ready() -> void:
 	await get_tree().create_timer(3.0).timeout
 	$TextDisplay.text = "Try your chances now...Certainty"
 	fade_in_text()
-
+	
+	tutorial_finished.emit()
 
 func fade_in_text() -> void:
 	var tween = create_tween()
