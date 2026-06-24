@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bduj11m1wleq2" path="res://assets/temp/CuteCards.png" id="1_ew8ln"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lxd8w"]
-size = Vector2(36, 54)
+size = Vector2(44, 62)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c4v1m"]
 animations = [{
