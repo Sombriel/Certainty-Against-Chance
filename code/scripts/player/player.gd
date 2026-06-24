@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+signal update_health(health: int)
 signal update_chips(chips: int)
 signal player_death
 signal parried_boss
@@ -13,8 +14,16 @@ var SPEED = 300.0
 const JUMP_VELOCITY = -500.0
 const DASH_SPEED: float = 900.0
 
-var health: int = 100
-var chips: int = 0
+var health: int = 100:
+	set(new_health):
+		update_health.emit(new_health)
+		prints(health)
+		health = new_health
+var chips: int = 0:
+	set(new_chips):
+		update_chips.emit(new_chips)
+		#prints(chips)
+		chips = new_chips
 var is_dashing: bool = false
 var can_dash: bool = true
 var dash_direction: float = 1.0
@@ -100,13 +109,9 @@ func take_damage(area: Area2D) -> void:
 	
 	if health <= 0:
 		die()
-	
-	prints(health)
 
 func add_chips(payout: int) -> void:
 	chips += payout
-	update_chips.emit(chips)
-	#print(chips)
 
 func die() -> void:
 	$Animations.play("death")
