@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://dcdwishmgt3jv"]
 
 [ext_resource type="PackedScene" uid="uid://p82g66xpahhi" path="res://scenes/player/player.tscn" id="1_g2jh2"]
+[ext_resource type="Script" uid="uid://d1oiy7fqiv51g" path="res://scripts/player/character_anim_test.gd" id="1_pny7t"]
+[ext_resource type="PackedScene" uid="uid://djssygf1sbalp" path="res://scenes/boss/card_attack.tscn" id="3_5o8xa"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2jh2"]
 
 [node name="Node2D" type="Node2D" unique_id=1774823317]
+script = ExtResource("1_pny7t")
 
 [node name="Certainty" parent="." unique_id=997640124 instance=ExtResource("1_g2jh2")]
 position = Vector2(566, 436)
@@ -27,3 +30,5 @@ collision_layer = 64
 position = Vector2(-2, 179.00002)
 scale = Vector2(7.245, 7.245)
 shape = SubResource("RectangleShape2D_g2jh2")
+
+[node name="CardAttack" parent="." unique_id=621134816 instance=ExtResource("3_5o8xa")]

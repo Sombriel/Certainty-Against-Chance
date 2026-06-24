@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://lq8ggyn72c2i" path="res://scenes/player/bullet.tscn" id="2_dqkch"]
 [ext_resource type="Texture2D" uid="uid://cvknbnrikn3dw" path="res://assets/certainty/player/certainty_dash.png" id="3_0owmy"]
 [ext_resource type="Texture2D" uid="uid://bhxuqy8nn7ty7" path="res://assets/certainty/player/certainty_idle.png" id="3_p47bc"]
+[ext_resource type="Texture2D" uid="uid://nunn77l5bt7n" path="res://assets/certainty/player/certainty_death.png" id="4_5gtgg"]
 [ext_resource type="Texture2D" uid="uid://dr71nxxouhka2" path="res://assets/certainty/player/certainty_jump.png" id="4_75vfm"]
 [ext_resource type="PackedScene" uid="uid://dsda3qjlgn71f" path="res://scenes/player/gun.tscn" id="4_dqkch"]
 [ext_resource type="Texture2D" uid="uid://bkuibr6a5s5cr" path="res://assets/certainty/player/certainty_parry.png" id="6_qek5x"]
@@ -16,6 +17,26 @@ region = Rect2(0, 0, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_je7p5"]
 atlas = ExtResource("3_0owmy")
 region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uf5tr"]
+atlas = ExtResource("4_5gtgg")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgqa7"]
+atlas = ExtResource("4_5gtgg")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ydkj"]
+atlas = ExtResource("4_5gtgg")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3j4b4"]
+atlas = ExtResource("4_5gtgg")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yj68g"]
+atlas = ExtResource("4_5gtgg")
+region = Rect2(384, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_75vfm"]
 atlas = ExtResource("3_p47bc")
@@ -70,8 +91,23 @@ animations = [{
 "name": &"dash",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": 1,
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uf5tr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgqa7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ydkj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3j4b4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yj68g")
+}],
+"loop": 0,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -162,7 +198,7 @@ dash_again_timer = NodePath("DashAgainTimer")
 [node name="Animations" type="AnimatedSprite2D" parent="." unique_id=1169131373]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_03puy")
-animation = &"parry"
+animation = &"death"
 autoplay = "idle"
 
 [node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1078135658]

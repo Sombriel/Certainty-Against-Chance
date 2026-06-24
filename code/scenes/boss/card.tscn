@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bduj11m1wleq2" path="res://assets/temp/CuteCards.png" id="1_ew8ln"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lxd8w"]
+size = Vector2(36, 54)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c4v1m"]
 animations = [{
@@ -11,7 +12,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("1_ew8ln")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]

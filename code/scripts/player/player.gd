@@ -20,8 +20,12 @@ var can_dash: bool = true
 var dash_direction: float = 1.0
 var can_parry: bool = false
 var is_parrying: bool = false
+var is_dead: bool = false
 
 func _physics_process(delta: float) -> void:
+	if is_dead:
+		return
+	
 	if is_dashing:
 		velocity.x = dash_direction * DASH_SPEED
 		velocity.y = 0
@@ -66,7 +70,7 @@ func _physics_process(delta: float) -> void:
 		$Animations.play("running")
 	else:
 		$Animations.play("idle")
-
+	
 	move_and_slide()
 
 func _dash() -> void:
@@ -95,11 +99,11 @@ func take_damage(area: Area2D) -> void:
 		return
 	
 	if area.is_in_group("dice") or area.is_in_group("cards"):
-		health -= area.damage
+		health = clamp(health - area.damage, 0, 200)
 		area.queue_free()	
 	
-	if health <= 0:
-		die()
+		if health <= 0:
+			die()
 	
 	prints(health)
 
@@ -109,12 +113,15 @@ func add_chips(payout: int) -> void:
 	#print(chips)
 
 func die() -> void:
+	is_dead = true
+	velocity = Vector2.ZERO
 	$Animations.play("death")
+	$Gun.hide()
 	player_death.emit()
 
 func _rolled_positive_effect() -> void:
 	$Gun.add_positive_stack()
-	health += 10
+	clamp(health + 10, 0, 200)
 	SPEED = clamp(SPEED + 150, 200, 400)
 
 func _rolled_negative_effect() -> void:
