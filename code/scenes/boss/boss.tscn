@@ -8,6 +8,11 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
+"frames": [],
+"loop": 1,
+"name": &"death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_hydyg")
@@ -51,6 +56,7 @@ script = ExtResource("1_0xsra")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=529371656]
 scale = Vector2(0.175, 0.175)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"death"
 
 [node name="Hurtbox" type="CollisionShape2D" parent="." unique_id=683075658]
 position = Vector2(0, 25)

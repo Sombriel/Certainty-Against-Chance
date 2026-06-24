@@ -30,6 +30,9 @@ func bullet_damage(area: Area2D) -> void:
 		$HitFlashAnim.play("hit")
 		area.queue_free()
 	
+	if health <= 0:
+		$AnimatedSprite2D.play("death")
+	
 	hit.emit(health)
 
 func attack_chance() -> void:

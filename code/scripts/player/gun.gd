@@ -9,13 +9,7 @@ var can_fire: bool = true
 var positive_effect: bool = false
 var negative_effect: bool = false
 
-var base_damage: int = 10
 var effect_stack: int = 0
-
-
-var current_damage: int:
-	get:
-		return maxi(5, base_damage + effect_stack) 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -31,7 +25,7 @@ func _process(_delta: float) -> void:
 		can_fire = false
 		cooldown.start()
 		var bullet_instance = bullet.instantiate()
-		bullet_instance.damage = current_damage
+		bullet_instance.damage += effect_stack
 		get_tree().root.add_child(bullet_instance)
 		
 		bullet_instance.global_position = bullet_spawnpoint.global_position
@@ -41,10 +35,10 @@ func _process(_delta: float) -> void:
 		$Animation.play("idle")
 
 func add_positive_stack() -> void:
-	effect_stack += 10
+	effect_stack = clampi(effect_stack + 10, 0, 30)
 
 func add_negative_stack() -> void:
-	effect_stack -= 5
+	effect_stack = clampi(effect_stack - 10, 0, 30)
 
 func _on_cooldown_timeout() -> void:
 	can_fire = true
