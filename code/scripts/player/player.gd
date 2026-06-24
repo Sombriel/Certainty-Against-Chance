@@ -19,7 +19,7 @@ var is_dashing: bool = false
 var can_dash: bool = true
 var dash_direction: float = 1.0
 var can_parry: bool = false
-
+var is_parrying: bool = false
 
 func _physics_process(delta: float) -> void:
 	if is_dashing:
@@ -39,8 +39,8 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("Jump") and not is_on_floor() and can_parry:
 			parried_boss.emit()
 			can_parry = false
+			is_parrying = true
 			print("PARRY!")
-			$Animations.play("parry")
 			_parry_pause_effect()
 		
 		var direction: float = Input.get_axis("Left", "Right")
@@ -58,6 +58,8 @@ func _physics_process(delta: float) -> void:
 	## Animations
 	if is_dashing:
 		$Animations.play("dash")
+	elif is_parrying:
+		$Animations.play("parry")
 	elif not is_on_floor():
 		$Animations.play("jumping")
 	elif velocity.x != 0:
@@ -118,3 +120,7 @@ func _rolled_positive_effect() -> void:
 func _rolled_negative_effect() -> void:
 	$Gun.add_negative_stack()
 	SPEED = clamp(SPEED - 100, 200, 400)
+
+
+func _on_animations_animation_finished() -> void:
+	is_parrying = false

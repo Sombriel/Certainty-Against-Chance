@@ -119,9 +119,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fm80t")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"parry",
-"speed": 13.0
+"speed": 25.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -164,7 +164,6 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_03puy")
 animation = &"parry"
 autoplay = "idle"
-frame_progress = 0.68088996
 
 [node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1078135658]
 position = Vector2(0.49999952, 0.99999976)
@@ -192,6 +191,7 @@ position = Vector2(4.035, -7.395)
 [node name="HitFlashAnim" type="AnimationPlayer" parent="." unique_id=257162380]
 libraries/ = SubResource("AnimationLibrary_p47bc")
 
+[connection signal="animation_finished" from="Animations" to="." method="_on_animations_animation_finished"]
 [connection signal="area_entered" from="Hurtbox" to="." method="take_damage"]
 [connection signal="timeout" from="DashTimer" to="." method="end_of_dash"]
 [connection signal="timeout" from="DashAgainTimer" to="." method="_on_dash_again_timer_timeout"]
