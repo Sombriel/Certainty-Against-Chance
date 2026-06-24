@@ -20,6 +20,7 @@ var can_dash: bool = true
 var dash_direction: float = 1.0
 var can_parry: bool = false
 
+
 func _physics_process(delta: float) -> void:
 	if is_dashing:
 		velocity.x = dash_direction * DASH_SPEED
@@ -33,13 +34,13 @@ func _physics_process(delta: float) -> void:
 
 		if Input.is_action_just_pressed("Jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
-			can_parry = true
 		
 		#aka parry
 		if Input.is_action_just_pressed("Jump") and not is_on_floor() and can_parry:
-			$Animations.play("parry")
 			parried_boss.emit()
+			can_parry = false
 			print("PARRY!")
+			$Animations.play("parry")
 			_parry_pause_effect()
 		
 		var direction: float = Input.get_axis("Left", "Right")
@@ -55,7 +56,9 @@ func _physics_process(delta: float) -> void:
 			_dash()
 
 	## Animations
-	if not is_on_floor():
+	if is_dashing:
+		$Animations.play("dash")
+	elif not is_on_floor():
 		$Animations.play("jumping")
 	elif velocity.x != 0:
 		$Animations.play("running")
@@ -85,13 +88,13 @@ func _on_dash_again_timer_timeout() -> void:
 	can_dash = true
 
 func take_damage(area: Area2D) -> void:
-	if area.is_in_group("cards"):
+	if area.is_in_group("parryable"):
+		can_parry = true
+		return
+	
+	if area.is_in_group("dice") or area.is_in_group("cards"):
 		health -= area.damage
-		area.queue_free()
-
-	if area.is_in_group("dice"):
-		health -= area.damage
-		area.queue_free()
+		area.queue_free()	
 	
 	if health <= 0:
 		die()

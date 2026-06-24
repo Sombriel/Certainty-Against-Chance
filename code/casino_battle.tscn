@@ -68,6 +68,23 @@ offset_right = 40.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 30
 
+[node name="TempWinScreen" type="Label" parent="UI" unique_id=957436585]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "YOU WIN"
+
 [node name="Certainty" parent="." unique_id=997640124 instance=ExtResource("1_etsyx")]
 position = Vector2(597, 525)
 
@@ -145,6 +162,7 @@ wait_time = 2.0
 [connection signal="patrol_attack_chance" from="BossPatrolPath/PathFollow2D" to="BossPatrolPath/PathFollow2D/Boss" method="attack_chance"]
 [connection signal="area_entered" from="BossPatrolPath/PathFollow2D/Boss" to="BossPatrolPath/PathFollow2D/Boss" method="bullet_damage"]
 [connection signal="hit" from="BossPatrolPath/PathFollow2D/Boss" to="UI" method="update_boss_hp"]
+[connection signal="insta_win" from="BossPatrolPath/PathFollow2D/Boss" to="UI" method="_roll_insta_win"]
 [connection signal="negative_effect" from="BossPatrolPath/PathFollow2D/Boss" to="Certainty" method="_rolled_negative_effect"]
 [connection signal="positive_effect" from="BossPatrolPath/PathFollow2D/Boss" to="Certainty" method="_rolled_positive_effect"]
 [connection signal="timeout" from="BossPatrolPath/PathFollow2D/BossPauses" to="BossPatrolPath/PathFollow2D" method="_on_boss_pauses_timeout"]

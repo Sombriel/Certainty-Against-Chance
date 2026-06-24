@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtk78k3nfami7"
-path="res://.godot/imported/certainty_gun.png-76a3c3ca3b2f42c91dd66d53f18c291b.ctex"
+uid="uid://cvknbnrikn3dw"
+path="res://.godot/imported/certainty_dash.png-bb0601e12a2c66ddf140e7b30a5b76eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/certainty/certainty_gun.png"
-dest_files=["res://.godot/imported/certainty_gun.png-76a3c3ca3b2f42c91dd66d53f18c291b.ctex"]
+source_file="res://assets/certainty/player/certainty_dash.png"
+dest_files=["res://.godot/imported/certainty_dash.png-bb0601e12a2c66ddf140e7b30a5b76eb.ctex"]
 
 [params]
 

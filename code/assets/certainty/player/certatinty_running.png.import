@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhxuqy8nn7ty7"
-path="res://.godot/imported/certainty_idle.png-5774b9e8b023bee00671dc374857aee8.ctex"
+uid="uid://haot0scjyqjv"
+path="res://.godot/imported/certatinty_running.png-8d2f99c4b93b2b1e37d0c043378f7a14.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/certainty/certainty_idle.png"
-dest_files=["res://.godot/imported/certainty_idle.png-5774b9e8b023bee00671dc374857aee8.ctex"]
+source_file="res://assets/certainty/player/certatinty_running.png"
+dest_files=["res://.godot/imported/certatinty_running.png-8d2f99c4b93b2b1e37d0c043378f7a14.ctex"]
 
 [params]
 

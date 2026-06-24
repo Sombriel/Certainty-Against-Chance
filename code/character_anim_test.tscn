@@ -4,6 +4,8 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2jh2"]
+
 [node name="Node2D" type="Node2D" unique_id=1774823317]
 
 [node name="Certainty" parent="." unique_id=997640124 instance=ExtResource("1_g2jh2")]
@@ -16,3 +18,12 @@ collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=92519651]
 shape = SubResource("WorldBoundaryShape2D_g4v7s")
+
+[node name="ParryArea" type="Area2D" parent="." unique_id=829934125 groups=["parryable"]]
+position = Vector2(572, 254)
+collision_layer = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParryArea" unique_id=451714987]
+position = Vector2(-2, 179.00002)
+scale = Vector2(7.245, 7.245)
+shape = SubResource("RectangleShape2D_g2jh2")

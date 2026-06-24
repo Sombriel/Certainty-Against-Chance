@@ -30,6 +30,7 @@ cards=""
 dice=""
 chips=""
 player=""
+parryable=""
 
 [input]
 
