@@ -111,15 +111,10 @@ func take_damage(area: Area2D) -> void:
 		health = clamp(health - area.damage, 0, 200)
 		area.queue_free()	
 	
-<<<<<<< HEAD
 	if health <= 0:
 		die()
-=======
-		if health <= 0:
-			die()
 	
 	prints(health)
->>>>>>> 7968320470e736555d0ba92362155300811f00a0
 
 func add_chips(payout: int) -> void:
 	chips += payout
