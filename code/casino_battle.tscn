@@ -41,7 +41,6 @@ size_flags_horizontal = 4
 script = ExtResource("1_okbkv")
 
 [node name="Background" type="TextureRect" parent="UI" unique_id=1905380405]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
