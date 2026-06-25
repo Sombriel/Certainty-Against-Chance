@@ -19,7 +19,7 @@ var health: int = 100:
 		update_health.emit(new_health)
 		prints(health)
 		health = new_health
-var chips: int = 100:
+var chips: int = 0:
 	set(new_chips):
 		update_chips.emit(new_chips)
 		chips = new_chips
@@ -55,8 +55,8 @@ func _physics_process(delta: float) -> void:
 		
 		#aka parry
 		if Input.is_action_just_pressed("Jump") and not is_on_floor() and can_parry:
-			parried_boss.emit()
 			chips = clampi(chips - 100, -50, 999)
+			parried_boss.emit()
 			can_parry = false
 			is_parrying = true
 			print("PARRY!")
@@ -146,8 +146,8 @@ func _rolled_positive_effect() -> void:
 
 func _rolled_negative_effect() -> void:
 	$Gun.add_negative_stack()
-	chips = clamp(chips - 75, -50, 999)
-	SPEED = clamp(SPEED - 100, 200, 400)
+	chips = clampi(chips - 75, -50, 999)
+	SPEED = clampi(SPEED - 100, 200, 400)
 
 
 func _on_animations_animation_finished() -> void:

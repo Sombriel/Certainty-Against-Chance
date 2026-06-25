@@ -66,4 +66,5 @@ func _on_certainty_parried_boss() -> void:
 	print(effect)
 
 func _on_start_battle() -> void:
-	$Hurtbox.disabled = false
+	$Hurtbox.set_deferred("disabled", false)
+	

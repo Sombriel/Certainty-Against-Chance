@@ -4,6 +4,7 @@ extends Control
 
 signal tutorial_finished
 signal cleanup_start_parry_box
+signal chips_spawn
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,6 +27,13 @@ func _ready() -> void:
 	await get_tree().create_timer(8.0).timeout
 	fade_out_text()
 	await get_tree().create_timer(3.0).timeout
+	$TextDisplay.text = "Shooting CHIPS grants you playing chips to SPIN! Grab 100 chips!"
+	chips_spawn.emit()
+	fade_in_text()
+	await get_tree().create_timer(8.0).timeout
+	fade_out_text()
+	
+	await get_tree().create_timer(3.0).timeout
 	$TextDisplay.text = "Pressing SPACEBAR while in the air allows you to SPIN"
 	fade_in_text()
 	
@@ -47,7 +55,4 @@ func fade_out_text() -> void:
 
 func _on_start_battle() -> void:
 	cleanup_start_parry_box.emit()
-	$TextDisplay.text = "Shoot the flying chips to get money and SPIN MORE!"
-	await get_tree().create_timer(8.0).timeout
-	fade_out_text()
 	
