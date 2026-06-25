@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bkuibr6a5s5cr" path="res://assets/certainty/player/certainty_parry.png" id="6_qek5x"]
 [ext_resource type="Texture2D" uid="uid://haot0scjyqjv" path="res://assets/certainty/player/certatinty_running.png" id="7_qek5x"]
 [ext_resource type="AudioStream" uid="uid://c17l0w3ei4fy8" path="res://assets/certainty/sounds/Parry.wav" id="10_h17s1"]
+[ext_resource type="AudioStream" uid="uid://bhm83budmlatw" path="res://assets/certainty/sounds/Jump.wav" id="11_je7p5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h17s1"]
 atlas = ExtResource("3_0owmy")
@@ -230,6 +231,11 @@ libraries/ = SubResource("AnimationLibrary_p47bc")
 
 [node name="Parry" type="AudioStreamPlayer" parent="." unique_id=1996900979]
 stream = ExtResource("10_h17s1")
+
+[node name="Jump" type="AudioStreamPlayer" parent="." unique_id=422973907]
+stream = ExtResource("11_je7p5")
+volume_db = -10.0
+pitch_scale = 0.8
 
 [connection signal="animation_finished" from="Animations" to="." method="_on_animations_animation_finished"]
 [connection signal="area_entered" from="Hurtbox" to="." method="take_damage"]

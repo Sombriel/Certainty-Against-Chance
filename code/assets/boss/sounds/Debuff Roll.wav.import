@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dh0nunifyps6e"
-path="res://.godot/imported/Debuff Roll.wav-03c4c9b1a14f4d90b7805e737942e57d.sample"
+path="res://.godot/imported/Debuff Roll.wav-5af08859e39983738f68ba9c43ac63d0.sample"
 
 [deps]
 
-source_file="res://assets/certainty/sounds/Debuff Roll.wav"
-dest_files=["res://.godot/imported/Debuff Roll.wav-03c4c9b1a14f4d90b7805e737942e57d.sample"]
+source_file="res://assets/boss/sounds/Debuff Roll.wav"
+dest_files=["res://.godot/imported/Debuff Roll.wav-5af08859e39983738f68ba9c43ac63d0.sample"]
 
 [params]
 

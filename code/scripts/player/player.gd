@@ -50,6 +50,8 @@ func _physics_process(delta: float) -> void:
 
 		if Input.is_action_just_pressed("Jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
+			$Jump.pitch_scale = randf_range(0.8, 0.9)
+			$Jump.play()
 		
 		#aka parry
 		if Input.is_action_just_pressed("Jump") and not is_on_floor() and can_parry:

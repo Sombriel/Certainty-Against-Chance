@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://8lyl5cqxwjx2"
-path="res://.godot/imported/Buff Roll.wav-c3b4379ac57d445bfac2ee4ed9795b22.sample"
+path="res://.godot/imported/Buff Roll.wav-2693267b6963955781944e9f9ea2fec2.sample"
 
 [deps]
 
-source_file="res://assets/certainty/sounds/Buff Roll.wav"
-dest_files=["res://.godot/imported/Buff Roll.wav-c3b4379ac57d445bfac2ee4ed9795b22.sample"]
+source_file="res://assets/boss/sounds/Buff Roll.wav"
+dest_files=["res://.godot/imported/Buff Roll.wav-2693267b6963955781944e9f9ea2fec2.sample"]
 
 [params]
 
