@@ -19,6 +19,7 @@ func _ready() -> void:
 	hit.emit(health)
 	$AnimatedSprite2D.play("default")
 	$ParryArea.monitorable = false
+	self.monitorable = false
 
 func choose_attack() -> void:
 	attacks.pick_random().start()
@@ -55,10 +56,15 @@ func _on_certainty_parried_boss() -> void:
 	match effect:
 		"POSITIVE":
 			positive_effect.emit()
+			$PlayerBuffEffect.play()
 		"NEGATIVE":
 			negative_effect.emit()
+			$PlayerDebuffEffect.play()
 		"WIN":
 			insta_win.emit()
 		"LOSE":
 			insta_loss.emit()
 	print(effect)
+
+func _on_start_battle() -> void:
+	self.monitorable = true

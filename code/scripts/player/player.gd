@@ -19,7 +19,7 @@ var health: int = 100:
 		update_health.emit(new_health)
 		prints(health)
 		health = new_health
-var chips: int = 0:
+var chips: int = 100:
 	set(new_chips):
 		update_chips.emit(new_chips)
 		chips = new_chips
@@ -30,6 +30,9 @@ var can_parry: bool = false
 var is_parrying: bool = false
 var is_dead: bool = false
 var lock_movement: bool = false
+
+func _ready() -> void:
+	update_chips.emit(chips)
 
 func _physics_process(delta: float) -> void:
 	if is_dead or lock_movement:
@@ -51,9 +54,11 @@ func _physics_process(delta: float) -> void:
 		#aka parry
 		if Input.is_action_just_pressed("Jump") and not is_on_floor() and can_parry:
 			parried_boss.emit()
+			chips = clampi(chips - 100, -50, 999)
 			can_parry = false
 			is_parrying = true
 			print("PARRY!")
+			$Parry.play()
 			_parry_pause_effect()
 		
 		var direction: float = Input.get_axis("Left", "Right")
@@ -105,14 +110,13 @@ func _on_dash_again_timer_timeout() -> void:
 func take_damage(area: Area2D) -> void:
 	if area.is_in_group("parryable") and chips >= 100:
 		can_parry = true
-		chips = clamp(chips - 100, -50, 999)
 		if area.has_signal("start_battle"):
 			area.start_battle.emit()
 		return
 	
 	if area.is_in_group("dice") or area.is_in_group("cards"):
-		health = clamp(health - area.damage, 0, 200)
-		area.queue_free()	
+		health = clampi(health - area.damage, 0, 200)
+		area.queue_free()
 	
 	if health <= 0:
 		die()
@@ -142,7 +146,6 @@ func _rolled_negative_effect() -> void:
 
 func _on_animations_animation_finished() -> void:
 	is_parrying = false
-
 
 func _on_boss_death() -> void:
 	lock_movement = true

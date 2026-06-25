@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://djssygf1sbalp" path="res://scenes/boss/card_attack.tscn" id="3_atjq5"]
 [ext_resource type="Texture2D" uid="uid://bae064vs512f8" path="res://assets/temp/icon.svg" id="3_iva7r"]
 [ext_resource type="PackedScene" uid="uid://b7gy65lqy6soo" path="res://scenes/boss/dice_attack.tscn" id="4_0xsra"]
+[ext_resource type="AudioStream" uid="uid://8lyl5cqxwjx2" path="res://assets/certainty/sounds/Buff Roll.wav" id="6_wf233"]
+[ext_resource type="AudioStream" uid="uid://dh0nunifyps6e" path="res://assets/certainty/sounds/Debuff Roll.wav" id="7_dlpkd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
@@ -79,5 +81,13 @@ collision_layer = 66
 position = Vector2(-2, 179.00002)
 scale = Vector2(7.245, 7.245)
 shape = SubResource("RectangleShape2D_iva7r")
+
+[node name="PlayerBuffEffect" type="AudioStreamPlayer" parent="." unique_id=1537342217]
+stream = ExtResource("6_wf233")
+volume_db = -15.0
+
+[node name="PlayerDebuffEffect" type="AudioStreamPlayer" parent="." unique_id=1998460529]
+stream = ExtResource("7_dlpkd")
+volume_db = -15.0
 
 [connection signal="area_entered" from="ParryArea" to="." method="_on_parry_area_entered"]

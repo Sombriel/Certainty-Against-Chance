@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dh0nunifyps6e"
+path="res://.godot/imported/Debuff Roll.wav-03c4c9b1a14f4d90b7805e737942e57d.sample"
+
+[deps]
+
+source_file="res://assets/certainty/sounds/Debuff Roll.wav"
+dest_files=["res://.godot/imported/Debuff Roll.wav-03c4c9b1a14f4d90b7805e737942e57d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

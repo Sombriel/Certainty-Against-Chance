@@ -6,6 +6,8 @@ extends Node2D
 
 @onready var bullet_spawnpoint: Marker2D = $BulletSpawnPoint
 
+const EFFECT_MARGIN: int = 10
+
 var can_fire: bool = true
 var positive_effect: bool = false
 var negative_effect: bool = false
@@ -40,10 +42,10 @@ func _process(_delta: float) -> void:
 		$Animation.play("idle")
 
 func add_positive_stack() -> void:
-	effect_stack = clampi(effect_stack + 10, 0, 30)
+	effect_stack = clampi(effect_stack + EFFECT_MARGIN, 0, 30)
 
 func add_negative_stack() -> void:
-	effect_stack = clampi(effect_stack - 10, 0, 30)
+	effect_stack = clampi(effect_stack - EFFECT_MARGIN, 0, 30)
 
 func _on_cooldown_timeout() -> void:
 	can_fire = true

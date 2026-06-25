@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dsda3qjlgn71f" path="res://scenes/player/gun.tscn" id="4_dqkch"]
 [ext_resource type="Texture2D" uid="uid://bkuibr6a5s5cr" path="res://assets/certainty/player/certainty_parry.png" id="6_qek5x"]
 [ext_resource type="Texture2D" uid="uid://haot0scjyqjv" path="res://assets/certainty/player/certatinty_running.png" id="7_qek5x"]
+[ext_resource type="AudioStream" uid="uid://c17l0w3ei4fy8" path="res://assets/certainty/sounds/Parry.wav" id="10_h17s1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h17s1"]
 atlas = ExtResource("3_0owmy")
@@ -226,6 +227,9 @@ position = Vector2(4.035, -7.395)
 
 [node name="HitFlashAnim" type="AnimationPlayer" parent="." unique_id=257162380]
 libraries/ = SubResource("AnimationLibrary_p47bc")
+
+[node name="Parry" type="AudioStreamPlayer" parent="." unique_id=1996900979]
+stream = ExtResource("10_h17s1")
 
 [connection signal="animation_finished" from="Animations" to="." method="_on_animations_animation_finished"]
 [connection signal="area_entered" from="Hurtbox" to="." method="take_damage"]

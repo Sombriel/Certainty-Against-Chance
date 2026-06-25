@@ -3,7 +3,6 @@ extends Control
 func _ready() -> void:
 	$TempWinScreen.hide()
 	$BossHPBar.hide()
-	$Money.hide()
 	$PlayerHealth.hide()
 
 func update_chip_count(chip_amount: int) -> void:
@@ -22,10 +21,11 @@ func _update_health(health: int) -> void:
 
 func _on_start_battle() -> void:
 	$BossHPBar.show()
-	$Money.show()
 	$PlayerHealth.show()
 	fade_out_bg()
 
 func fade_out_bg() -> void:
 	var tween = create_tween()
 	tween.tween_property($Darken, "color:a", 0.0, 1.5).set_trans(Tween.TRANS_LINEAR)
+	await tween.finished
+	$Darken.queue_free()

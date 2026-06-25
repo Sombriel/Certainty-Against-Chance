@@ -9,20 +9,17 @@ class_name Chip extends Area2D
 @export var wander_amplitude: float = 80.0   # How far it drifts up/down (pixels/sec)
 @export var wander_frequency: float = 1.8    # How often it changes vertical direction
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
-
 ## Set by the spawner before the chip enters the scene — 1 = right, -1 = left
 var direction: int = 0
 var _time: float = 0.0
 var _phase: float = 0.0   # Random per-chip offset so chips don't wander in sync
+var is_dead: bool = false
 
 func _ready() -> void:
 	_phase = randf() * TAU
-	if texture and sprite_2d:
-		sprite_2d.texture = texture
 
 func _process(delta: float) -> void:
-	if direction == 0:
+	if direction == 0 or is_dead:
 		return
  
 	_time += delta
@@ -41,5 +38,8 @@ func take_damage(area: Area2D) -> void:
 		area.queue_free()
 	
 	if health <= 0:
+		is_dead = true
 		get_tree().get_first_node_in_group("player").add_chips(value)
+		$Animations.play("death")
+		await $Animations.animation_finished
 		queue_free()
