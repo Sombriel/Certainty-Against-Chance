@@ -64,6 +64,7 @@ animation = &"death"
 position = Vector2(0, 25)
 scale = Vector2(9.240001, 11.64)
 shape = SubResource("RectangleShape2D_0xsra")
+disabled = true
 
 [node name="CardAttack" parent="." unique_id=621134816 instance=ExtResource("3_atjq5")]
 

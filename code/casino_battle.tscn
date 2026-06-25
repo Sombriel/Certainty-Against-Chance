@@ -170,6 +170,7 @@ script = ExtResource("3_8g7nn")
 [node name="Boss" parent="BossPatrolPath/PathFollow2D" unique_id=1835714852 instance=ExtResource("2_n2nmj")]
 position = Vector2(598.1404, -66.75402)
 rotation = 0.0020833302
+monitorable = false
 
 [node name="BossPauses" type="Timer" parent="BossPatrolPath/PathFollow2D" unique_id=1863464568]
 wait_time = 3.0

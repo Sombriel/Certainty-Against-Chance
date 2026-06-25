@@ -19,7 +19,6 @@ func _ready() -> void:
 	hit.emit(health)
 	$AnimatedSprite2D.play("default")
 	$ParryArea.monitorable = false
-	self.monitorable = false
 
 func choose_attack() -> void:
 	attacks.pick_random().start()
@@ -67,4 +66,4 @@ func _on_certainty_parried_boss() -> void:
 	print(effect)
 
 func _on_start_battle() -> void:
-	self.monitorable = true
+	$Hurtbox.disabled = false
