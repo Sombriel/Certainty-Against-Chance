@@ -40,7 +40,6 @@ func _process(_delta: float) -> void:
 		$Animation.play("default")
 		
 		if not $Bullet.playing:
-			$Bullet.pitch_scale = randf_range(0.8, 1.0)
 			$Bullet.play()
 	else:
 		$Animation.play("idle")
