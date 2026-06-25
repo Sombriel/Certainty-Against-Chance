@@ -3,6 +3,7 @@ extends Control
 #holy fuck this is awful and ass
 
 signal tutorial_finished
+signal cleanup_start_parry_box
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -43,3 +44,10 @@ func fade_in_text() -> void:
 func fade_out_text() -> void:
 	var tween = create_tween()
 	tween.tween_property($TextDisplay, "modulate:a", 0.0, 1.5).set_trans(Tween.TRANS_LINEAR)
+
+func _on_start_battle() -> void:
+	cleanup_start_parry_box.emit()
+	$TextDisplay.text = "Shoot the flying chips to get money and SPIN MORE!"
+	await get_tree().create_timer(8.0).timeout
+	fade_out_text()
+	

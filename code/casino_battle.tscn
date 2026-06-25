@@ -170,6 +170,7 @@ position = Vector2(598.1404, -66.75402)
 rotation = 0.0020833302
 
 [node name="BossPauses" type="Timer" parent="BossPatrolPath/PathFollow2D" unique_id=1863464568]
+wait_time = 3.0
 one_shot = true
 
 [node name="ChipSpawner" type="Node2D" parent="." unique_id=444611763]
@@ -204,6 +205,7 @@ position = Vector2(-2, 179.00002)
 scale = Vector2(7.245, 7.245)
 shape = SubResource("RectangleShape2D_4r3d0")
 
+[connection signal="cleanup_start_parry_box" from="CanvasLayer/Tutorial" to="StartBattleParryArea" method="_cleanup_start_parry_box"]
 [connection signal="tutorial_finished" from="CanvasLayer/Tutorial" to="StartBattleParryArea" method="_on_tutorial_finished"]
 [connection signal="parried_boss" from="Certainty" to="BossPatrolPath/PathFollow2D/Boss" method="_on_certainty_parried_boss"]
 [connection signal="update_chips" from="Certainty" to="UI" method="update_chip_count"]
@@ -216,5 +218,7 @@ shape = SubResource("RectangleShape2D_4r3d0")
 [connection signal="positive_effect" from="BossPatrolPath/PathFollow2D/Boss" to="Certainty" method="_rolled_positive_effect"]
 [connection signal="timeout" from="BossPatrolPath/PathFollow2D/BossPauses" to="BossPatrolPath/PathFollow2D" method="_on_boss_pauses_timeout"]
 [connection signal="timeout" from="ChipSpawner/ChipSpawner" to="ChipSpawner" method="spawn_chip"]
+[connection signal="start_battle" from="StartBattleParryArea" to="CanvasLayer/Tutorial" method="_on_start_battle"]
+[connection signal="start_battle" from="StartBattleParryArea" to="UI" method="_on_start_battle"]
 [connection signal="start_battle" from="StartBattleParryArea" to="BossPatrolPath/PathFollow2D" method="_on_start_battle"]
 [connection signal="start_battle" from="StartBattleParryArea" to="ChipSpawner" method="_on_start_battle_"]

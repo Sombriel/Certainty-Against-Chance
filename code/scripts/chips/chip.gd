@@ -40,6 +40,6 @@ func take_damage(area: Area2D) -> void:
 		health -= area.damage
 		area.queue_free()
 	
-	if health == 0:
+	if health <= 0:
 		get_tree().get_first_node_in_group("player").add_chips(value)
 		queue_free()

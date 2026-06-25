@@ -19,3 +19,8 @@ func _roll_insta_win() -> void:
 
 func _update_health(health: int) -> void:
 	$PlayerHealth.value = health
+
+func _on_start_battle() -> void:
+	$BossHPBar.show()
+	$Money.show()
+	$PlayerHealth.show()

@@ -7,3 +7,6 @@ func _on_tutorial_finished() -> void:
 
 func start_casino_battle() -> void:
 	start_battle.emit()
+
+func _cleanup_start_parry_box() -> void:
+	queue_free()
