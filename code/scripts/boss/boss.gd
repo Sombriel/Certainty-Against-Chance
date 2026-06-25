@@ -66,4 +66,9 @@ func _on_certainty_parried_boss() -> void:
 
 func _on_start_battle() -> void:
 	$Hurtbox.set_deferred("disabled", false)
+	$AnimatedSprite2D.play("patrol")
 	
+
+func _on_tutorial_finished() -> void:
+	$AnimatedSprite2D.play("roll")
+	z_index += 1

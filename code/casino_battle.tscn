@@ -368,7 +368,7 @@ loop = false
 script = ExtResource("3_8g7nn")
 
 [node name="Boss" parent="BossPatrolPath/PathFollow2D" unique_id=1835714852 instance=ExtResource("2_n2nmj")]
-position = Vector2(597.8768, 16.755623)
+position = Vector2(597.99554, -40.244255)
 rotation = 0.0020833302
 monitorable = false
 
@@ -426,6 +426,7 @@ autoplay = true
 
 [connection signal="chips_spawn" from="CanvasLayer/Tutorial" to="ChipSpawner" method="_on_start_spawning_"]
 [connection signal="cleanup_start_parry_box" from="CanvasLayer/Tutorial" to="StartBattleParryArea" method="_cleanup_start_parry_box"]
+[connection signal="tutorial_finished" from="CanvasLayer/Tutorial" to="BossPatrolPath/PathFollow2D/Boss" method="_on_tutorial_finished"]
 [connection signal="tutorial_finished" from="CanvasLayer/Tutorial" to="StartBattleParryArea" method="_on_tutorial_finished"]
 [connection signal="parried_boss" from="Certainty" to="BossPatrolPath/PathFollow2D/Boss" method="_on_certainty_parried_boss"]
 [connection signal="player_death" from="Certainty" to="UI" method="_on_certainty_death"]
