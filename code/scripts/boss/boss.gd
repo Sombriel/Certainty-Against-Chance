@@ -12,7 +12,7 @@ signal insta_loss
 
 @onready var attacks: Array = [$CardAttack, $DiceAttack]
 
-var health: int = 10000
+var health: int = 15000
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

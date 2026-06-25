@@ -202,7 +202,7 @@ dash_again_timer = NodePath("DashAgainTimer")
 [node name="Animations" type="AnimatedSprite2D" parent="." unique_id=1169131373]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_03puy")
-animation = &"death"
+animation = &"dash"
 autoplay = "idle"
 
 [node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1078135658]

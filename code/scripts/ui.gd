@@ -27,6 +27,7 @@ func _update_health(health: int) -> void:
 func _on_start_battle() -> void:
 	$BossHPBar.show()
 	$PlayerHealth.show()
+	$CertaintyHP.play("default")
 	fade_out_bg()
 
 func fade_out_bg() -> void:
@@ -45,3 +46,8 @@ func _input(event):
 		else:
 			$PauseMenu.hide()
 			$PauseMenu/CanvasLayer.hide()
+
+
+func _on_boss_death() -> void:
+	get_tree().paused = true
+	$WinScreen.show()
