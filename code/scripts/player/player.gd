@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 
 		if Input.is_action_just_pressed("Jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
-			$Jump.pitch_scale = randf_range(0.8, 0.9)
+			$Jump.pitch_scale = randf_range(0.7, 1.0)
 			$Jump.play()
 		
 		#aka parry
@@ -95,6 +95,7 @@ func _dash() -> void:
 	hurtbox.set_deferred("monitoring", false)
 	dash_timer.start()
 	dash_again_timer.start()
+	$Dash.play()
 
 func _parry_pause_effect() -> void:
 	get_tree().paused = true
@@ -119,6 +120,8 @@ func take_damage(area: Area2D) -> void:
 	if area.is_in_group("dice") or area.is_in_group("cards"):
 		health = clampi(health - area.damage, 0, 200)
 		area.queue_free()
+		$Damage.pitch_scale = randf_range(0.7, 1.0)
+		$Damage.play()
 	
 	if health <= 0:
 		die()
@@ -134,6 +137,7 @@ func die() -> void:
 	$Animations.play("death")
 	$Gun.hide()
 	player_death.emit()
+	$Hurtbox.monitorable = false
 
 func _rolled_positive_effect() -> void:
 	$Gun.add_positive_stack()

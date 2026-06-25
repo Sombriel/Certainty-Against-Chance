@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://di0dpm53ix44k" path="res://scenes/chips/fifty_chip.tscn" id="8_okbkv"]
 [ext_resource type="PackedScene" uid="uid://qhg61t7j8dsm" path="res://scenes/tutorial.tscn" id="10_4r3d0"]
 [ext_resource type="Script" uid="uid://bjgvyqov5m867" path="res://scripts/start_battle_parry_area.gd" id="11_w80up"]
+[ext_resource type="AudioStream" uid="uid://bjft4mfek7h8t" path="res://assets/certainty/sounds/BackgroundMusic.wav" id="12_lo4ax"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pq6o8"]
 
@@ -215,6 +216,11 @@ script = ExtResource("11_w80up")
 position = Vector2(-2, 179.00002)
 scale = Vector2(7.245, 7.245)
 shape = SubResource("RectangleShape2D_4r3d0")
+
+[node name="Background" type="AudioStreamPlayer" parent="." unique_id=2031885656]
+stream = ExtResource("12_lo4ax")
+volume_db = -30.0
+autoplay = true
 
 [connection signal="cleanup_start_parry_box" from="CanvasLayer/Tutorial" to="StartBattleParryArea" method="_cleanup_start_parry_box"]
 [connection signal="tutorial_finished" from="CanvasLayer/Tutorial" to="StartBattleParryArea" method="_on_tutorial_finished"]

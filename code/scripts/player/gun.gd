@@ -9,6 +9,7 @@ extends Node2D
 const EFFECT_MARGIN: int = 10
 
 var can_fire: bool = true
+var is_shooting: bool = false
 var positive_effect: bool = false
 var negative_effect: bool = false
 var effect_stack: int = 0
@@ -30,6 +31,7 @@ func _process(_delta: float) -> void:
 		scale.y = 1
 
 	if Input.is_action_pressed("Shoot") and can_fire:
+		is_shooting = true
 		can_fire = false
 		cooldown.start()
 		var bullet_instance = bullet.instantiate()
@@ -38,10 +40,9 @@ func _process(_delta: float) -> void:
 		bullet_instance.global_position = bullet_spawnpoint.global_position
 		bullet_instance.rotation = global_rotation
 		$Animation.play("default")
-		
-		if not $Bullet.playing:
-			$Bullet.play()
+		$Bullet.play()
 	else:
+		is_shooting = false
 		$Animation.play("idle")
 
 func add_positive_stack() -> void:

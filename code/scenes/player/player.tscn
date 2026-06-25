@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://haot0scjyqjv" path="res://assets/certainty/player/certatinty_running.png" id="7_qek5x"]
 [ext_resource type="AudioStream" uid="uid://c17l0w3ei4fy8" path="res://assets/certainty/sounds/Parry.wav" id="10_h17s1"]
 [ext_resource type="AudioStream" uid="uid://bhm83budmlatw" path="res://assets/certainty/sounds/Jump.wav" id="11_je7p5"]
+[ext_resource type="AudioStream" uid="uid://dpttdyf3t61e8" path="res://assets/certainty/sounds/TakeDamageRip.wav" id="12_fm80t"]
+[ext_resource type="AudioStream" uid="uid://cnfk4gd42jx2t" path="res://assets/certainty/sounds/Dash.wav" id="13_gx1jg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h17s1"]
 atlas = ExtResource("3_0owmy")
@@ -174,10 +176,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03puy"]
-size = Vector2(182.97873, 331.91492)
+size = Vector2(174.47012, 318.87857)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pq6o8"]
-size = Vector2(14, 22)
+size = Vector2(14, 21.291605)
 
 [sub_resource type="Animation" id="Animation_lvxji"]
 resource_name = "hit_flash"
@@ -204,16 +206,16 @@ animation = &"death"
 autoplay = "idle"
 
 [node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1078135658]
-position = Vector2(0.49999952, 0.99999976)
-scale = Vector2(0.235, 0.235)
+position = Vector2(0, -1.0903447)
+scale = Vector2(0.23499727, 0.19499803)
 shape = SubResource("RectangleShape2D_03puy")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1909851701]
 collision_mask = 72
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1624753451]
-position = Vector2(0.49999952, 0.99999976)
-scale = Vector2(0.235, 0.235)
+position = Vector2(0, -1.0324849)
+scale = Vector2(2.9149976, 2.9149976)
 shape = SubResource("RectangleShape2D_pq6o8")
 
 [node name="DashTimer" type="Timer" parent="." unique_id=1368735163]
@@ -236,6 +238,14 @@ stream = ExtResource("10_h17s1")
 stream = ExtResource("11_je7p5")
 volume_db = -10.0
 pitch_scale = 0.8
+
+[node name="Damage" type="AudioStreamPlayer" parent="." unique_id=1152501672]
+stream = ExtResource("12_fm80t")
+volume_db = -10.0
+
+[node name="Dash" type="AudioStreamPlayer" parent="." unique_id=459743875]
+stream = ExtResource("13_gx1jg")
+volume_db = -20.0
 
 [connection signal="animation_finished" from="Animations" to="." method="_on_animations_animation_finished"]
 [connection signal="area_entered" from="Hurtbox" to="." method="take_damage"]
