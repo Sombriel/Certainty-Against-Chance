@@ -3,7 +3,6 @@ extends Control
 func _ready() -> void:
 	$TempWinScreen.hide()
 	$BossHPBar.hide()
-	$PlayerHealth.hide()
 
 func update_chip_count(chip_amount: int) -> void:
 	$Money.text = str(chip_amount)
@@ -20,7 +19,6 @@ func _roll_insta_loss() -> void:
 	$LoseScreen/Lose.text += str(" You rolled an instant loss :(")
 
 func _update_health(health: int) -> void:
-	$PlayerHealth.value = health
 	if health == 100:
 		$CertaintyHP.frame = 10
 	elif health >= 90:
@@ -39,14 +37,13 @@ func _update_health(health: int) -> void:
 		$CertaintyHP.frame = 3
 	elif health >= 20:
 		$CertaintyHP.frame = 2
-	elif health >= 10:
+	elif health >= 5:
 		$CertaintyHP.frame = 1
 	else:
 		$CertaintyHP.frame = 0
 
 func _on_start_battle() -> void:
 	$BossHPBar.show()
-	$PlayerHealth.show()
 	$CertaintyHP.play("default")
 	fade_out_bg()
 

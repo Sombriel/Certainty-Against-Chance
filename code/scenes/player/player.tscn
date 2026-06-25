@@ -247,6 +247,7 @@ volume_db = -10.0
 stream = ExtResource("13_gx1jg")
 volume_db = -20.0
 
+[connection signal="player_death" from="." to="Gun" method="_on_certainty_death"]
 [connection signal="animation_finished" from="Animations" to="." method="_on_animations_animation_finished"]
 [connection signal="area_entered" from="Hurtbox" to="." method="take_damage"]
 [connection signal="timeout" from="DashTimer" to="." method="end_of_dash"]

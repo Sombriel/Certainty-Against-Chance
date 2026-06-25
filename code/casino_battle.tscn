@@ -150,6 +150,7 @@ grow_vertical = 2
 texture = ExtResource("3_lo4ax")
 
 [node name="Darken" type="ColorRect" parent="UI" unique_id=278201200]
+z_index = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -196,21 +197,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 60
 text = "YOU WIN"
-
-[node name="PlayerHealth" type="ProgressBar" parent="UI" unique_id=1665959296]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -72.0
-offset_top = -44.0
-offset_right = -23.0
-offset_bottom = -17.0
-grow_horizontal = 0
-grow_vertical = 0
-value = 100.0
 
 [node name="PauseMenu" type="Control" parent="UI" unique_id=1930821898]
 process_mode = 3
@@ -311,10 +297,12 @@ theme_override_fonts/font = ExtResource("4_xk3ta")
 text = "YOU LOSE"
 
 [node name="CertaintyHP" type="AnimatedSprite2D" parent="UI" unique_id=2097478017]
+z_index = 1
 position = Vector2(1085, 593)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 
 [node name="Certainty" parent="." unique_id=997640124 instance=ExtResource("1_etsyx")]
+z_index = 1
 position = Vector2(597, 525)
 
 [node name="Level" type="Node2D" parent="." unique_id=526227043]
@@ -353,8 +341,9 @@ position = Vector2(0, 124)
 curve = SubResource("Curve2D_aqby3")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="BossPatrolPath" unique_id=1255438030]
-position = Vector2(482, 154)
+position = Vector2(2.0896027, 153.49)
 rotation = -0.0020833302
+progress = 479.9107
 rotates = false
 loop = false
 script = ExtResource("3_8g7nn")

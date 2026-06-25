@@ -21,6 +21,7 @@ animations = [{
 }]
 
 [node name="ChipBase" type="Area2D" unique_id=138741377 groups=["chips"]]
+z_index = 1
 collision_layer = 32
 collision_mask = 4
 script = ExtResource("1_d4k6f")

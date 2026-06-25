@@ -53,3 +53,6 @@ func add_negative_stack() -> void:
 
 func _on_cooldown_timeout() -> void:
 	can_fire = true
+
+func _on_certainty_death() -> void:
+	can_fire = false
