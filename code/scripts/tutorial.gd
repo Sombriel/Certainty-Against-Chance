@@ -42,8 +42,9 @@ func _ready() -> void:
 	await get_tree().create_timer(3.0).timeout
 	$TextDisplay.text = "Try your chances now...Certainty"
 	fade_in_text()
-	
 	tutorial_finished.emit()
+	await get_tree().create_timer(8.0).timeout
+	fade_out_text()
 
 func fade_in_text() -> void:
 	var tween = create_tween()

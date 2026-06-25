@@ -113,8 +113,9 @@ func _on_dash_again_timer_timeout() -> void:
 func take_damage(area: Area2D) -> void:
 	if area.is_in_group("parryable") and chips == 100:
 		can_parry = true
-		if area.has_signal("start_battle") and Input.is_action_just_pressed("Jump"):
+		if area.has_signal("start_battle"):
 			area.start_battle.emit()
+			print_debug("STARTED")
 		return
 	
 	if area.is_in_group("dice") or area.is_in_group("cards"):
@@ -142,12 +143,12 @@ func die() -> void:
 func _rolled_positive_effect() -> void:
 	$Gun.add_positive_stack()
 	clamp(health + 10, 0, 200)
-	SPEED = clamp(SPEED + 150, 200, 400)
+	SPEED = clamp(SPEED + 150, 150, 400)
 
 func _rolled_negative_effect() -> void:
 	$Gun.add_negative_stack()
 	chips = clampi(chips - 75, -50, 100)
-	SPEED = clampi(SPEED - 100, 200, 400)
+	SPEED = clampi(SPEED - 100, 150, 400)
 
 
 func _on_animations_animation_finished() -> void:
