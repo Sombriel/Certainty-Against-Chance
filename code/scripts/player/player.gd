@@ -22,7 +22,6 @@ var health: int = 100:
 var chips: int = 0:
 	set(new_chips):
 		update_chips.emit(new_chips)
-		#prints(chips)
 		chips = new_chips
 var is_dashing: bool = false
 var can_dash: bool = true
@@ -104,8 +103,9 @@ func _on_dash_again_timer_timeout() -> void:
 	can_dash = true
 
 func take_damage(area: Area2D) -> void:
-	if area.is_in_group("parryable"):
+	if area.is_in_group("parryable") and chips >= 100:
 		can_parry = true
+		chips = clamp(chips - 100, -50, 999)
 		if area.has_signal("start_battle"):
 			area.start_battle.emit()
 		return
@@ -136,6 +136,7 @@ func _rolled_positive_effect() -> void:
 
 func _rolled_negative_effect() -> void:
 	$Gun.add_negative_stack()
+	chips = clamp(chips - 75, -50, 999)
 	SPEED = clamp(SPEED - 100, 200, 400)
 
 
