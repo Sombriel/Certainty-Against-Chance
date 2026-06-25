@@ -70,3 +70,61 @@ func _on_boss_death() -> void:
 
 func _on_certainty_death() -> void:
 	$LoseScreen.show()
+
+func _on_boss_positive_effect() -> void:
+	$EffectIndicator.flip_v = false
+	$EffectIndicator.show()
+	
+	# Track when this specific effect started
+	var start_time = Time.get_ticks_msec() * 0.001
+	var current_duration = 0.0
+	
+	# Loop manually for exactly 4 seconds
+	while current_duration < 4.0:
+		# Calculate your own absolute running time for the wave math
+		var absolute_time = Time.get_ticks_msec() * 0.001
+		var time_scaled = absolute_time * 5.0
+		
+		# Generate unique overlapping sine wave patterns
+		var r = sin(time_scaled) * 0.5 + 0.5
+		var g = sin(time_scaled + 2.0) * 0.5 + 0.5
+		var b = sin(time_scaled + 4.0) * 0.5 + 0.5
+		
+		$EffectIndicator.modulate = Color(r, g, b, 1.0)
+		
+		# Wait 1 frame before running the loop again (simulates delta)
+		await get_tree().process_frame
+		
+		# Update how long this loop has been running
+		current_duration = (Time.get_ticks_msec() * 0.001) - start_time
+		
+	$EffectIndicator.hide()
+
+
+func _on_boss_negative_effect() -> void:
+	$EffectIndicator.flip_v = true
+	$EffectIndicator.show()
+	
+	var start_time = Time.get_ticks_msec() * 0.001
+	var current_duration = 0.0
+	
+	while current_duration < 4.0:
+		var absolute_time = Time.get_ticks_msec() * 0.001
+		var time_scaled = absolute_time * 15.0
+		
+		var trigger = round(sin(time_scaled) * 0.5 + 0.5)
+		
+		if trigger == 1:
+			$EffectIndicator.modulate = Color(10, 0, 0, 1) # Note: Fixed 'modulate' to '$EffectIndicator.modulate'
+		else:
+			$EffectIndicator.modulate = Color.BLACK
+			
+		# Wait 1 frame before looping again
+		await get_tree().process_frame
+		
+		current_duration = (Time.get_ticks_msec() * 0.001) - start_time
+		
+	$EffectIndicator.hide()
+	
+	await get_tree().create_timer(4.0).timeout
+	$EffectIndicator.hide()
