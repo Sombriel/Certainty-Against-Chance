@@ -26,7 +26,7 @@ func _ready() -> void:
 	await get_tree().create_timer(8.0).timeout
 	fade_out_text()
 	await get_tree().create_timer(3.0).timeout
-	$TextDisplay.text = "Pressing SPACEBAR in the air again allows you to SPIN"
+	$TextDisplay.text = "Pressing SPACEBAR while in the air allows you to SPIN"
 	fade_in_text()
 	
 	await get_tree().create_timer(8.0).timeout

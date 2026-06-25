@@ -22,3 +22,6 @@ func spawn_chip() -> void:
 	add_child(spawned_chip)
 	
 	spawned_chip.global_position = spawnpoint.global_position
+
+func _on_boss_death() -> void:
+	$ChipSpawner.stop()

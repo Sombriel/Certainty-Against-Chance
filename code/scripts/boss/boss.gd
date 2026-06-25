@@ -10,12 +10,9 @@ signal negative_effect
 signal insta_win
 signal insta_loss
 
-@export var CardAttack: PackedScene
-@export var DiceAttack: PackedScene
-
 @onready var attacks: Array = [$CardAttack, $DiceAttack]
 
-var health: int = 8000
+var health: int = 10000
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -50,6 +50,7 @@ size_flags_horizontal = 4
 script = ExtResource("1_okbkv")
 
 [node name="Background" type="TextureRect" parent="UI" unique_id=1905380405]
+modulate = Color(1, 1, 1, 0.37254903)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -65,7 +66,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.6117647)
+color = Color(0, 0, 0, 0.6862745)
 
 [node name="Money" type="Label" parent="UI" unique_id=105915168]
 layout_mode = 1
@@ -85,8 +86,8 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 27.0
 grow_horizontal = 2
-max_value = 8000.0
-value = 8000.0
+max_value = 10000.0
+value = 10000.0
 
 [node name="TempWinScreen" type="Label" parent="UI" unique_id=957436585]
 visible = false
@@ -155,6 +156,7 @@ collision_layer = 16
 shape = SubResource("WorldBoundaryShape2D_751ah")
 
 [node name="BossPatrolPath" type="Path2D" parent="." unique_id=1419230429]
+position = Vector2(0, 124)
 curve = SubResource("Curve2D_aqby3")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="BossPatrolPath" unique_id=1255438030]
@@ -191,7 +193,7 @@ position = Vector2(1151, 200)
 position = Vector2(1155, 439)
 
 [node name="ChipSpawner" type="Timer" parent="ChipSpawner" unique_id=536713009]
-wait_time = 2.0
+wait_time = 2.5
 
 [node name="StartBattleParryArea" type="Area2D" parent="." unique_id=1003956765 groups=["parryable"]]
 position = Vector2(595, 189)
@@ -211,6 +213,9 @@ shape = SubResource("RectangleShape2D_4r3d0")
 [connection signal="update_health" from="Certainty" to="UI" method="_update_health"]
 [connection signal="patrol_attack_chance" from="BossPatrolPath/PathFollow2D" to="BossPatrolPath/PathFollow2D/Boss" method="attack_chance"]
 [connection signal="area_entered" from="BossPatrolPath/PathFollow2D/Boss" to="BossPatrolPath/PathFollow2D/Boss" method="bullet_damage"]
+[connection signal="death" from="BossPatrolPath/PathFollow2D/Boss" to="Certainty" method="_on_boss_death"]
+[connection signal="death" from="BossPatrolPath/PathFollow2D/Boss" to="BossPatrolPath/PathFollow2D" method="_on_boss_death"]
+[connection signal="death" from="BossPatrolPath/PathFollow2D/Boss" to="ChipSpawner" method="_on_boss_death"]
 [connection signal="hit" from="BossPatrolPath/PathFollow2D/Boss" to="UI" method="update_boss_hp"]
 [connection signal="insta_win" from="BossPatrolPath/PathFollow2D/Boss" to="UI" method="_roll_insta_win"]
 [connection signal="negative_effect" from="BossPatrolPath/PathFollow2D/Boss" to="Certainty" method="_rolled_negative_effect"]

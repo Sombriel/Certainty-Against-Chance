@@ -41,3 +41,7 @@ func _on_boss_pauses_timeout() -> void:
 
 func _on_start_battle() -> void:
 	can_patrol = true
+
+
+func _on_boss_death() -> void:
+	can_patrol = false

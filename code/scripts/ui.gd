@@ -24,3 +24,8 @@ func _on_start_battle() -> void:
 	$BossHPBar.show()
 	$Money.show()
 	$PlayerHealth.show()
+	fade_out_bg()
+
+func fade_out_bg() -> void:
+	var tween = create_tween()
+	tween.tween_property($Darken, "color:a", 0.0, 1.5).set_trans(Tween.TRANS_LINEAR)

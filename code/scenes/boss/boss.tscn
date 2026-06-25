@@ -71,7 +71,8 @@ shape = SubResource("RectangleShape2D_0xsra")
 libraries/ = SubResource("AnimationLibrary_i4fbv")
 
 [node name="ParryArea" type="Area2D" parent="." unique_id=1885551942 groups=["parryable"]]
-position = Vector2(0, 138)
+modulate = Color(1, 0, 1, 1)
+position = Vector2(0, -23)
 collision_layer = 66
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParryArea" unique_id=182703468]

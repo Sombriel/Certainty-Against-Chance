@@ -30,9 +30,10 @@ var dash_direction: float = 1.0
 var can_parry: bool = false
 var is_parrying: bool = false
 var is_dead: bool = false
+var lock_movement: bool = false
 
 func _physics_process(delta: float) -> void:
-	if is_dead:
+	if is_dead or lock_movement:
 		return
 	
 	if is_dashing:
@@ -140,3 +141,8 @@ func _rolled_negative_effect() -> void:
 
 func _on_animations_animation_finished() -> void:
 	is_parrying = false
+
+
+func _on_boss_death() -> void:
+	lock_movement = true
+	
