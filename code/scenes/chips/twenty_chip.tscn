@@ -1,9 +1,101 @@
 [gd_scene format=3 uid="uid://efxlpu4gt536"]
 
 [ext_resource type="PackedScene" uid="uid://cvoavl7u70fmq" path="res://scenes/chips/chip_base.tscn" id="1_8pofc"]
+[ext_resource type="Texture2D" uid="uid://bw2ivowhi74et" path="res://assets/boss/chips/20chip_flying.png" id="2_0aywj"]
+[ext_resource type="Texture2D" uid="uid://ddrom3b7i5ryh" path="res://assets/boss/chips/20chip_death.png" id="2_yxl51"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvxnv"]
+atlas = ExtResource("2_yxl51")
+region = Rect2(0, 0, 1600, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_meibq"]
+atlas = ExtResource("2_yxl51")
+region = Rect2(1600, 0, 1600, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqjim"]
+atlas = ExtResource("2_yxl51")
+region = Rect2(3200, 0, 1600, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8fm5"]
+atlas = ExtResource("2_yxl51")
+region = Rect2(4800, 0, 1600, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_is08r"]
+atlas = ExtResource("2_yxl51")
+region = Rect2(6400, 0, 1600, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eeyc7"]
+atlas = ExtResource("2_yxl51")
+region = Rect2(8000, 0, 1600, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxl51"]
+atlas = ExtResource("2_0aywj")
+region = Rect2(0, 0, 1600, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbs0w"]
+atlas = ExtResource("2_0aywj")
+region = Rect2(1600, 0, 1600, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbx2y"]
+atlas = ExtResource("2_0aywj")
+region = Rect2(3200, 0, 1600, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77320"]
+atlas = ExtResource("2_0aywj")
+region = Rect2(4800, 0, 1600, 1600)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s1sr2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvxnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_meibq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqjim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8fm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_is08r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eeyc7")
+}],
+"loop": 0,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxl51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbs0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbx2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77320")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbx2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbs0w")
+}],
+"loop": 1,
+"name": &"flying",
+"speed": 5.0
+}]
 
 [node name="TwentyChip" unique_id=138741377 instance=ExtResource("1_8pofc")]
 value = 20
 
-[node name="Sprite2D" parent="." index="1" unique_id=2002603748]
-modulate = Color(0.101960786, 0.14509805, 1, 1)
+[node name="Animations" parent="." index="1" unique_id=1625495054]
+sprite_frames = SubResource("SpriteFrames_s1sr2")
+animation = &"flying"

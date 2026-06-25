@@ -1,5 +1,101 @@
 [gd_scene format=3 uid="uid://dype3txno7bni"]
 
 [ext_resource type="PackedScene" uid="uid://cvoavl7u70fmq" path="res://scenes/chips/chip_base.tscn" id="1_safvr"]
+[ext_resource type="Texture2D" uid="uid://r013dt1ouf25" path="res://assets/boss/chips/10chip_death.png" id="2_k3mih"]
+[ext_resource type="Texture2D" uid="uid://cvpfrarjrutjs" path="res://assets/boss/chips/10chip_flying.png" id="2_n47xt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdt4g"]
+atlas = ExtResource("2_k3mih")
+region = Rect2(0, 0, 1600, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_liba1"]
+atlas = ExtResource("2_k3mih")
+region = Rect2(1600, 0, 1600, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qxcc"]
+atlas = ExtResource("2_k3mih")
+region = Rect2(3200, 0, 1600, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dl8ej"]
+atlas = ExtResource("2_k3mih")
+region = Rect2(4800, 0, 1600, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wh3gn"]
+atlas = ExtResource("2_k3mih")
+region = Rect2(6400, 0, 1600, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_165xn"]
+atlas = ExtResource("2_k3mih")
+region = Rect2(8000, 0, 1600, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n47xt"]
+atlas = ExtResource("2_n47xt")
+region = Rect2(0, 0, 1600, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3mih"]
+atlas = ExtResource("2_n47xt")
+region = Rect2(1600, 0, 1600, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hf5v6"]
+atlas = ExtResource("2_n47xt")
+region = Rect2(3200, 0, 1600, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1a02v"]
+atlas = ExtResource("2_n47xt")
+region = Rect2(4800, 0, 1600, 1600)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tdt4g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdt4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_liba1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qxcc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dl8ej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wh3gn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_165xn")
+}],
+"loop": 0,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n47xt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3mih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hf5v6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a02v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hf5v6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3mih")
+}],
+"loop": 1,
+"name": &"flying",
+"speed": 5.0
+}]
 
 [node name="TenChip" unique_id=138741377 instance=ExtResource("1_safvr")]
+
+[node name="Animations" parent="." index="1" unique_id=1625495054]
+sprite_frames = SubResource("SpriteFrames_tdt4g")
+animation = &"flying"
+frame_progress = 0.9544726

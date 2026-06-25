@@ -4,6 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://b46hwar6lvfda" path="res://assets/temp/10Chip.png" id="2_iojgd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ijpt"]
+radius = 15.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"flying",
+"speed": 5.0
+}]
 
 [node name="ChipBase" type="Area2D" unique_id=138741377 groups=["chips"]]
 collision_layer = 32
@@ -13,13 +27,18 @@ texture = ExtResource("2_iojgd")
 wander_amplitude = 90.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=976651740]
+scale = Vector2(1.2799981, 1.2799981)
 shape = SubResource("CircleShape2D_1ijpt")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2002603748]
+[node name="Animations" type="AnimatedSprite2D" parent="." unique_id=1625495054]
+texture_filter = 1
 scale = Vector2(0.0400002, 0.0400002)
-texture = ExtResource("2_iojgd")
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"death"
+autoplay = "flying"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1699401838]
+scale = Vector2(1.9599991, 1.9599991)
 
 [connection signal="area_entered" from="." to="." method="take_damage"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="exited_screen"]

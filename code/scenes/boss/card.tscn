@@ -1,16 +1,48 @@
 [gd_scene format=3 uid="uid://b8852mnl83udf"]
 
 [ext_resource type="Script" uid="uid://8rg4gb1wyggq" path="res://scripts/boss/attacks/card_attack/card.gd" id="1_c4v1m"]
-[ext_resource type="Texture2D" uid="uid://bduj11m1wleq2" path="res://assets/temp/CuteCards.png" id="1_ew8ln"]
+[ext_resource type="Texture2D" uid="uid://db2sdho67r4rg" path="res://assets/boss/attacks/card_attack/card_falling.png" id="2_c4v1m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lxd8w"]
 size = Vector2(44, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51xcs"]
+atlas = ExtResource("2_c4v1m")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qem85"]
+atlas = ExtResource("2_c4v1m")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1dc2"]
+atlas = ExtResource("2_c4v1m")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a657o"]
+atlas = ExtResource("2_c4v1m")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hj3mn"]
+atlas = ExtResource("2_c4v1m")
+region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c4v1m"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_ew8ln")
+"texture": SubResource("AtlasTexture_51xcs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qem85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1dc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a657o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hj3mn")
 }],
 "loop": 1,
 "name": &"default",
@@ -28,6 +60,7 @@ shape = SubResource("RectangleShape2D_lxd8w")
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_c4v1m")
 autoplay = "default"
+frame_progress = 0.36189222
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=179982381]
 scale = Vector2(2.1980646, 2.9199998)

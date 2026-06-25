@@ -1,9 +1,59 @@
 [gd_scene format=3 uid="uid://di0dpm53ix44k"]
 
 [ext_resource type="PackedScene" uid="uid://cvoavl7u70fmq" path="res://scenes/chips/chip_base.tscn" id="1_r80lx"]
+[ext_resource type="Texture2D" uid="uid://c62j7rqj3f2jp" path="res://assets/boss/chips/50chip_flying.png" id="2_cx5mb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cx5mb"]
+atlas = ExtResource("2_cx5mb")
+region = Rect2(0, 0, 1600, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtsj6"]
+atlas = ExtResource("2_cx5mb")
+region = Rect2(1600, 0, 1600, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4oo03"]
+atlas = ExtResource("2_cx5mb")
+region = Rect2(3200, 0, 1600, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqke7"]
+atlas = ExtResource("2_cx5mb")
+region = Rect2(4800, 0, 1600, 1600)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w80up"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cx5mb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtsj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4oo03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqke7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4oo03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtsj6")
+}],
+"loop": 1,
+"name": &"flying",
+"speed": 5.0
+}]
 
 [node name="FiftyChip" unique_id=138741377 instance=ExtResource("1_r80lx")]
 value = 50
 
-[node name="Sprite2D" parent="." index="1" unique_id=2002603748]
-modulate = Color(0.49803922, 0.047058824, 1, 1)
+[node name="Animations" parent="." index="1" unique_id=1625495054]
+sprite_frames = SubResource("SpriteFrames_w80up")
+animation = &"flying"
+frame_progress = 0.83513796
