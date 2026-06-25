@@ -165,6 +165,64 @@ scale = Vector2(2.28, 2.28)
 theme_override_fonts/font = ExtResource("4_xk3ta")
 text = "PAUSED"
 
+[node name="WinScreen" type="CanvasLayer" parent="UI" unique_id=1059506514]
+layer = 5
+visible = false
+
+[node name="Darken" type="ColorRect" parent="UI/WinScreen" unique_id=1220454267]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.72156864)
+
+[node name="Win" type="Label" parent="UI/WinScreen" unique_id=1505090378]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -11.5
+offset_right = 28.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.28, 2.28)
+theme_override_fonts/font = ExtResource("4_xk3ta")
+text = "YOU WIN"
+
+[node name="LoseScreen" type="CanvasLayer" parent="UI" unique_id=1634514506]
+layer = 5
+visible = false
+
+[node name="Darken" type="ColorRect" parent="UI/LoseScreen" unique_id=822489695]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.72156864)
+
+[node name="Lose" type="Label" parent="UI/LoseScreen" unique_id=711517963]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -11.5
+offset_right = 28.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.28, 2.28)
+theme_override_fonts/font = ExtResource("4_xk3ta")
+text = "YOU LOSE"
+
 [node name="Certainty" parent="." unique_id=997640124 instance=ExtResource("1_etsyx")]
 position = Vector2(597, 525)
 
@@ -281,6 +339,7 @@ autoplay = true
 [connection signal="death" from="BossPatrolPath/PathFollow2D/Boss" to="BossPatrolPath/PathFollow2D" method="_on_boss_death"]
 [connection signal="death" from="BossPatrolPath/PathFollow2D/Boss" to="ChipSpawner" method="_on_boss_death"]
 [connection signal="hit" from="BossPatrolPath/PathFollow2D/Boss" to="UI" method="update_boss_hp"]
+[connection signal="insta_loss" from="BossPatrolPath/PathFollow2D/Boss" to="UI" method="_roll_insta_loss"]
 [connection signal="insta_win" from="BossPatrolPath/PathFollow2D/Boss" to="UI" method="_roll_insta_win"]
 [connection signal="negative_effect" from="BossPatrolPath/PathFollow2D/Boss" to="Certainty" method="_rolled_negative_effect"]
 [connection signal="positive_effect" from="BossPatrolPath/PathFollow2D/Boss" to="Certainty" method="_rolled_positive_effect"]

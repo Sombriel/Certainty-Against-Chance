@@ -13,8 +13,13 @@ func update_boss_hp(health: int) -> void:
 
 func _roll_insta_win() -> void:
 	get_tree().paused = true
-	$TempWinScreen.show()
-	
+	$WinScreen.show()
+	$WinScreen/Win.text += str(" You rolled an insta-win :)")
+
+func _roll_insta_loss() -> void:
+	get_tree().paused = true
+	$LoseScreen.show()
+	$LoseScreen/Lose.text += str(" You rolled an instant loss :(")
 
 func _update_health(health: int) -> void:
 	$PlayerHealth.value = health
