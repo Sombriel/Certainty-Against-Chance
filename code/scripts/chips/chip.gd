@@ -39,6 +39,7 @@ func take_damage(area: Area2D) -> void:
 	
 	if health <= 0:
 		is_dead = true
+		$Death.play()
 		$CollisionShape2D.set_deferred("disabled", true)
 		get_tree().get_first_node_in_group("player").add_chips(value)
 		$Animations.play("death")

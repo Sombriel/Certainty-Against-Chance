@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://e67b1pltr8ll" path="res://scripts/chips/chip.gd" id="1_d4k6f"]
 [ext_resource type="Texture2D" uid="uid://b46hwar6lvfda" path="res://assets/temp/10Chip.png" id="2_iojgd"]
+[ext_resource type="AudioStream" uid="uid://dfcx02latkc7b" path="res://assets/boss/sounds/Poker Chips Sound (2).mp3" id="3_htqbk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ijpt"]
 radius = 15.0
@@ -39,6 +40,10 @@ autoplay = "flying"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1699401838]
 scale = Vector2(1.9599991, 1.9599991)
+
+[node name="Death" type="AudioStreamPlayer" parent="." unique_id=1741548094]
+stream = ExtResource("3_htqbk")
+volume_db = -5.0
 
 [connection signal="area_entered" from="." to="." method="take_damage"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="exited_screen"]

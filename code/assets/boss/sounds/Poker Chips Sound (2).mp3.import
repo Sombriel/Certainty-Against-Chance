@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dfcx02latkc7b"
+path="res://.godot/imported/Poker Chips Sound (2).mp3-4042f770ff7cfe6264adc1b81eade334.mp3str"
+
+[deps]
+
+source_file="res://assets/boss/sounds/Poker Chips Sound (2).mp3"
+dest_files=["res://.godot/imported/Poker Chips Sound (2).mp3-4042f770ff7cfe6264adc1b81eade334.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
