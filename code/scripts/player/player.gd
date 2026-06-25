@@ -12,7 +12,7 @@ signal parried_boss
 
 var SPEED = 300.0
 const JUMP_VELOCITY = -500.0
-const DASH_SPEED: float = 900.0
+var DASH_SPEED: float = 900.0
 
 var health: int = 100:
 	set(new_health):
@@ -142,13 +142,15 @@ func die() -> void:
 
 func _rolled_positive_effect() -> void:
 	$Gun.add_positive_stack()
-	clamp(health + 10, 0, 200)
+	health = clampi(health + 20, 0, 200)
 	SPEED = clamp(SPEED + 150, 150, 400)
+	DASH_SPEED = clampf(DASH_SPEED + 200, 700, 1000)
 
 func _rolled_negative_effect() -> void:
 	$Gun.add_negative_stack()
 	chips = clampi(chips - 75, -50, 100)
 	SPEED = clampi(SPEED - 100, 150, 400)
+	DASH_SPEED = clampf(DASH_SPEED - 100, 700, 1000)
 
 
 func _on_animations_animation_finished() -> void:
@@ -156,4 +158,5 @@ func _on_animations_animation_finished() -> void:
 
 func _on_boss_death() -> void:
 	lock_movement = true
+	$Gun.can_fire = false
 	
