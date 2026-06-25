@@ -29,3 +29,14 @@ func fade_out_bg() -> void:
 	tween.tween_property($Darken, "color:a", 0.0, 1.5).set_trans(Tween.TRANS_LINEAR)
 	await tween.finished
 	$Darken.queue_free()
+
+func _input(event):
+	if event.is_action_pressed("Pause"):
+		get_tree().paused = !get_tree().paused
+	
+		if get_tree().paused:
+			$PauseMenu.show()
+			$PauseMenu/CanvasLayer.show()
+		else:
+			$PauseMenu.hide()
+			$PauseMenu/CanvasLayer.hide()

@@ -43,7 +43,7 @@ scale = Vector2(1.9599991, 1.9599991)
 
 [node name="Death" type="AudioStreamPlayer" parent="." unique_id=1741548094]
 stream = ExtResource("3_htqbk")
-volume_db = -5.0
+volume_db = -10.0
 
 [connection signal="area_entered" from="." to="." method="take_damage"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="exited_screen"]
