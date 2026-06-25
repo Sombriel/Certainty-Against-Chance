@@ -206,6 +206,7 @@ script = ExtResource("11_w80up")
 position = Vector2(-2, 179.00002)
 scale = Vector2(7.245, 7.245)
 shape = SubResource("RectangleShape2D_4r3d0")
+disabled = true
 
 [node name="TutorialSkipParry" type="Area2D" parent="." unique_id=152651603 groups=["parryable"]]
 position = Vector2(96, 189)

@@ -129,7 +129,7 @@ func take_damage(area: Area2D) -> void:
 	prints(health)
 
 func add_chips(payout: int) -> void:
-	chips += payout
+	chips = clamp(chips + payout, -50, 100)
 
 func die() -> void:
 	is_dead = true
