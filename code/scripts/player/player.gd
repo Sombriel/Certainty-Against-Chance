@@ -138,7 +138,7 @@ func die() -> void:
 	$Animations.play("death")
 	$Gun.hide()
 	player_death.emit()
-	$Hurtbox.monitorable = false
+	$Hurtbox/CollisionShape2D.set_deferred("disabled", true)
 
 func _rolled_positive_effect() -> void:
 	$Gun.add_positive_stack()

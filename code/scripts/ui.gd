@@ -13,16 +13,36 @@ func update_boss_hp(health: int) -> void:
 
 func _roll_insta_win() -> void:
 	get_tree().paused = true
-	$WinScreen.show()
 	$WinScreen/Win.text += str(" You rolled an insta-win :)")
 
 func _roll_insta_loss() -> void:
-	get_tree().paused = true
 	$LoseScreen.show()
 	$LoseScreen/Lose.text += str(" You rolled an instant loss :(")
 
 func _update_health(health: int) -> void:
 	$PlayerHealth.value = health
+	if health == 100:
+		$CertaintyHP.frame = 10
+	elif health >= 90:
+		$CertaintyHP.frame = 9
+	elif health >= 80:
+		$CertaintyHP.frame = 8
+	elif health >= 70:
+		$CertaintyHP.frame = 7
+	elif health >= 60:
+		$CertaintyHP.frame = 6
+	elif health >= 50:
+		$CertaintyHP.frame = 5
+	elif health >= 40:
+		$CertaintyHP.frame = 4
+	elif health >= 30:
+		$CertaintyHP.frame = 3
+	elif health >= 20:
+		$CertaintyHP.frame = 2
+	elif health >= 10:
+		$CertaintyHP.frame = 1
+	else:
+		$CertaintyHP.frame = 0
 
 func _on_start_battle() -> void:
 	$BossHPBar.show()
@@ -49,5 +69,7 @@ func _input(event):
 
 
 func _on_boss_death() -> void:
-	get_tree().paused = true
 	$WinScreen.show()
+
+func _on_certainty_death() -> void:
+	$LoseScreen.show()
