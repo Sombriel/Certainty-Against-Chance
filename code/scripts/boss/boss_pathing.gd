@@ -31,9 +31,6 @@ func _process(delta):
 		patrol_attack_chance.emit()
 		$BossPauses.start()
 		$Boss/ParryArea.monitorable = true
-		##add an attack here
-	
-	#print(snapped(progress_ratio, 0.01))
 
 func _on_boss_pauses_timeout() -> void:
 	patrol_pause = false
@@ -41,7 +38,6 @@ func _on_boss_pauses_timeout() -> void:
 
 func _on_start_battle() -> void:
 	can_patrol = true
-
 
 func _on_boss_death() -> void:
 	can_patrol = false

@@ -55,7 +55,7 @@ func _physics_process(delta: float) -> void:
 		
 		#aka parry
 		if Input.is_action_just_pressed("Jump") and not is_on_floor() and can_parry:
-			chips = clampi(chips - 100, -50, 999)
+			chips = clampi(chips - 100, -50, 100)
 			parried_boss.emit()
 			can_parry = false
 			is_parrying = true
@@ -111,9 +111,9 @@ func _on_dash_again_timer_timeout() -> void:
 	can_dash = true
 
 func take_damage(area: Area2D) -> void:
-	if area.is_in_group("parryable") and chips >= 100:
+	if area.is_in_group("parryable") and chips == 100:
 		can_parry = true
-		if area.has_signal("start_battle"):
+		if area.has_signal("start_battle") and Input.is_action_just_pressed("Jump"):
 			area.start_battle.emit()
 		return
 	
@@ -146,7 +146,7 @@ func _rolled_positive_effect() -> void:
 
 func _rolled_negative_effect() -> void:
 	$Gun.add_negative_stack()
-	chips = clampi(chips - 75, -50, 999)
+	chips = clampi(chips - 75, -50, 100)
 	SPEED = clampi(SPEED - 100, 200, 400)
 
 

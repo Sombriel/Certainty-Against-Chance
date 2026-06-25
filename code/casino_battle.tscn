@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://b8i5bdvins6o2" path="res://scripts/ui.gd" id="1_okbkv"]
 [ext_resource type="PackedScene" uid="uid://bn5c00va54yf5" path="res://scenes/boss/boss.tscn" id="2_n2nmj"]
 [ext_resource type="Script" uid="uid://c6ur55yhd2d3" path="res://scripts/boss/boss_pathing.gd" id="3_8g7nn"]
-[ext_resource type="Texture2D" uid="uid://dwbb3mxkod2km" path="res://assets/temp/temp_background.jpg" id="4_8g7nn"]
+[ext_resource type="Texture2D" uid="uid://cu72s22jj344o" path="res://assets/background.png" id="3_lo4ax"]
 [ext_resource type="Script" uid="uid://bcjso7o3f2ybo" path="res://scripts/chips/chips_spawn.gd" id="5_qcisb"]
 [ext_resource type="PackedScene" uid="uid://dype3txno7bni" path="res://scenes/chips/ten_chip.tscn" id="6_aqby3"]
 [ext_resource type="PackedScene" uid="uid://efxlpu4gt536" path="res://scenes/chips/twenty_chip.tscn" id="7_aoy07"]
@@ -51,14 +51,14 @@ size_flags_horizontal = 4
 script = ExtResource("1_okbkv")
 
 [node name="Background" type="TextureRect" parent="UI" unique_id=1905380405]
-modulate = Color(1, 1, 1, 0.37254903)
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_8g7nn")
+texture = ExtResource("3_lo4ax")
 
 [node name="Darken" type="ColorRect" parent="UI" unique_id=278201200]
 layout_mode = 1
@@ -67,7 +67,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.6862745)
+color = Color(0, 0, 0, 0.72156864)
 
 [node name="Money" type="Label" parent="UI" unique_id=105915168]
 layout_mode = 1
