@@ -424,6 +424,9 @@ stream = ExtResource("12_lo4ax")
 volume_db = -30.0
 autoplay = true
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1953568262]
+position = Vector2(573, 325)
+
 [connection signal="chips_spawn" from="CanvasLayer/Tutorial" to="ChipSpawner" method="_on_start_spawning_"]
 [connection signal="cleanup_start_parry_box" from="CanvasLayer/Tutorial" to="StartBattleParryArea" method="_cleanup_start_parry_box"]
 [connection signal="tutorial_finished" from="CanvasLayer/Tutorial" to="BossPatrolPath/PathFollow2D/Boss" method="_on_tutorial_finished"]

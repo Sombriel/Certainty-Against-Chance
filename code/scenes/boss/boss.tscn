@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://c3upscetd7kl" path="res://scripts/boss/boss.gd" id="1_0xsra"]
 [ext_resource type="Texture2D" uid="uid://dwck4q1mrt3j8" path="res://assets/boss/chance_patrol.png" id="2_wf233"]
 [ext_resource type="PackedScene" uid="uid://djssygf1sbalp" path="res://scenes/boss/card_attack.tscn" id="3_atjq5"]
-[ext_resource type="Texture2D" uid="uid://gcb4ikgwybvl" path="res://assets/boss/chance_parry.png" id="3_wf233"]
 [ext_resource type="PackedScene" uid="uid://b7gy65lqy6soo" path="res://scenes/boss/dice_attack.tscn" id="4_0xsra"]
 [ext_resource type="AudioStream" uid="uid://dtv2te1mmejfw" path="res://assets/boss/sounds/Buff Roll 2.wav" id="6_wf233"]
 [ext_resource type="AudioStream" uid="uid://dlbfv0pbrowp6" path="res://assets/boss/sounds/Debuff Roll 2.wav" id="7_dlpkd"]
@@ -23,42 +22,6 @@ region = Rect2(3840, 0, 1920, 1920)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2mupd"]
 atlas = ExtResource("2_wf233")
 region = Rect2(5760, 0, 1920, 1920)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p4gry"]
-atlas = ExtResource("3_wf233")
-region = Rect2(0, 0, 1920, 1920)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xsifj"]
-atlas = ExtResource("3_wf233")
-region = Rect2(1920, 0, 1920, 1920)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5bqv2"]
-atlas = ExtResource("3_wf233")
-region = Rect2(3840, 0, 1920, 1920)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jghey"]
-atlas = ExtResource("3_wf233")
-region = Rect2(5760, 0, 1920, 1920)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wxk8e"]
-atlas = ExtResource("3_wf233")
-region = Rect2(7680, 0, 1920, 1920)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r432h"]
-atlas = ExtResource("3_wf233")
-region = Rect2(9600, 0, 1920, 1920)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tdkbu"]
-atlas = ExtResource("3_wf233")
-region = Rect2(11520, 0, 1920, 1920)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rrgoe"]
-atlas = ExtResource("3_wf233")
-region = Rect2(13440, 0, 1920, 1920)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pxtfd"]
-atlas = ExtResource("3_wf233")
-region = Rect2(15360, 0, 1920, 1920)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
@@ -84,34 +47,7 @@ animations = [{
 "name": &"patrol",
 "speed": 5.0
 }, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p4gry")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xsifj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5bqv2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jghey")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wxk8e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r432h")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tdkbu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rrgoe")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pxtfd")
-}],
+"frames": [],
 "loop": 0,
 "name": &"roll",
 "speed": 5.0
