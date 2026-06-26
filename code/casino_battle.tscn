@@ -21,56 +21,25 @@
 font = ExtResource("4_xk3ta")
 font_size = 37
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mebq0"]
-atlas = ExtResource("5_pqe18")
-region = Rect2(1200, 0, 120, 96)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ei7v7"]
 atlas = ExtResource("5_pqe18")
-region = Rect2(1080, 0, 120, 96)
+region = Rect2(0, 18, 128, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3b6x"]
 atlas = ExtResource("5_pqe18")
-region = Rect2(960, 0, 120, 96)
+region = Rect2(128, 18, 128, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j626r"]
 atlas = ExtResource("5_pqe18")
-region = Rect2(840, 0, 120, 96)
+region = Rect2(256, 18, 128, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_khk5e"]
 atlas = ExtResource("5_pqe18")
-region = Rect2(720, 0, 120, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ma7bh"]
-atlas = ExtResource("5_pqe18")
-region = Rect2(600, 0, 120, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nbu5y"]
-atlas = ExtResource("5_pqe18")
-region = Rect2(480, 0, 120, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qj78u"]
-atlas = ExtResource("5_pqe18")
-region = Rect2(360, 0, 120, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lwpqi"]
-atlas = ExtResource("5_pqe18")
-region = Rect2(240, 0, 120, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_icwy2"]
-atlas = ExtResource("5_pqe18")
-region = Rect2(120, 0, 120, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vj3md"]
-atlas = ExtResource("5_pqe18")
-region = Rect2(0, 0, 120, 96)
+region = Rect2(384, 18, 128, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mebq0")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ei7v7")
 }, {
@@ -82,24 +51,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_khk5e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ma7bh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nbu5y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qj78u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lwpqi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_icwy2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vj3md")
 }],
 "loop": 0,
 "name": &"default",
@@ -349,6 +300,8 @@ text = "YOU LOSE"
 z_index = 1
 position = Vector2(1085, 593)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
+frame = 3
+frame_progress = 1.0
 
 [node name="EffectIndicator" type="TextureRect" parent="UI" unique_id=916660690]
 visible = false
