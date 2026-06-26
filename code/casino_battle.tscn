@@ -170,7 +170,7 @@ offset_top = -50.0
 offset_right = 40.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 36
-text = "0"
+text = "Chips: 0"
 
 [node name="BossHPBar" type="ProgressBar" parent="UI" unique_id=1940673419]
 modulate = Color(1, 0, 0, 1)

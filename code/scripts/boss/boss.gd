@@ -31,6 +31,7 @@ func bullet_damage(area: Area2D) -> void:
 	
 	if health <= 0:
 		$AnimatedSprite2D.play("death")
+		$DeathSound.play()
 		death.emit()
 	
 	hit.emit(health)

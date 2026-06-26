@@ -10,40 +10,40 @@ signal chips_spawn
 func _ready() -> void:
 	fade_in_text()
 	
-	await get_tree().create_timer(8.0).timeout
+	await get_tree().create_timer(8.0, false).timeout
 	
 	fade_out_text()
 	
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(3.0, false).timeout
 	$TextDisplay.text = "Press SHIFT to DASH you are INVULNERABLE throughout this dash"
 	fade_in_text()
 	
-	await get_tree().create_timer(8.0).timeout
+	await get_tree().create_timer(8.0, false).timeout
 	fade_out_text()
 	
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(3.0, false).timeout
 	$TextDisplay.text = "Press LEFT CLICK to SHOOT where your cursor is"
 	fade_in_text()
-	await get_tree().create_timer(8.0).timeout
+	await get_tree().create_timer(8.0, false).timeout
 	fade_out_text()
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(3.0, false).timeout
 	$TextDisplay.text = "Shooting CHIPS grants you playing chips to SPIN! Grab 100 chips!"
 	chips_spawn.emit()
 	fade_in_text()
-	await get_tree().create_timer(8.0).timeout
+	await get_tree().create_timer(8.0, false).timeout
 	fade_out_text()
 	
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(3.0, false).timeout
 	$TextDisplay.text = "Pressing SPACEBAR while in the air allows you to SPIN"
 	fade_in_text()
 	
-	await get_tree().create_timer(8.0).timeout
+	await get_tree().create_timer(8.0, false).timeout
 	fade_out_text()
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(3.0, false).timeout
 	$TextDisplay.text = "Try your chances now...Certainty"
 	fade_in_text()
 	tutorial_finished.emit()
-	await get_tree().create_timer(8.0).timeout
+	await get_tree().create_timer(8.0, false).timeout
 	fade_out_text()
 
 func fade_in_text() -> void:

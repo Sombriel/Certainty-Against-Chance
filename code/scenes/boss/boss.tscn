@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b7gy65lqy6soo" path="res://scenes/boss/dice_attack.tscn" id="4_0xsra"]
 [ext_resource type="AudioStream" uid="uid://dtv2te1mmejfw" path="res://assets/boss/sounds/Buff Roll 2.wav" id="6_wf233"]
 [ext_resource type="AudioStream" uid="uid://dlbfv0pbrowp6" path="res://assets/boss/sounds/Debuff Roll 2.wav" id="7_dlpkd"]
+[ext_resource type="AudioStream" uid="uid://b7u2p071batgi" path="res://assets/boss/sounds/Jackpot.wav" id="7_wf233"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wf233"]
 atlas = ExtResource("2_wf233")
@@ -82,7 +83,6 @@ scale = Vector2(0.175, 0.175)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"roll"
 autoplay = "patrol"
-frame = 8
 frame_progress = 1.0
 
 [node name="Hurtbox" type="CollisionShape2D" parent="." unique_id=683075658]
@@ -115,5 +115,9 @@ volume_db = -10.0
 [node name="PlayerDebuffEffect" type="AudioStreamPlayer" parent="." unique_id=1998460529]
 stream = ExtResource("7_dlpkd")
 volume_db = -10.0
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="." unique_id=1782387412]
+stream = ExtResource("7_wf233")
+volume_db = -15.0
 
 [connection signal="area_entered" from="ParryArea" to="." method="_on_parry_area_entered"]
