@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://lq8ggyn72c2i"]
 
 [ext_resource type="Script" uid="uid://bp4pctdunbpnx" path="res://scripts/player/bullet.gd" id="1_j5eos"]
-[ext_resource type="Texture2D" uid="uid://6onme8ditr1a" path="res://assets/temp/temp_bullet.png" id="2_0td6m"]
+[ext_resource type="Texture2D" uid="uid://cdb7x3efy1ic4" path="res://assets/certainty/gun/cashout_bullet.png" id="2_j5eos"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_03puy"]
 radius = 8.008692
@@ -13,12 +13,9 @@ collision_mask = 2
 script = ExtResource("1_j5eos")
 
 [node name="Texture" type="Sprite2D" parent="." unique_id=232648659]
-rotation = 1.5707964
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_0td6m")
+texture = ExtResource("2_j5eos")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=239210357]
-position = Vector2(-4, 0)
 rotation = 1.5707964
 scale = Vector2(3.000002, 6.6399984)
 shape = SubResource("CircleShape2D_03puy")

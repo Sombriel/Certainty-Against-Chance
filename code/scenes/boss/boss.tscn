@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c3upscetd7kl" path="res://scripts/boss/boss.gd" id="1_0xsra"]
 [ext_resource type="Shader" uid="uid://cln8m0k64e3ol" path="res://scripts/boss/shaders/hit_flash.gdshader" id="2_dlpkd"]
 [ext_resource type="Texture2D" uid="uid://dwck4q1mrt3j8" path="res://assets/boss/chance_patrol.png" id="2_wf233"]
+[ext_resource type="Texture2D" uid="uid://dtnj2pg5jr44y" path="res://assets/boss/chance_death.png" id="3_2mupd"]
 [ext_resource type="PackedScene" uid="uid://djssygf1sbalp" path="res://scenes/boss/card_attack.tscn" id="3_atjq5"]
 [ext_resource type="Texture2D" uid="uid://gcb4ikgwybvl" path="res://assets/boss/chance_parry.png" id="3_wf233"]
 [ext_resource type="PackedScene" uid="uid://b7gy65lqy6soo" path="res://scenes/boss/dice_attack.tscn" id="4_0xsra"]
@@ -17,6 +18,22 @@ size = Vector2(20, 26.975945)
 shader = ExtResource("2_dlpkd")
 shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
 shader_parameter/hit_flash_on = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxk8e"]
+atlas = ExtResource("3_2mupd")
+region = Rect2(0, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r432h"]
+atlas = ExtResource("3_2mupd")
+region = Rect2(1920, 0, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdkbu"]
+atlas = ExtResource("3_2mupd")
+region = Rect2(0, 1920, 1920, 1920)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrgoe"]
+atlas = ExtResource("3_2mupd")
+region = Rect2(1920, 1920, 1920, 1920)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wf233"]
 atlas = ExtResource("2_wf233")
@@ -52,10 +69,22 @@ region = Rect2(1664, 1664, 1664, 1664)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxk8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r432h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdkbu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrgoe")
+}],
 "loop": 1,
 "name": &"death",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -123,8 +152,9 @@ disabled = true
 material = SubResource("ShaderMaterial_ugbui")
 scale = Vector2(0.175, 0.175)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"roll"
+animation = &"death"
 autoplay = "patrol"
+frame_progress = 0.40302825
 
 [node name="CardAttack" parent="." unique_id=621134816 instance=ExtResource("3_atjq5")]
 
