@@ -14,6 +14,7 @@ signal increase_patrol_speed
 @onready var attacks: Array = [$CardAttack, $DiceAttack]
 
 var health: int = 15000
+var _speed_thresholds: Array[float] = [0.75, 0.50, 0.25]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,9 +36,7 @@ func bullet_damage(area: Area2D) -> void:
 		$AnimatedSprite2D.play("death")
 		$DeathSound.play()
 		death.emit()
-	elif health <= 1000:
-		increase_patrol_speed.emit()
-	
+
 	hit.emit(health)
 
 func attack_chance() -> void:
@@ -81,3 +80,11 @@ func flash_hit() -> void:
 	$AnimatedSprite2D.material.set_shader_parameter("hit_flash_on", true)
 	await get_tree().create_timer(0.1, false).timeout
 	$AnimatedSprite2D.material.set_shader_parameter("hit_flash_on", false)
+
+func _check_speed_thresholds() -> void:
+	if _speed_thresholds.is_empty():
+		return
+	if float(health) / 15000.0 <= _speed_thresholds[0]:
+		increase_patrol_speed.emit()
+		_speed_thresholds.remove_at(0)
+		print_debug("PATROL SPEED INCREASED")
