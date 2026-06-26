@@ -461,6 +461,7 @@ position = Vector2(573, 325)
 [connection signal="death" from="BossPatrolPath/PathFollow2D/Boss" to="BossPatrolPath/PathFollow2D" method="_on_boss_death"]
 [connection signal="death" from="BossPatrolPath/PathFollow2D/Boss" to="ChipSpawner" method="_on_boss_death"]
 [connection signal="hit" from="BossPatrolPath/PathFollow2D/Boss" to="UI" method="update_boss_hp"]
+[connection signal="increase_patrol_speed" from="BossPatrolPath/PathFollow2D/Boss" to="BossPatrolPath/PathFollow2D" method="increase_patrol_speed"]
 [connection signal="insta_loss" from="BossPatrolPath/PathFollow2D/Boss" to="UI" method="_roll_insta_loss"]
 [connection signal="insta_win" from="BossPatrolPath/PathFollow2D/Boss" to="UI" method="_roll_insta_win"]
 [connection signal="negative_effect" from="BossPatrolPath/PathFollow2D/Boss" to="UI" method="_on_boss_negative_effect"]

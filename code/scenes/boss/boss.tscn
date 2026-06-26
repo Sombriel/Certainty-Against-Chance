@@ -157,8 +157,10 @@ autoplay = "patrol"
 frame_progress = 1.0
 
 [node name="CardAttack" parent="." unique_id=621134816 instance=ExtResource("3_atjq5")]
+z_index = 1
 
 [node name="DiceAttack" parent="." unique_id=704000614 instance=ExtResource("4_0xsra")]
+z_index = 1
 
 [node name="HitFlashAnim" type="AnimationPlayer" parent="." unique_id=1512618084]
 libraries/ = SubResource("AnimationLibrary_i4fbv")

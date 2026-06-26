@@ -51,3 +51,6 @@ func _on_start_battle() -> void:
 
 func _on_boss_death() -> void:
 	can_patrol = false
+
+func increase_patrol_speed() -> void:
+	speed += 0.001

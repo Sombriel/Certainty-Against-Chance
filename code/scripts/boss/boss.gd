@@ -9,6 +9,7 @@ signal positive_effect
 signal negative_effect
 signal insta_win
 signal insta_loss
+signal increase_patrol_speed
 
 @onready var attacks: Array = [$CardAttack, $DiceAttack]
 
@@ -34,6 +35,8 @@ func bullet_damage(area: Area2D) -> void:
 		$AnimatedSprite2D.play("death")
 		$DeathSound.play()
 		death.emit()
+	elif health <= 1000:
+		increase_patrol_speed.emit()
 	
 	hit.emit(health)
 
