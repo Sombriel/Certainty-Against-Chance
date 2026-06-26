@@ -176,10 +176,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03puy"]
-size = Vector2(174.47012, 318.87857)
+size = Vector2(161.70401, 302.5672)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pq6o8"]
-size = Vector2(14, 21.291605)
+size = Vector2(13.036033, 20.240156)
 
 [sub_resource type="Animation" id="Animation_lvxji"]
 resource_name = "hit_flash"
@@ -206,7 +206,7 @@ animation = &"dash"
 autoplay = "idle"
 
 [node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1078135658]
-position = Vector2(0, -1.0903447)
+position = Vector2(0, -0.4999993)
 scale = Vector2(0.23499727, 0.19499803)
 shape = SubResource("RectangleShape2D_03puy")
 
@@ -214,7 +214,7 @@ shape = SubResource("RectangleShape2D_03puy")
 collision_mask = 72
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1624753451]
-position = Vector2(0, -1.0324849)
+position = Vector2(6.556511e-07, -0.5000006)
 scale = Vector2(2.9149976, 2.9149976)
 shape = SubResource("RectangleShape2D_pq6o8")
 

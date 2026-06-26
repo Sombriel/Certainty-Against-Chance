@@ -8,6 +8,9 @@
 [ext_resource type="AudioStream" uid="uid://dlbfv0pbrowp6" path="res://assets/boss/sounds/Debuff Roll 2.wav" id="7_dlpkd"]
 [ext_resource type="AudioStream" uid="uid://b7u2p071batgi" path="res://assets/boss/sounds/Jackpot.wav" id="7_wf233"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xsra"]
+size = Vector2(20, 26.975945)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_wf233"]
 atlas = ExtResource("2_wf233")
 region = Rect2(0, 0, 1920, 1920)
@@ -54,9 +57,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xsra"]
-size = Vector2(20, 26.632301)
-
 [sub_resource type="Animation" id="Animation_i4fbv"]
 length = 0.001
 
@@ -78,18 +78,17 @@ collision_layer = 2
 collision_mask = 4
 script = ExtResource("1_0xsra")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=529371656]
-scale = Vector2(0.175, 0.175)
-sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"roll"
-autoplay = "patrol"
-frame_progress = 1.0
-
 [node name="Hurtbox" type="CollisionShape2D" parent="." unique_id=683075658]
-position = Vector2(0, 11.000001)
+position = Vector2(0, 12.999999)
 scale = Vector2(9.240001, 11.64)
 shape = SubResource("RectangleShape2D_0xsra")
 disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=529371656]
+scale = Vector2(0.175, 0.175)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"patrol"
+autoplay = "patrol"
 
 [node name="CardAttack" parent="." unique_id=621134816 instance=ExtResource("3_atjq5")]
 
