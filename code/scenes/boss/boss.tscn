@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://djssygf1sbalp" path="res://scenes/boss/card_attack.tscn" id="3_atjq5"]
 [ext_resource type="Texture2D" uid="uid://gcb4ikgwybvl" path="res://assets/boss/chance_parry.png" id="3_wf233"]
 [ext_resource type="PackedScene" uid="uid://b7gy65lqy6soo" path="res://scenes/boss/dice_attack.tscn" id="4_0xsra"]
-[ext_resource type="AudioStream" uid="uid://8lyl5cqxwjx2" path="res://assets/boss/sounds/Buff Roll.wav" id="6_wf233"]
-[ext_resource type="AudioStream" uid="uid://dh0nunifyps6e" path="res://assets/boss/sounds/Debuff Roll.wav" id="7_dlpkd"]
+[ext_resource type="AudioStream" uid="uid://dtv2te1mmejfw" path="res://assets/boss/sounds/Buff Roll 2.wav" id="6_wf233"]
+[ext_resource type="AudioStream" uid="uid://dlbfv0pbrowp6" path="res://assets/boss/sounds/Debuff Roll 2.wav" id="7_dlpkd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wf233"]
 atlas = ExtResource("2_wf233")
@@ -118,6 +118,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xsra"]
+size = Vector2(20, 26.632301)
 
 [sub_resource type="Animation" id="Animation_i4fbv"]
 length = 0.001
@@ -143,11 +144,13 @@ script = ExtResource("1_0xsra")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=529371656]
 scale = Vector2(0.175, 0.175)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"patrol"
+animation = &"roll"
 autoplay = "patrol"
+frame = 8
+frame_progress = 1.0
 
 [node name="Hurtbox" type="CollisionShape2D" parent="." unique_id=683075658]
-position = Vector2(0, 25)
+position = Vector2(0, 11.000001)
 scale = Vector2(9.240001, 11.64)
 shape = SubResource("RectangleShape2D_0xsra")
 disabled = true
@@ -165,16 +168,16 @@ position = Vector2(-6.42, -52.125)
 collision_layer = 66
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParryArea" unique_id=182703468]
-position = Vector2(-2, 159)
+position = Vector2(6.42, 172.125)
 scale = Vector2(4.29, 4.29)
 shape = SubResource("RectangleShape2D_iva7r")
 
 [node name="PlayerBuffEffect" type="AudioStreamPlayer" parent="." unique_id=1537342217]
 stream = ExtResource("6_wf233")
-volume_db = -15.0
+volume_db = -10.0
 
 [node name="PlayerDebuffEffect" type="AudioStreamPlayer" parent="." unique_id=1998460529]
 stream = ExtResource("7_dlpkd")
-volume_db = -15.0
+volume_db = -10.0
 
 [connection signal="area_entered" from="ParryArea" to="." method="_on_parry_area_entered"]

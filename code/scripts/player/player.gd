@@ -113,7 +113,7 @@ func _on_dash_again_timer_timeout() -> void:
 func take_damage(area: Area2D) -> void:
 	if area.is_in_group("parryable") and chips == 100:
 		can_parry = true
-		if area.has_signal("start_battle"):
+		if area.has_signal("start_battle") and chips == 100:
 			area.start_battle.emit()
 			print_debug("STARTED")
 		return

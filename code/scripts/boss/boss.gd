@@ -17,7 +17,7 @@ var health: int = 15000
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hit.emit(health)
-	$AnimatedSprite2D.play("default")
+	$AnimatedSprite2D.play("patrol")
 	$ParryArea.monitorable = false
 
 func choose_attack() -> void:
