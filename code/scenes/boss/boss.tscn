@@ -53,19 +53,19 @@ region = Rect2(5760, 0, 1920, 1920)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p4gry"]
 atlas = ExtResource("3_wf233")
-region = Rect2(0, 0, 1664, 1664)
+region = Rect2(0, 0, 1920, 1920)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xsifj"]
 atlas = ExtResource("3_wf233")
-region = Rect2(1664, 0, 1664, 1664)
+region = Rect2(1920, 0, 1920, 1920)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5bqv2"]
 atlas = ExtResource("3_wf233")
-region = Rect2(0, 1664, 1664, 1664)
+region = Rect2(0, 1920, 1920, 1920)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jghey"]
 atlas = ExtResource("3_wf233")
-region = Rect2(1664, 1664, 1664, 1664)
+region = Rect2(1920, 1920, 1920, 1920)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
@@ -152,9 +152,9 @@ disabled = true
 material = SubResource("ShaderMaterial_ugbui")
 scale = Vector2(0.175, 0.175)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"death"
+animation = &"roll"
 autoplay = "patrol"
-frame_progress = 0.40302825
+frame_progress = 1.0
 
 [node name="CardAttack" parent="." unique_id=621134816 instance=ExtResource("3_atjq5")]
 
