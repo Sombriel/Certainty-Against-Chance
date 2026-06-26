@@ -422,17 +422,6 @@ scale = Vector2(7.245, 7.245)
 shape = SubResource("RectangleShape2D_4r3d0")
 disabled = true
 
-[node name="TutorialSkipParry" type="Area2D" parent="." unique_id=152651603 groups=["parryable"]]
-visible = false
-position = Vector2(96, 189)
-collision_layer = 66
-script = ExtResource("11_w80up")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TutorialSkipParry" unique_id=2071202590]
-position = Vector2(-2, 179.00002)
-scale = Vector2(7.245, 7.245)
-shape = SubResource("RectangleShape2D_4r3d0")
-
 [node name="Background" type="AudioStreamPlayer" parent="." unique_id=2031885656]
 stream = ExtResource("12_lo4ax")
 volume_db = -30.0

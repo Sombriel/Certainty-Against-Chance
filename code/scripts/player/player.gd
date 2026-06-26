@@ -50,7 +50,6 @@ func _physics_process(delta: float) -> void:
 
 		if Input.is_action_just_pressed("Jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
-			$Jump.pitch_scale = randf_range(0.7, 1.0)
 			$Jump.play()
 		
 		#aka parry
@@ -112,6 +111,7 @@ func _on_dash_again_timer_timeout() -> void:
 
 func take_damage(area: Area2D) -> void:
 	if area.is_in_group("parryable") and chips == 100:
+		print_debug("can parry")
 		can_parry = true
 		if area.has_signal("start_battle") and chips == 100:
 			area.start_battle.emit()
