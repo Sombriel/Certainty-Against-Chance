@@ -11,10 +11,15 @@
 [ext_resource type="PackedScene" uid="uid://dype3txno7bni" path="res://scenes/chips/ten_chip.tscn" id="6_aqby3"]
 [ext_resource type="Texture2D" uid="uid://bs8dkvvyva8mm" path="res://assets/temp/positive_effect_indicator.png" id="6_mebq0"]
 [ext_resource type="PackedScene" uid="uid://efxlpu4gt536" path="res://scenes/chips/twenty_chip.tscn" id="7_aoy07"]
+[ext_resource type="Texture2D" uid="uid://cfqtvlvsxngai" path="res://assets/ui/Sprite-chip_counter.png" id="7_ei7v7"]
 [ext_resource type="PackedScene" uid="uid://di0dpm53ix44k" path="res://scenes/chips/fifty_chip.tscn" id="8_okbkv"]
 [ext_resource type="PackedScene" uid="uid://qhg61t7j8dsm" path="res://scenes/tutorial.tscn" id="10_4r3d0"]
 [ext_resource type="Script" uid="uid://bjgvyqov5m867" path="res://scripts/start_battle_parry_area.gd" id="11_w80up"]
 [ext_resource type="AudioStream" uid="uid://bjft4mfek7h8t" path="res://assets/certainty/sounds/BackgroundMusic.wav" id="12_lo4ax"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i3b6x"]
+font = ExtResource("4_xk3ta")
+font_size = 37
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mebq0"]
 atlas = ExtResource("5_pqe18")
@@ -120,6 +125,7 @@ point_count = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4r3d0"]
 
 [node name="CasinoBattle" type="Node2D" unique_id=1513049662]
+metadata/_edit_vertical_guides_ = [-1343.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1900321174]
 layer = 10
@@ -167,11 +173,15 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -50.0
-offset_right = 40.0
+offset_left = 65.0
+offset_top = -62.0
+offset_right = 201.0
+offset_bottom = -12.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 36
 text = "Chips: 0"
+label_settings = SubResource("LabelSettings_i3b6x")
+vertical_alignment = 1
 
 [node name="BossHPBar" type="ProgressBar" parent="UI" unique_id=1940673419]
 modulate = Color(1, 0, 0, 1)
@@ -356,6 +366,19 @@ grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.105, 0.105)
 texture = ExtResource("6_mebq0")
+
+[node name="ChipsSprite" type="TextureRect" parent="UI" unique_id=1305080461]
+z_index = 1
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -74.599976
+offset_right = 63.0
+offset_bottom = -5.0
+grow_vertical = 0
+texture = ExtResource("7_ei7v7")
 
 [node name="Certainty" parent="." unique_id=997640124 instance=ExtResource("1_etsyx")]
 z_index = 2
