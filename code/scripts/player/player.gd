@@ -142,7 +142,7 @@ func die() -> void:
 
 func _rolled_positive_effect() -> void:
 	$Gun.add_positive_stack()
-	health = clampi(health + 20, 0, 200)
+	health = clampi(health + 1, 0, 3)
 	SPEED = clamp(SPEED + 150, 150, 400)
 	DASH_SPEED = clampf(DASH_SPEED + 200, 700, 1000)
 
