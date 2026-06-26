@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b8852mnl83udf"]
 
 [ext_resource type="Script" uid="uid://8rg4gb1wyggq" path="res://scripts/boss/attacks/card_attack/card.gd" id="1_c4v1m"]
-[ext_resource type="Texture2D" uid="uid://db2sdho67r4rg" path="res://assets/boss/attacks/card_attack/card_falling.png" id="2_c4v1m"]
+[ext_resource type="Texture2D" uid="uid://db2sdho67r4rg" path="res://assets/boss/attacks/card_falling.png" id="2_c4v1m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lxd8w"]
 size = Vector2(44, 62)

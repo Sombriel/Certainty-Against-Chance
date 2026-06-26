@@ -1,7 +1,7 @@
 extends Area2D
 
 var velocity = Vector2.ZERO
-var damage: int = 10
+var damage: int = 1
 
 func _ready() -> void:
 	add_to_group("cards")

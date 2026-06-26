@@ -14,7 +14,7 @@ var SPEED = 300.0
 const JUMP_VELOCITY = -500.0
 var DASH_SPEED: float = 900.0
 
-var health: int = 100:
+var health: int = 3:
 	set(new_health):
 		update_health.emit(new_health)
 		prints(health)
