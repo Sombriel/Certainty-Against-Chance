@@ -21,13 +21,13 @@ func _roll_insta_loss() -> void:
 func _update_health(health: int) -> void:
 	match health:
 		3:
-			$CertaintyHP.frame = 3
-		2:
-			$CertaintyHP.frame = 2
-		1:
-			$CertaintyHP.frame = 1
-		0:
 			$CertaintyHP.frame = 0
+		2:
+			$CertaintyHP.frame = 1
+		1:
+			$CertaintyHP.frame = 2
+		0:
+			$CertaintyHP.frame = 3
 
 func _on_start_battle() -> void:
 	$BossHPBar.show()
