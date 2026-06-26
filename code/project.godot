@@ -18,6 +18,7 @@ config/icon="res://assets/temp/icon.svg"
 [autoload]
 
 RandomnessLogic="*uid://jvr247letkon"
+SkipTutorial="*uid://dflgdoe74ijb7"
 
 [display]
 

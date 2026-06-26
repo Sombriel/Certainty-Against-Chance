@@ -4,6 +4,7 @@
 [ext_resource type="Shader" uid="uid://cln8m0k64e3ol" path="res://scripts/boss/shaders/hit_flash.gdshader" id="2_dlpkd"]
 [ext_resource type="Texture2D" uid="uid://dwck4q1mrt3j8" path="res://assets/boss/chance_patrol.png" id="2_wf233"]
 [ext_resource type="PackedScene" uid="uid://djssygf1sbalp" path="res://scenes/boss/card_attack.tscn" id="3_atjq5"]
+[ext_resource type="Texture2D" uid="uid://gcb4ikgwybvl" path="res://assets/boss/chance_parry.png" id="3_wf233"]
 [ext_resource type="PackedScene" uid="uid://b7gy65lqy6soo" path="res://scenes/boss/dice_attack.tscn" id="4_0xsra"]
 [ext_resource type="AudioStream" uid="uid://dtv2te1mmejfw" path="res://assets/boss/sounds/Buff Roll 2.wav" id="6_wf233"]
 [ext_resource type="AudioStream" uid="uid://dlbfv0pbrowp6" path="res://assets/boss/sounds/Debuff Roll 2.wav" id="7_dlpkd"]
@@ -33,6 +34,22 @@ region = Rect2(3840, 0, 1920, 1920)
 atlas = ExtResource("2_wf233")
 region = Rect2(5760, 0, 1920, 1920)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4gry"]
+atlas = ExtResource("3_wf233")
+region = Rect2(0, 0, 1664, 1664)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsifj"]
+atlas = ExtResource("3_wf233")
+region = Rect2(1664, 0, 1664, 1664)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bqv2"]
+atlas = ExtResource("3_wf233")
+region = Rect2(0, 1664, 1664, 1664)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jghey"]
+atlas = ExtResource("3_wf233")
+region = Rect2(1664, 1664, 1664, 1664)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
 "frames": [],
@@ -57,7 +74,19 @@ animations = [{
 "name": &"patrol",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4gry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsifj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bqv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jghey")
+}],
 "loop": 0,
 "name": &"roll",
 "speed": 5.0
@@ -94,7 +123,7 @@ disabled = true
 material = SubResource("ShaderMaterial_ugbui")
 scale = Vector2(0.175, 0.175)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"patrol"
+animation = &"roll"
 autoplay = "patrol"
 
 [node name="CardAttack" parent="." unique_id=621134816 instance=ExtResource("3_atjq5")]

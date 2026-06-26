@@ -125,6 +125,7 @@ point_count = 2
 layer = 10
 
 [node name="Tutorial" parent="CanvasLayer" unique_id=1780719819 instance=ExtResource("10_4r3d0")]
+mouse_filter = 2
 
 [node name="UI" type="Control" parent="." unique_id=1810352239]
 process_mode = 3
@@ -221,6 +222,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0.72156864)
 
 [node name="Paused" type="Label" parent="UI/PauseMenu/CanvasLayer" unique_id=1872168539]
@@ -241,6 +243,7 @@ theme_override_fonts/font = ExtResource("4_xk3ta")
 text = "PAUSED"
 
 [node name="WinScreen" type="CanvasLayer" parent="UI" unique_id=1059506514]
+process_mode = 3
 layer = 5
 visible = false
 
@@ -250,7 +253,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0.72156864)
+
+[node name="PlayAgain" type="Button" parent="UI/WinScreen" unique_id=96553503]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 9.0
+offset_top = 49.0
+offset_right = 97.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_xk3ta")
+text = "Play Again"
 
 [node name="Win" type="Label" parent="UI/WinScreen" unique_id=1505090378]
 texture_filter = 1
@@ -270,6 +290,7 @@ theme_override_fonts/font = ExtResource("4_xk3ta")
 text = "YOU WIN"
 
 [node name="LoseScreen" type="CanvasLayer" parent="UI" unique_id=1634514506]
+process_mode = 3
 layer = 5
 visible = false
 
@@ -279,7 +300,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0.72156864)
+
+[node name="PlayAgain" type="Button" parent="UI/LoseScreen" unique_id=1869085156]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 59.0
+offset_right = 88.0
+offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_xk3ta")
+text = "Play Again"
 
 [node name="Lose" type="Label" parent="UI/LoseScreen" unique_id=711517963]
 texture_filter = 1
@@ -431,6 +468,8 @@ position = Vector2(573, 325)
 [connection signal="cleanup_start_parry_box" from="CanvasLayer/Tutorial" to="StartBattleParryArea" method="_cleanup_start_parry_box"]
 [connection signal="tutorial_finished" from="CanvasLayer/Tutorial" to="BossPatrolPath/PathFollow2D/Boss" method="_on_tutorial_finished"]
 [connection signal="tutorial_finished" from="CanvasLayer/Tutorial" to="StartBattleParryArea" method="_on_tutorial_finished"]
+[connection signal="pressed" from="UI/WinScreen/PlayAgain" to="UI" method="_on_play_again_pressed"]
+[connection signal="pressed" from="UI/LoseScreen/PlayAgain" to="UI" method="_on_play_again_pressed"]
 [connection signal="parried_boss" from="Certainty" to="BossPatrolPath/PathFollow2D/Boss" method="_on_certainty_parried_boss"]
 [connection signal="player_death" from="Certainty" to="UI" method="_on_certainty_death"]
 [connection signal="player_death" from="Certainty" to="BossPatrolPath/PathFollow2D" method="_on_boss_death"]

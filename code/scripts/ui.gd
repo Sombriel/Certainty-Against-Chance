@@ -67,9 +67,11 @@ func _input(event):
 
 func _on_boss_death() -> void:
 	$WinScreen.show()
+	$WinScreen/PlayAgain.show()
 
 func _on_certainty_death() -> void:
 	$LoseScreen.show()
+	$LoseScreen/PlayAgain.show()
 
 func _on_boss_positive_effect() -> void:
 	$EffectIndicator.flip_v = false
@@ -128,3 +130,9 @@ func _on_boss_negative_effect() -> void:
 	
 	await get_tree().create_timer(4.0).timeout
 	$EffectIndicator.hide()
+
+
+func _on_play_again_pressed() -> void:
+	SkipTutorial.skip_tutorial = true
+	get_tree().paused = false
+	get_tree().reload_current_scene()

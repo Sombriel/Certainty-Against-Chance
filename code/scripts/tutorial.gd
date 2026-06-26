@@ -8,6 +8,12 @@ signal chips_spawn
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if SkipTutorial.skip_tutorial:
+		SkipTutorial.skip_tutorial = false  # reset so next play includes tutorial
+		chips_spawn.emit()
+		tutorial_finished.emit()         # activates StartBattleParryArea directly
+		return                           # skip all tutorial text/timers
+		
 	fade_in_text()
 	
 	await get_tree().create_timer(8.0, false).timeout
