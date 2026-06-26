@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bn5c00va54yf5"]
 
 [ext_resource type="Script" uid="uid://c3upscetd7kl" path="res://scripts/boss/boss.gd" id="1_0xsra"]
+[ext_resource type="Shader" uid="uid://cln8m0k64e3ol" path="res://scripts/boss/shaders/hit_flash.gdshader" id="2_dlpkd"]
 [ext_resource type="Texture2D" uid="uid://dwck4q1mrt3j8" path="res://assets/boss/chance_patrol.png" id="2_wf233"]
 [ext_resource type="PackedScene" uid="uid://djssygf1sbalp" path="res://scenes/boss/card_attack.tscn" id="3_atjq5"]
 [ext_resource type="PackedScene" uid="uid://b7gy65lqy6soo" path="res://scenes/boss/dice_attack.tscn" id="4_0xsra"]
@@ -10,6 +11,11 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xsra"]
 size = Vector2(20, 26.975945)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ugbui"]
+shader = ExtResource("2_dlpkd")
+shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
+shader_parameter/hit_flash_on = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wf233"]
 atlas = ExtResource("2_wf233")
@@ -85,6 +91,7 @@ shape = SubResource("RectangleShape2D_0xsra")
 disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=529371656]
+material = SubResource("ShaderMaterial_ugbui")
 scale = Vector2(0.175, 0.175)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"patrol"

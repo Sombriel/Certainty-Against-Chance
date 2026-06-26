@@ -27,6 +27,7 @@ func bullet_damage(area: Area2D) -> void:
 	if area.is_in_group("bullets"):
 		health -= area.damage
 		$HitFlashAnim.play("hit")
+		flash_hit()
 		area.queue_free()
 	
 	if health <= 0:
@@ -69,7 +70,11 @@ func _on_start_battle() -> void:
 	$Hurtbox.set_deferred("disabled", false)
 	$AnimatedSprite2D.play("patrol")
 	
-
 func _on_tutorial_finished() -> void:
 	$AnimatedSprite2D.play("roll")
 	z_index += 1
+
+func flash_hit() -> void:
+	$AnimatedSprite2D.material.set_shader_parameter("hit_flash_on", true)
+	await get_tree().create_timer(0.1, false).timeout
+	$AnimatedSprite2D.material.set_shader_parameter("hit_flash_on", false)
