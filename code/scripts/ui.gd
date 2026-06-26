@@ -19,28 +19,15 @@ func _roll_insta_loss() -> void:
 	$LoseScreen/Lose.text += str(" You rolled an instant loss :(")
 
 func _update_health(health: int) -> void:
-	if health == 100:
-		$CertaintyHP.frame = 10
-	elif health >= 90:
-		$CertaintyHP.frame = 9
-	elif health >= 80:
-		$CertaintyHP.frame = 8
-	elif health >= 70:
-		$CertaintyHP.frame = 7
-	elif health >= 60:
-		$CertaintyHP.frame = 6
-	elif health >= 50:
-		$CertaintyHP.frame = 5
-	elif health >= 40:
-		$CertaintyHP.frame = 4
-	elif health >= 30:
-		$CertaintyHP.frame = 3
-	elif health >= 20:
-		$CertaintyHP.frame = 2
-	elif health >= 5:
-		$CertaintyHP.frame = 1
-	else:
-		$CertaintyHP.frame = 0
+	match health:
+		3:
+			$CertaintyHP.frame = 3
+		2:
+			$CertaintyHP.frame = 2
+		1:
+			$CertaintyHP.frame = 1
+		0:
+			$CertaintyHP.frame = 0
 
 func _on_start_battle() -> void:
 	$BossHPBar.show()
