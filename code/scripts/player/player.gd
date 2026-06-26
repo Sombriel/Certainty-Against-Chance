@@ -119,12 +119,12 @@ func take_damage(area: Area2D) -> void:
 		return
 	
 	if area.is_in_group("dice") or area.is_in_group("cards"):
-		health = clampi(health - area.damage, 0, 200)
+		health = clampi(health - area.damage, 0, 3)
 		area.queue_free()
 		$Damage.pitch_scale = randf_range(0.7, 1.0)
 		$Damage.play()
 	
-	if health <= 0:
+	if health == 0:
 		die()
 	
 	prints(health)
