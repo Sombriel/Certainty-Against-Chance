@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://qhg61t7j8dsm" path="res://scenes/tutorial.tscn" id="10_4r3d0"]
 [ext_resource type="Script" uid="uid://bjgvyqov5m867" path="res://scripts/start_battle_parry_area.gd" id="11_w80up"]
 [ext_resource type="AudioStream" uid="uid://bjft4mfek7h8t" path="res://assets/certainty/sounds/BackgroundMusic.wav" id="12_lo4ax"]
+[ext_resource type="Script" uid="uid://dee7yvk4v5h3k" path="res://scripts/background.gd" id="17_i3b6x"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i3b6x"]
 font = ExtResource("4_xk3ta")
@@ -436,6 +437,7 @@ shape = SubResource("RectangleShape2D_4r3d0")
 stream = ExtResource("12_lo4ax")
 volume_db = -30.0
 autoplay = true
+script = ExtResource("17_i3b6x")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1953568262]
 position = Vector2(573, 325)
