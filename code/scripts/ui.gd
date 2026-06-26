@@ -5,7 +5,7 @@ func _ready() -> void:
 	$BossHPBar.hide()
 
 func update_chip_count(chip_amount: int) -> void:
-	$Money.text = "Chips: " + str(chip_amount)
+	$Money.text = str(chip_amount)
 
 func update_boss_hp(health: int) -> void:
 	$BossHPBar.value = health
