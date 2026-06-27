@@ -56,3 +56,4 @@ func _on_cooldown_timeout() -> void:
 
 func _on_certainty_death() -> void:
 	can_fire = false
+	print_debug("CANNOT FIRE")
