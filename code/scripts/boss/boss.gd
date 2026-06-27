@@ -16,6 +16,8 @@ signal increase_patrol_speed
 var health: int = 15000
 var _speed_thresholds: Array[float] = [0.75, 0.50, 0.25]
 
+const DAMAGE_NUMBER = preload("uid://c4fpovsk3wl77")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hit.emit(health)
@@ -28,7 +30,9 @@ func choose_attack() -> void:
 func bullet_damage(area: Area2D) -> void:
 	if area.is_in_group("bullets"):
 		health -= area.damage
-		$HitFlashAnim.play("hit")
+		var dmg_popup := DAMAGE_NUMBER.instantiate()
+		get_tree().current_scene.add_child(dmg_popup)
+		dmg_popup.spawn(area.damage, area.global_position)
 		flash_hit()
 		area.queue_free()
 		_check_speed_thresholds()

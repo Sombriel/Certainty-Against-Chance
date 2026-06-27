@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://bjgvyqov5m867" path="res://scripts/start_battle_parry_area.gd" id="11_w80up"]
 [ext_resource type="AudioStream" uid="uid://bjft4mfek7h8t" path="res://assets/certainty/sounds/BackgroundMusic.wav" id="12_lo4ax"]
 [ext_resource type="Script" uid="uid://dee7yvk4v5h3k" path="res://scripts/background.gd" id="17_i3b6x"]
+[ext_resource type="PackedScene" uid="uid://c4fpovsk3wl77" path="res://scenes/player/hit_number.tscn" id="18_j626r"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i3b6x"]
 font = ExtResource("4_xk3ta")
@@ -430,6 +431,9 @@ script = ExtResource("17_i3b6x")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1953568262]
 position = Vector2(573, 325)
+
+[node name="HitNumber" parent="." unique_id=1420546969 instance=ExtResource("18_j626r")]
+z_index = 6
 
 [connection signal="chips_spawn" from="CanvasLayer/Tutorial" to="ChipSpawner" method="_on_start_spawning_"]
 [connection signal="cleanup_start_parry_box" from="CanvasLayer/Tutorial" to="StartBattleParryArea" method="_cleanup_start_parry_box"]

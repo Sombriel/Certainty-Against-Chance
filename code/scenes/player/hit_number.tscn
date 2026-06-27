@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c4fpovsk3wl77"]
+
+[ext_resource type="Script" uid="uid://bdjnderuyqoxa" path="res://scripts/player/damage_number.gd" id="1_8is7t"]
+
+[node name="HitNumber" type="Node2D" unique_id=1420546969]
+script = ExtResource("1_8is7t")
+
+[node name="Label" type="Label" parent="." unique_id=2016575170]
+z_index = 2
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(3, 3)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
