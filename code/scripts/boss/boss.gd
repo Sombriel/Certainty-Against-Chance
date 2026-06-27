@@ -15,6 +15,7 @@ signal increase_patrol_speed
 
 var health: int = 15000
 var _speed_thresholds: Array[float] = [0.75, 0.50, 0.25]
+var initial_parry: bool = true
 
 const DAMAGE_NUMBER = preload("uid://c4fpovsk3wl77")
 

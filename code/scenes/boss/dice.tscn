@@ -10,29 +10,32 @@ shader = ExtResource("2_7fv60")
 shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
 shader_parameter/hit_flash_on = false
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fv60"]
+atlas = ExtResource("3_7fv60")
+region = Rect2(0, 0, 320, 320)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_jvosr"]
 atlas = ExtResource("3_7fv60")
-region = Rect2(0, 0, 1280, 1280)
+region = Rect2(320, 0, 320, 320)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sjmsh"]
 atlas = ExtResource("3_7fv60")
-region = Rect2(1280, 0, 1280, 1280)
+region = Rect2(640, 0, 320, 320)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kghey"]
 atlas = ExtResource("3_7fv60")
-region = Rect2(2560, 0, 1280, 1280)
+region = Rect2(960, 0, 320, 320)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i241l"]
 atlas = ExtResource("3_7fv60")
-region = Rect2(3840, 0, 1280, 1280)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eoi28"]
-atlas = ExtResource("3_7fv60")
-region = Rect2(5120, 0, 1280, 1280)
+region = Rect2(1280, 0, 320, 320)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7fv60")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jvosr")
 }, {
@@ -44,9 +47,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_i241l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eoi28")
 }],
 "loop": 1,
 "name": &"default",
@@ -62,7 +62,6 @@ script = ExtResource("1_eevp3")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=98553280]
 material = SubResource("ShaderMaterial_jvosr")
-scale = Vector2(0.07, 0.07)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 autoplay = "default"
 frame_progress = 0.60905766
