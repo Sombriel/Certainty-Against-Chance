@@ -188,4 +188,6 @@ func _on_boss_death() -> void:
 	
 	for cards in get_tree().get_nodes_in_group("bullets"):
 		cards.queue_free()
-	
+
+func _on_ui_reset_chips_on_restart() -> void:
+	chips = 100

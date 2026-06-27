@@ -7,6 +7,7 @@
 radius = 8.008692
 
 [node name="Bullet" type="Area2D" unique_id=1001605450 groups=["bullets"]]
+z_index = 2
 scale = Vector2(0.5, 0.5)
 collision_layer = 4
 collision_mask = 2

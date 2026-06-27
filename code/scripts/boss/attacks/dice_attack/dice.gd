@@ -9,4 +9,4 @@ func _ready() -> void:
 	$RandomDamageCooldown.start()
 
 func randomize_damage() -> void:
-	damage = randi_range(1, 6)
+	damage = randi_range(1, 2)

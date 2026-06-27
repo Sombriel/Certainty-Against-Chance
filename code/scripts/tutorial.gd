@@ -5,12 +5,14 @@ extends Control
 signal tutorial_finished
 signal cleanup_start_parry_box
 signal chips_spawn
+signal assign_100_chips
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if SkipTutorial.skip_tutorial:
 		SkipTutorial.skip_tutorial = false  # reset so next play includes tutorial
 		chips_spawn.emit()
+		assign_100_chips.emit()
 		tutorial_finished.emit()         # activates StartBattleParryArea directly
 		return                           # skip all tutorial text/timers
 		
