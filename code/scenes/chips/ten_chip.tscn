@@ -67,7 +67,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"death",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -97,5 +97,3 @@ animations = [{
 
 [node name="Animations" parent="." index="1" unique_id=1625495054]
 sprite_frames = SubResource("SpriteFrames_tdt4g")
-animation = &"flying"
-frame_progress = 0.9544726

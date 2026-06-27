@@ -67,7 +67,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"death",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -90,7 +90,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"flying",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [node name="TwentyChip" unique_id=138741377 instance=ExtResource("1_8pofc")]
@@ -98,4 +98,3 @@ value = 20
 
 [node name="Animations" parent="." index="1" unique_id=1625495054]
 sprite_frames = SubResource("SpriteFrames_s1sr2")
-animation = &"flying"
