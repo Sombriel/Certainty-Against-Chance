@@ -142,17 +142,21 @@ func die() -> void:
 	$Gun.hide()
 	player_death.emit()
 	$Hurtbox/CollisionShape2D.set_deferred("disabled", true)
+	
+	for cards in get_tree().get_nodes_in_group("bullets"):
+		cards.queue_free()
 
 func _rolled_positive_effect() -> void:
 	effects = clampi(effects + 1, -3, 3)
 	$Gun.add_positive_stack()
 	health = clampi(health + 1, 0, 3)
-	print_debug("POSITIVE ROLLED HEALTH:", health)
 	SPEED = clamp(SPEED + 100, 150, 400)
 	DASH_SPEED = clampf(DASH_SPEED + 150, 700, 1000)
 	
+	print_debug("CURRENT STATS: Health ", health, ", SPEED ", SPEED, ", DASH SPEED ", DASH_SPEED)
+	
 	if effects == 0:
-		$Jump.pitch_scale = -0.8
+		$Jump.pitch_scale = 0.8
 		$Dash.pitch_scale = 1
 	else:
 		$Jump.pitch_scale = clampf($Jump.pitch_scale + PITCH_SCALE, 0.5, 1.1)
@@ -165,8 +169,10 @@ func _rolled_negative_effect() -> void:
 	SPEED = clampi(SPEED - 100, 150, 400)
 	DASH_SPEED = clampf(DASH_SPEED - 150, 700, 1000)
 	
+	print_debug("CURRENT STATS: Health ", health, ", SPEED ", SPEED, ", DASH SPEED ", DASH_SPEED)
+	
 	if effects == 0:
-		$Jump.pitch_scale = -0.8
+		$Jump.pitch_scale = 0.8
 		$Dash.pitch_scale = 1
 	else:
 		$Jump.pitch_scale = clamp($Jump.pitch_scale - PITCH_SCALE, 0.5, 1.1)
@@ -180,6 +186,6 @@ func _on_boss_death() -> void:
 	lock_movement = true
 	$Gun.can_fire = false
 	
-	for bullet in get_tree().get_nodes_in_group("bullets"):
-		bullet.queue_free()
+	for cards in get_tree().get_nodes_in_group("bullets"):
+		cards.queue_free()
 	

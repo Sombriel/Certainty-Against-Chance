@@ -54,3 +54,4 @@ func _on_boss_death() -> void:
 
 func increase_patrol_speed() -> void:
 	speed += 0.1
+	$BossPauses.wait_time -= 1.0

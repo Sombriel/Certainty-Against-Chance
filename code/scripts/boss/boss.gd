@@ -36,13 +36,13 @@ func bullet_damage(area: Area2D) -> void:
 		flash_hit()
 		area.queue_free()
 		_check_speed_thresholds()
+		hit.emit(health)
 	
 	if health <= 0:
 		$AnimatedSprite2D.play("death")
 		$DeathSound.play()
 		death.emit()
 
-	hit.emit(health)
 
 func attack_chance() -> void:
 	var attack_roll: float = randf()
