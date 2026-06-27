@@ -180,3 +180,6 @@ func _on_boss_death() -> void:
 	lock_movement = true
 	$Gun.can_fire = false
 	
+	for bullet in get_tree().get_nodes_in_group("bullets"):
+		bullet.queue_free()
+	
