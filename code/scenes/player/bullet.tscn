@@ -16,11 +16,13 @@ script = ExtResource("1_j5eos")
 texture = ExtResource("2_j5eos")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=239210357]
+visible = false
 rotation = 1.5707964
 scale = Vector2(3.000002, 6.6399984)
 shape = SubResource("CircleShape2D_03puy")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2014654207]
+visible = false
 scale = Vector2(7.000003, 4.4399996)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

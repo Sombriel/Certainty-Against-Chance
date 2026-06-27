@@ -1,7 +1,6 @@
 extends AudioStreamPlayer
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if not playing:
-		play()
+
+func _on_finished() -> void:
+	play()

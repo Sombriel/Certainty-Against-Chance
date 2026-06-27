@@ -31,7 +31,7 @@ func _update_health(health: int) -> void:
 
 func _on_start_battle() -> void:
 	$BossHPBar.show()
-	$CertaintyHP.play("default")
+	$CertaintyHP.play_backwards("default")
 	fade_out_bg()
 
 func fade_out_bg() -> void:

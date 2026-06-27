@@ -10,6 +10,8 @@ signal parried_boss
 @export var dash_timer: Timer
 @export var dash_again_timer: Timer
 
+const PITCH_SCALE: float = 0.1
+
 var SPEED = 300.0
 const JUMP_VELOCITY = -500.0
 var DASH_SPEED: float = 900.0
@@ -23,6 +25,7 @@ var chips: int = 0:
 	set(new_chips):
 		update_chips.emit(new_chips)
 		chips = new_chips
+var effects: int = 0
 var is_dashing: bool = false
 var can_dash: bool = true
 var dash_direction: float = 1.0
@@ -141,16 +144,33 @@ func die() -> void:
 	$Hurtbox/CollisionShape2D.set_deferred("disabled", true)
 
 func _rolled_positive_effect() -> void:
+	effects = clampi(effects + 1, -3, 3)
 	$Gun.add_positive_stack()
 	health = clampi(health + 1, 0, 3)
-	SPEED = clamp(SPEED + 150, 150, 400)
-	DASH_SPEED = clampf(DASH_SPEED + 200, 700, 1000)
+	print_debug("POSITIVE ROLLED HEALTH:", health)
+	SPEED = clamp(SPEED + 100, 150, 400)
+	DASH_SPEED = clampf(DASH_SPEED + 150, 700, 1000)
+	
+	if effects == 0:
+		$Jump.pitch_scale = -0.8
+		$Dash.pitch_scale = 1
+	else:
+		$Jump.pitch_scale = clampf($Jump.pitch_scale + PITCH_SCALE, 0.5, 1.1)
+		$Dash.pitch_scale = clampf($Dash.pitch_scale + PITCH_SCALE, 0.7, 1.3)
 
 func _rolled_negative_effect() -> void:
+	effects = clampi(effects - 1, -3, 3)
 	$Gun.add_negative_stack()
 	chips = clampi(chips - 75, -50, 100)
 	SPEED = clampi(SPEED - 100, 150, 400)
-	DASH_SPEED = clampf(DASH_SPEED - 100, 700, 1000)
+	DASH_SPEED = clampf(DASH_SPEED - 150, 700, 1000)
+	
+	if effects == 0:
+		$Jump.pitch_scale = -0.8
+		$Dash.pitch_scale = 1
+	else:
+		$Jump.pitch_scale = clamp($Jump.pitch_scale - PITCH_SCALE, 0.5, 1.1)
+		$Dash.pitch_scale = clamp($Dash.pitch_scale - PITCH_SCALE, 0.7, 1.3)
 
 
 func _on_animations_animation_finished() -> void:

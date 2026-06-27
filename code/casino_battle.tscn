@@ -463,3 +463,4 @@ position = Vector2(573, 325)
 [connection signal="start_battle" from="StartBattleParryArea" to="UI" method="_on_start_battle"]
 [connection signal="start_battle" from="StartBattleParryArea" to="BossPatrolPath/PathFollow2D" method="_on_start_battle"]
 [connection signal="start_battle" from="StartBattleParryArea" to="BossPatrolPath/PathFollow2D/Boss" method="_on_start_battle"]
+[connection signal="finished" from="Background" to="Background" method="_on_finished"]
