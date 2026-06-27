@@ -25,6 +25,7 @@ func _process(delta):
 	
 	var snapped_ratio: float = snapped(progress_ratio, 0.01)
 	
+	#Boss pauses aka Spin chances
 	if not patrol_pause and patrol_pause_markers.has(snapped_ratio) and snapped_ratio != _last_pause_marker:
 		patrol_pause = true
 		_last_pause_marker = snapped_ratio
@@ -36,7 +37,8 @@ func _process(delta):
 		var last_frame = sprite.sprite_frames.get_frame_count("roll") - 1
 		sprite.frame = last_frame
 		sprite.pause() 
-		$Boss/ParryArea.monitorable = true
+		$Boss/ParryArea/CollisionShape2D.set_deferred("disabled", false)
+
 
 func _on_boss_pauses_timeout() -> void:
 	patrol_pause = false
@@ -45,6 +47,7 @@ func _on_boss_pauses_timeout() -> void:
 	await $Boss/AnimatedSprite2D.animation_finished
 	patrol_pause = false # Only resume movement AFTER the reverse animation finishes
 	$Boss/AnimatedSprite2D.play("patrol")
+	$Boss/ParryArea/CollisionShape2D.set_deferred("disabled", true)
 
 func _on_start_battle() -> void:
 	can_patrol = true

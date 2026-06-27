@@ -152,9 +152,10 @@ disabled = true
 material = SubResource("ShaderMaterial_ugbui")
 scale = Vector2(0.175, 0.175)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"roll"
+animation = &"death"
 autoplay = "patrol"
-frame_progress = 1.0
+frame = 2
+frame_progress = 0.3753931
 
 [node name="CardAttack" parent="." unique_id=621134816 instance=ExtResource("3_atjq5")]
 z_index = 1
@@ -188,3 +189,4 @@ stream = ExtResource("7_wf233")
 volume_db = -15.0
 
 [connection signal="area_entered" from="ParryArea" to="." method="_on_parry_area_entered"]
+[connection signal="area_exited" from="ParryArea" to="." method="_on_parry_area_area_exited"]

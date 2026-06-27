@@ -205,15 +205,15 @@ sprite_frames = SubResource("SpriteFrames_03puy")
 animation = &"dash"
 autoplay = "idle"
 
-[node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1078135658]
+[node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1078135658 groups=["player"]]
 position = Vector2(0, -0.4999993)
 scale = Vector2(0.23499727, 0.19499803)
 shape = SubResource("RectangleShape2D_03puy")
 
-[node name="Hurtbox" type="Area2D" parent="." unique_id=1909851701]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1909851701 groups=["player"]]
 collision_mask = 72
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1624753451]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1624753451 groups=["player"]]
 position = Vector2(6.556511e-07, -0.5000006)
 scale = Vector2(2.9149976, 2.9149976)
 shape = SubResource("RectangleShape2D_pq6o8")

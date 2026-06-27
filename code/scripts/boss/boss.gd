@@ -56,7 +56,7 @@ func attack_chance() -> void:
 
 func _on_parry_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
-		area.can_parry = true
+		area.get_parent().can_parry = true
 
 func _on_certainty_parried_boss() -> void:
 	var effect: StringName = RandLogic.roll_effect()
@@ -93,3 +93,8 @@ func _check_speed_thresholds() -> void:
 		increase_patrol_speed.emit()
 		_speed_thresholds.remove_at(0)
 		print_debug("PATROL SPEED INCREASED")
+
+
+func _on_parry_area_area_exited(area: Area2D) -> void:
+	if area.is_in_group("player"):
+		area.get_parent().can_parry = false
